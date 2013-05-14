@@ -74,22 +74,28 @@
 
 - (void) layoutSubviews {
     [super layoutSubviews];
+    
+    //container
     CGSize size = self.frame.size;
     size.width *= 2;
     size.width -= self.frame.size.height;
     self.internalContainer.contentSize = size;
     self.internalContainer.frame = self.bounds;
     CGFloat contentHeight = self.internalContainer.contentSize.height;
-    CGRect left = CGRectMake(0, 0, self.internalContainer.contentSize.width/2, contentHeight);
-    CGRect right = left;
-    right.origin.x = left.size.width;
-    self.offLabel.frame = right;
-    self.onLabel.frame = left;
+    
+    //thumb image
     CGFloat insetFraction = .75;
     CGFloat thumbEdgeSize = contentHeight * insetFraction;
     CGFloat thumbInset = (contentHeight - thumbEdgeSize) / 2;
     self.thumbView.frame = CGRectMake((self.internalContainer.contentSize.width - contentHeight) / 2 + thumbInset, thumbInset, thumbEdgeSize, thumbEdgeSize);
     self.thumbView.layer.cornerRadius = thumbEdgeSize / 2;
+    
+    //labels
+    CGRect left = CGRectMake(0, 0, (self.internalContainer.contentSize.width - self.thumbView.frame.size.width)/2, contentHeight);
+    CGRect right = left;
+    right.origin.x = self.internalContainer.contentSize.width - left.size.width;
+    self.offLabel.frame = right;
+    self.onLabel.frame = left;
 }
 
 - (void) setOn:(BOOL)on {
@@ -97,6 +103,9 @@
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated {
+    if (_on != on) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
     _on = on;
     [self setPercentOn:_on * 1.0f animated:animated];
 }
@@ -114,7 +123,7 @@
 }
 
 - (void) panned:(UIPanGestureRecognizer *)gestureRecognizer {
-
+    
     CGPoint translation = [gestureRecognizer translationInView:self.internalContainer];
     [gestureRecognizer setTranslation:CGPointZero inView:self.internalContainer];
     CGPoint newOffset = self.internalContainer.contentOffset;
@@ -162,11 +171,11 @@
 
 - (void) updateBackground {
     self.backgroundColor = [UIColor blendedColorWithForegroundColor:self.onBackgroundColor
-                                                 backgroundColor:self.offBackgroundColor
-                                                    percentBlend:self.percentOn];
+                                                    backgroundColor:self.offBackgroundColor
+                                                       percentBlend:self.percentOn];
     UIColor *contentColor = [UIColor blendedColorWithForegroundColor:self.onColor
-                                                  backgroundColor:self.offColor
-                                                     percentBlend:self.percentOn];
+                                                     backgroundColor:self.offColor
+                                                        percentBlend:self.percentOn];
     self.onLabel.textColor = contentColor;
     self.offLabel.textColor = contentColor;
     self.thumbView.backgroundColor = contentColor;

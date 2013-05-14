@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0"
   s.summary      = "A collection of awesome flat UI components for iOS."
   s.homepage     = "https://github.com/Grouper/FlatUIKit"
-  s.license      = 'MIT (example)'
+  s.license      = 'MIT'
   s.authors      = { "Jack Flintermann" => "jack@joingrouper.com", "Grouper" => "jobs@joingrouper.com"}
   s.source       = { :git => "https://github.com/Grouper/FlatUIKit.git", :tag => "1.0" }
   s.platform     = :ios, '5.0'
