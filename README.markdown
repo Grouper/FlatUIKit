@@ -115,4 +115,4 @@ FlatUIKit comes bundled with the Lato font, a clean, beautiful open font. More i
 Contributions
 --------
 
-Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work for us]('http://www.joingrouper.com/jobs').
+Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work for us](http://www.joingrouper.com/jobs).
