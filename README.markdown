@@ -10,7 +10,7 @@ FlatUIKit can be installed via [Cocoapods](http://cocoapods.org/). Simply add
 
     pod 'FlatUIKit'
 
-to your Podfile. If you don't use Cocoapods you're welcome to use git submodules, or simply [download it](https://github.com/Grouper/FlatUIKit/archive/master.zip) and include it in your project manually (it's very easy to include).
+to your Podfile. If you don't use Cocoapods you're welcome to use git submodules, or simply [download it](https://github.com/Grouper/FlatUIKit/archive/master.zip) and include it in your project manually.
 
 Note that FlatUIKit requires the CoreText framework as well as iOS > 5.0.
 
@@ -106,7 +106,7 @@ For convenience, FlatUIKit includes the colors defined at [Flat UI Colors](http:
 Fonts
 -------
 
-FlatUIKit comes bundled with the Lato font, a clean, beautiful open font. More info on Lato can be found [here](http://www.latofonts.com/). It is included in FlatUIKit automatically; using it can be done like this:
+FlatUIKit comes bundled with Lato, a clean, beautiful open font. More info on Lato can be found [here](http://www.latofonts.com/). It is included in FlatUIKit automatically; using it can be done like this:
     
     #import "UIFont+FlatUI.h"
     UIFont *myFont = [UIFont flatFontOfSize:16];
@@ -115,4 +115,4 @@ FlatUIKit comes bundled with the Lato font, a clean, beautiful open font. More i
 Contributions
 --------
 
-Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work for us]('http://www.joingrouper.com/jobs').
+Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work with us]('http://www.joingrouper.com/jobs').
