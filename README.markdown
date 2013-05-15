@@ -92,7 +92,7 @@ To customize bar button items for your entire application (including back button
 ### Navigation Bars
 As above, we provide a category on UINavigationBar to configure it flatly with a single color:
 
-  [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 
 
 Colors
