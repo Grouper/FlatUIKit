@@ -92,7 +92,7 @@ To customize bar button items for your entire application (including back button
 ### Navigation Bars
 As above, we provide a category on UINavigationBar to configure it flatly with a single color:
 
-  [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 
 
 Colors
@@ -115,4 +115,4 @@ FlatUIKit comes bundled with Lato, a clean, beautiful open font. More info on La
 Contributions
 --------
 
-Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work with us]('http://www.joingrouper.com/jobs').
+Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work with us](http://www.joingrouper.com/jobs).
