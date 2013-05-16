@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
 		FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53114F1744C7C1002711E1 /* UIKit.framework */; };
 		FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311511744C7C1002711E1 /* Foundation.framework */; };
 		FA5311541744C7C1002711E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311531744C7C1002711E1 /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
+		6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
 		FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA53114F1744C7C1002711E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA5311511744C7C1002711E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +197,8 @@
 		FA5311761744C920002711E1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */,
+				6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */,
 				FA5311771744C920002711E1 /* FUIAlertView.h */,
 				FA5311781744C920002711E1 /* FUIAlertView.m */,
 				FA5311791744C920002711E1 /* FUIButton.h */,
@@ -327,6 +332,7 @@
 				FA5311961744C920002711E1 /* UIStepper+FlatUI.m in Sources */,
 				FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */,
 				FA6498991744CACB004B1A74 /* ViewController.m in Sources */,
+				6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

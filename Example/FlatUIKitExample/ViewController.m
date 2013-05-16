@@ -17,6 +17,7 @@
 #import "UIFont+FlatUI.h"
 #import "FUIAlertView.h"
 #import "UIBarButtonItem+FlatUI.h"
+#import "UIProgressView+FlatUI.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
+@property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 
 
 @end
@@ -82,6 +84,8 @@
         label.font = [UIFont flatFontOfSize:16];
         label.textColor = [UIColor midnightBlueColor];
     }];
+    
+    [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor wisteriaColor]];
     
 }
 
