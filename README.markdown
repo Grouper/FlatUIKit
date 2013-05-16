@@ -85,7 +85,9 @@ To provide flat UISliders and UISteppers, we simply provide categories on UISlid
 ### Bar Button Items
 To customize bar button items for your entire application (including back buttons), UIBarButtonItem+FlatUI provides a class method which leverages the UIBarButtonItem appearance proxy to do this in one step:
 
-    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]                              highlightedColor:[UIColor belizeHoleColor]                                  cornerRadius:3];
+    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
+                                  highlightedColor:[UIColor belizeHoleColor]
+                                      cornerRadius:3];
 
 ![FUINavBar](http://blog.joingrouper.com/FlatUIKit/images/fuinavbar-small.gif)
 
