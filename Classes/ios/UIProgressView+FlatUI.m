@@ -15,9 +15,9 @@
                              progressColor:(UIColor *)progressColor {
     
     
-    UIImage *progressImage = [[UIImage imageWithColor:progressColor cornerRadius:5.0]
+    UIImage *progressImage = [[UIImage imageWithColor:progressColor cornerRadius:4.0]
                               imageWithMinimumSize:CGSizeMake(10, 10)];
-    UIImage *trackImage = [[UIImage imageWithColor:trackColor cornerRadius:5.0]
+    UIImage *trackImage = [[UIImage imageWithColor:trackColor cornerRadius:4.0]
                            imageWithMinimumSize:CGSizeMake(10, 10)];
     
     self.trackImage = trackImage;

@@ -85,7 +85,7 @@
         label.textColor = [UIColor midnightBlueColor];
     }];
     
-    [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor alizarinColor]];
+    [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor wisteriaColor]];
     
 }
 
