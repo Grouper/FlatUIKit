@@ -9,8 +9,7 @@ bin/
 *.perspective
 *.perspectivev3
 
-*.xcodeproj/xcuserdata/*
-*.xcodeproj/project.xcworkspace/xcuserdata/*
+Example/FlatUIKitExample.xcodeproj/xcuserdata/
 objects
 Settings.bundle
 
