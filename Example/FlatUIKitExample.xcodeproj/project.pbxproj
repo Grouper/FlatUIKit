@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53114F1744C7C1002711E1 /* UIKit.framework */; };
+		FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311511744C7C1002711E1 /* Foundation.framework */; };
+		FA5311541744C7C1002711E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311531744C7C1002711E1 /* CoreGraphics.framework */; };
+		FA53115A1744C7C1002711E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA5311581744C7C1002711E1 /* InfoPlist.strings */; };
+		FA53115C1744C7C1002711E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53115B1744C7C1002711E1 /* main.m */; };
+		FA5311601744C7C1002711E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53115F1744C7C1002711E1 /* AppDelegate.m */; };
+		FA5311621744C7C1002711E1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311611744C7C1002711E1 /* Default.png */; };
+		FA5311641744C7C1002711E1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311631744C7C1002711E1 /* Default@2x.png */; };
+		FA5311661744C7C1002711E1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311651744C7C1002711E1 /* Default-568h@2x.png */; };
+		FA5311691744C7C1002711E1 /* ViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = FA5311681744C7C1002711E1 /* ViewController.xib */; };
+		FA53118D1744C920002711E1 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311781744C920002711E1 /* FUIAlertView.m */; };
+		FA53118E1744C920002711E1 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53117A1744C920002711E1 /* FUIButton.m */; };
+		FA53118F1744C920002711E1 /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53117C1744C920002711E1 /* FUISwitch.m */; };
+		FA5311901744C920002711E1 /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53117E1744C920002711E1 /* UIBarButtonItem+FlatUI.m */; };
+		FA5311911744C920002711E1 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311801744C920002711E1 /* UIColor+FlatUI.m */; };
+		FA5311921744C920002711E1 /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311821744C920002711E1 /* UIFont+FlatUI.m */; };
+		FA5311931744C920002711E1 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311841744C920002711E1 /* UIImage+FlatUI.m */; };
+		FA5311941744C920002711E1 /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311861744C920002711E1 /* UINavigationBar+FlatUI.m */; };
+		FA5311951744C920002711E1 /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311881744C920002711E1 /* UISlider+FlatUI.m */; };
+		FA5311961744C920002711E1 /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53118A1744C920002711E1 /* UIStepper+FlatUI.m */; };
+		FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */; };
+		FA6498991744CACB004B1A74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6498981744CACB004B1A74 /* ViewController.m */; };
+		FA6498A51744CB0A004B1A74 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */; };
+		FA6498A61744CB0A004B1A74 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */; };
+		FA6498A71744CB0A004B1A74 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */; };
+		FA6498A81744CB0A004B1A74 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */; };
+		FA6498A91744CB0A004B1A74 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */; };
+		FA6498AA1744CB0A004B1A74 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */; };
+		FA6498AB1744CB0A004B1A74 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */; };
+		FA6498AC1744CB0A004B1A74 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */; };
+		FA6498AD1744CB0A004B1A74 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */; };
+		FA6498AE1744CB0A004B1A74 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */; };
+		FA6498B01744CB83004B1A74 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6498AF1744CB83004B1A74 /* CoreText.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA53114F1744C7C1002711E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA5311511744C7C1002711E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA5311531744C7C1002711E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA5311571744C7C1002711E1 /* FlatUIKitExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlatUIKitExample-Info.plist"; sourceTree = "<group>"; };
+		FA5311591744C7C1002711E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA53115B1744C7C1002711E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA53115D1744C7C1002711E1 /* FlatUIKitExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatUIKitExample-Prefix.pch"; sourceTree = "<group>"; };
+		FA53115E1744C7C1002711E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA53115F1744C7C1002711E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA5311611744C7C1002711E1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA5311631744C7C1002711E1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA5311651744C7C1002711E1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA5311671744C7C1002711E1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA5311681744C7C1002711E1 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		FA5311771744C920002711E1 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		FA5311781744C920002711E1 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		FA5311791744C920002711E1 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		FA53117A1744C920002711E1 /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		FA53117B1744C920002711E1 /* FUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISwitch.h; sourceTree = "<group>"; };
+		FA53117C1744C920002711E1 /* FUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISwitch.m; sourceTree = "<group>"; };
+		FA53117D1744C920002711E1 /* UIBarButtonItem+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FlatUI.h"; sourceTree = "<group>"; };
+		FA53117E1744C920002711E1 /* UIBarButtonItem+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FlatUI.m"; sourceTree = "<group>"; };
+		FA53117F1744C920002711E1 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		FA5311801744C920002711E1 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		FA5311811744C920002711E1 /* UIFont+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FlatUI.h"; sourceTree = "<group>"; };
+		FA5311821744C920002711E1 /* UIFont+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FlatUI.m"; sourceTree = "<group>"; };
+		FA5311831744C920002711E1 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		FA5311841744C920002711E1 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		FA5311851744C920002711E1 /* UINavigationBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+FlatUI.h"; sourceTree = "<group>"; };
+		FA5311861744C920002711E1 /* UINavigationBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+FlatUI.m"; sourceTree = "<group>"; };
+		FA5311871744C920002711E1 /* UISlider+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+FlatUI.h"; sourceTree = "<group>"; };
+		FA5311881744C920002711E1 /* UISlider+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+FlatUI.m"; sourceTree = "<group>"; };
+		FA5311891744C920002711E1 /* UIStepper+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+FlatUI.h"; sourceTree = "<group>"; };
+		FA53118A1744C920002711E1 /* UIStepper+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+FlatUI.m"; sourceTree = "<group>"; };
+		FA53118B1744C920002711E1 /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
+		FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
+		FA6498981744CACB004B1A74 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		FA6498AF1744CB83004B1A74 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA5311491744C7C1002711E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6498B01744CB83004B1A74 /* CoreText.framework in Frameworks */,
+				FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */,
+				FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */,
+				FA5311541744C7C1002711E1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA5311431744C7C1002711E1 = {
+			isa = PBXGroup;
+			children = (
+				FA5311551744C7C1002711E1 /* FlatUIKitExample */,
+				FA53114E1744C7C1002711E1 /* Frameworks */,
+				FA53114D1744C7C1002711E1 /* Products */,
+				FA5311731744C8FC002711E1 /* Vendor */,
+				FA64989A1744CB0A004B1A74 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		FA53114D1744C7C1002711E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA53114E1744C7C1002711E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA6498AF1744CB83004B1A74 /* CoreText.framework */,
+				FA53114F1744C7C1002711E1 /* UIKit.framework */,
+				FA5311511744C7C1002711E1 /* Foundation.framework */,
+				FA5311531744C7C1002711E1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA5311551744C7C1002711E1 /* FlatUIKitExample */ = {
+			isa = PBXGroup;
+			children = (
+				FA53115E1744C7C1002711E1 /* AppDelegate.h */,
+				FA53115F1744C7C1002711E1 /* AppDelegate.m */,
+				FA5311671744C7C1002711E1 /* ViewController.h */,
+				FA6498981744CACB004B1A74 /* ViewController.m */,
+				FA5311681744C7C1002711E1 /* ViewController.xib */,
+				FA5311561744C7C1002711E1 /* Supporting Files */,
+			);
+			path = FlatUIKitExample;
+			sourceTree = "<group>";
+		};
+		FA5311561744C7C1002711E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA5311571744C7C1002711E1 /* FlatUIKitExample-Info.plist */,
+				FA5311581744C7C1002711E1 /* InfoPlist.strings */,
+				FA53115B1744C7C1002711E1 /* main.m */,
+				FA53115D1744C7C1002711E1 /* FlatUIKitExample-Prefix.pch */,
+				FA5311611744C7C1002711E1 /* Default.png */,
+				FA5311631744C7C1002711E1 /* Default@2x.png */,
+				FA5311651744C7C1002711E1 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA5311731744C8FC002711E1 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FA5311741744C910002711E1 /* FlatUIKit */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		FA5311741744C910002711E1 /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				FA5311751744C920002711E1 /* Classes */,
+			);
+			name = FlatUIKit;
+			sourceTree = "<group>";
+		};
+		FA5311751744C920002711E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA5311761744C920002711E1 /* ios */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		FA5311761744C920002711E1 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				FA5311771744C920002711E1 /* FUIAlertView.h */,
+				FA5311781744C920002711E1 /* FUIAlertView.m */,
+				FA5311791744C920002711E1 /* FUIButton.h */,
+				FA53117A1744C920002711E1 /* FUIButton.m */,
+				FA53117B1744C920002711E1 /* FUISwitch.h */,
+				FA53117C1744C920002711E1 /* FUISwitch.m */,
+				FA53117D1744C920002711E1 /* UIBarButtonItem+FlatUI.h */,
+				FA53117E1744C920002711E1 /* UIBarButtonItem+FlatUI.m */,
+				FA53117F1744C920002711E1 /* UIColor+FlatUI.h */,
+				FA5311801744C920002711E1 /* UIColor+FlatUI.m */,
+				FA5311811744C920002711E1 /* UIFont+FlatUI.h */,
+				FA5311821744C920002711E1 /* UIFont+FlatUI.m */,
+				FA5311831744C920002711E1 /* UIImage+FlatUI.h */,
+				FA5311841744C920002711E1 /* UIImage+FlatUI.m */,
+				FA5311851744C920002711E1 /* UINavigationBar+FlatUI.h */,
+				FA5311861744C920002711E1 /* UINavigationBar+FlatUI.m */,
+				FA5311871744C920002711E1 /* UISlider+FlatUI.h */,
+				FA5311881744C920002711E1 /* UISlider+FlatUI.m */,
+				FA5311891744C920002711E1 /* UIStepper+FlatUI.h */,
+				FA53118A1744C920002711E1 /* UIStepper+FlatUI.m */,
+				FA53118B1744C920002711E1 /* UITabBar+FlatUI.h */,
+				FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		FA64989A1744CB0A004B1A74 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */,
+				FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */,
+				FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */,
+				FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */,
+				FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */,
+				FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */,
+				FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */,
+				FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */,
+				FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */,
+				FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */,
+			);
+			name = Resources;
+			path = ../Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA53114B1744C7C1002711E1 /* FlatUIKitExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA53116F1744C7C1002711E1 /* Build configuration list for PBXNativeTarget "FlatUIKitExample" */;
+			buildPhases = (
+				FA5311481744C7C1002711E1 /* Sources */,
+				FA5311491744C7C1002711E1 /* Frameworks */,
+				FA53114A1744C7C1002711E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlatUIKitExample;
+			productName = FlatUIKitExample;
+			productReference = FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA5311441744C7C1002711E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = FA5311471744C7C1002711E1 /* Build configuration list for PBXProject "FlatUIKitExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA5311431744C7C1002711E1;
+			productRefGroup = FA53114D1744C7C1002711E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA53114B1744C7C1002711E1 /* FlatUIKitExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA53114A1744C7C1002711E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA53115A1744C7C1002711E1 /* InfoPlist.strings in Resources */,
+				FA5311621744C7C1002711E1 /* Default.png in Resources */,
+				FA5311641744C7C1002711E1 /* Default@2x.png in Resources */,
+				FA5311661744C7C1002711E1 /* Default-568h@2x.png in Resources */,
+				FA6498A51744CB0A004B1A74 /* Lato-Black.ttf in Resources */,
+				FA6498A61744CB0A004B1A74 /* Lato-BlackItalic.ttf in Resources */,
+				FA6498A71744CB0A004B1A74 /* Lato-Bold.ttf in Resources */,
+				FA6498A81744CB0A004B1A74 /* Lato-BoldItalic.ttf in Resources */,
+				FA6498A91744CB0A004B1A74 /* Lato-Hairline.ttf in Resources */,
+				FA6498AA1744CB0A004B1A74 /* Lato-HairlineItalic.ttf in Resources */,
+				FA6498AB1744CB0A004B1A74 /* Lato-Italic.ttf in Resources */,
+				FA6498AC1744CB0A004B1A74 /* Lato-Light.ttf in Resources */,
+				FA6498AD1744CB0A004B1A74 /* Lato-LightItalic.ttf in Resources */,
+				FA6498AE1744CB0A004B1A74 /* Lato-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA5311481744C7C1002711E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA53115C1744C7C1002711E1 /* main.m in Sources */,
+				FA5311601744C7C1002711E1 /* AppDelegate.m in Sources */,
+				FA5311691744C7C1002711E1 /* ViewController.xib in Sources */,
+				FA53118D1744C920002711E1 /* FUIAlertView.m in Sources */,
+				FA53118E1744C920002711E1 /* FUIButton.m in Sources */,
+				FA53118F1744C920002711E1 /* FUISwitch.m in Sources */,
+				FA5311901744C920002711E1 /* UIBarButtonItem+FlatUI.m in Sources */,
+				FA5311911744C920002711E1 /* UIColor+FlatUI.m in Sources */,
+				FA5311921744C920002711E1 /* UIFont+FlatUI.m in Sources */,
+				FA5311931744C920002711E1 /* UIImage+FlatUI.m in Sources */,
+				FA5311941744C920002711E1 /* UINavigationBar+FlatUI.m in Sources */,
+				FA5311951744C920002711E1 /* UISlider+FlatUI.m in Sources */,
+				FA5311961744C920002711E1 /* UIStepper+FlatUI.m in Sources */,
+				FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */,
+				FA6498991744CACB004B1A74 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA5311581744C7C1002711E1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA5311591744C7C1002711E1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA53116D1744C7C1002711E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA53116E1744C7C1002711E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA5311701744C7C1002711E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlatUIKitExample/FlatUIKitExample-Prefix.pch";
+				INFOPLIST_FILE = "FlatUIKitExample/FlatUIKitExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA5311711744C7C1002711E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlatUIKitExample/FlatUIKitExample-Prefix.pch";
+				INFOPLIST_FILE = "FlatUIKitExample/FlatUIKitExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA5311471744C7C1002711E1 /* Build configuration list for PBXProject "FlatUIKitExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA53116D1744C7C1002711E1 /* Debug */,
+				FA53116E1744C7C1002711E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA53116F1744C7C1002711E1 /* Build configuration list for PBXNativeTarget "FlatUIKitExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5311701744C7C1002711E1 /* Debug */,
+				FA5311711744C7C1002711E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA5311441744C7C1002711E1 /* Project object */;
+}
