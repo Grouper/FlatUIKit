@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UISegmentedControl+FlatUI.h"
 #import "UIColor+FlatUI.h"
 #import "UISlider+FlatUI.h"
 #import "UIStepper+FlatUI.h"

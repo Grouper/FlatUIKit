@@ -1,1 +1,14 @@
 .DS_Store
+*.swp
+*~.nib
+.idea
+build/
+bin/
+.idea/
+*.pbxuser
+*.perspective
+*.perspectivev3
+Example/FlatUIKitExample.xcodeproj/project.xcworkspace/xcuserdata/
+Example/FlatUIKitExample.xcodeproj/xcuserdata/
+objects
+Settings.bundle
