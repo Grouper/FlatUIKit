@@ -66,14 +66,18 @@ Similar to FUISwitch, FUIAlertView is a reimplemenation of UIAlertView that expo
 
 ![FUIAlertView](http://blog.joingrouper.com/FlatUIKit/images/fuialertview-small.gif)
 
-### Sliders/Steppers
-To provide flat UISliders and UISteppers, we simply provide categories on UISlider/UIStepper to automatically configure their appearance with appropriate colors/corner radii. This makes for zero-friction integration with your existing project:
+### Sliders/Steppers/Progress Views
+To provide flat UISliders, UIProgressViews and UISteppers, we simply provide categories on UISlider/ProgressView/UIStepper to automatically configure their appearance with appropriate colors/corner radii. This makes for zero-friction integration with your existing project:
+
 
     [mySlider configureFlatSliderWithTrackColor:[UIColor silverColor]
                                   progressColor:[UIColor alizarinColor]
                                      thumbColor:[UIColor pomegranateColor]];
 
 ![FUISlider](http://blog.joingrouper.com/FlatUIKit/images/fuislider-small.gif)
+
+    [myProgressView configureFlatProgressViewWithTrackColor:[UIColor silverColor]
+                                  progressColor:[UIColor alizarinColor]];
 
     [myStepper configureFlatStepperWithColor:[UIColor wisteriaColor]
                             highlightedColor:[UIColor wisteriaColor]
