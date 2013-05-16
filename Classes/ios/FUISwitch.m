@@ -96,6 +96,7 @@
     right.origin.x = self.internalContainer.contentSize.width - left.size.width;
     self.offLabel.frame = right;
     self.onLabel.frame = left;
+    [self setOn:_on];
 }
 
 - (void) setOn:(BOOL)on {
