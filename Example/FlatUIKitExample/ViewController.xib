@@ -443,6 +443,16 @@
 					<int key="connectionID">87</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">labels</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="909324789"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">89</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showAlertView:</string>
 						<reference key="source" ref="707206566"/>
@@ -587,7 +597,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">88</int>
+			<int key="maxID">89</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
