@@ -8,7 +8,6 @@
 
 #import "FUISegmentedControl.h"
 #import "UIImage+FlatUI.h"
-#import "UIColor+FlatUI.h"
 
 @implementation FUISegmentedControl
 
@@ -34,9 +33,13 @@
 
 - (void)defaultColors{
     self.cornerRadius = 5.0;
-    self.selectedColor = [UIColor belizeHoleColor];
-    self.deselectedColor = [UIColor silverColor];
+    self.selectedColor = [UIColor blueColor];
+    self.deselectedColor = [UIColor darkGrayColor];
     self.dividerColor = [UIColor grayColor];
+    self.selectedFont = [UIFont fontWithName:@"Arial" size:15.0];
+    self.deselectedFont = [UIFont fontWithName:@"Arial" size:15.0];
+    self.selectedFontColor = [UIColor whiteColor];
+    self.deselectedFontColor = [UIColor whiteColor];
 }
 
 - (void)setDeselectedColor:(UIColor *)deselectedColor {
@@ -57,6 +60,53 @@
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
     [self configureFlatSegmentedControl];
+}
+
+- (void)setSelectedFont:(UIFont *)selectedFont {
+    _selectedFont = selectedFont;
+    [self setupFonts];
+}
+
+- (void)setSelectedFontColor:(UIColor *)selectedFontColor {
+    _selectedFontColor = selectedFontColor;
+    [self setupFonts];
+}
+
+- (void)setDeselectedFont:(UIFont *)deselectedFont {
+    _deselectedFont = deselectedFont;
+    [self setupFonts];
+}
+
+- (void)setDeselectedFontColor:(UIColor *)deselectedFontColor {
+    _deselectedFontColor = deselectedFontColor;
+    [self setupFonts];
+}
+
+- (void)setupFonts {
+    NSDictionary * selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                   self.selectedFontColor,
+                                                   UITextAttributeTextColor,
+                                                   [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                                                   UITextAttributeTextShadowColor,
+                                                   [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                                   UITextAttributeTextShadowOffset,
+                                                   self.selectedFont,
+                                                   UITextAttributeFont,
+                                                   nil];
+    [self setTitleTextAttributes:selectedAttributesDictionary forState:UIControlStateSelected];
+    
+    
+    NSDictionary * deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                   self.deselectedFontColor,
+                                                   UITextAttributeTextColor,
+                                                   [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                                                   UITextAttributeTextShadowColor,
+                                                   [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                                   UITextAttributeTextShadowOffset,
+                                                   self.deselectedFont,
+                                                   UITextAttributeFont,
+                                                   nil];
+    [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
 }
 
 - (void)configureFlatSegmentedControl {

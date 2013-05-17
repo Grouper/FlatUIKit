@@ -89,6 +89,7 @@
     
     [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor wisteriaColor]];
     
+
 }
 
 - (IBAction)showAlertView:(id)sender {

@@ -219,7 +219,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{20, 6}, {281, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSNextKeyView" ref="212597874"/>
+						<reference key="NSNextKeyView" ref="858957611"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -261,6 +261,7 @@
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{20, 463}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -287,11 +288,12 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<float key="IBUIProgress">0.5</float>
 					</object>
-					<object class="IBUISegmentedControl" id="963825655">
+					<object class="IBUISegmentedControl" id="858957611">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{22, 40}, {277, 44}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSNextKeyView" ref="212597874"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -300,7 +302,7 @@
 						<array key="IBSegmentTitles">
 							<string>First</string>
 							<string>Second</string>
-							<string/>
+							<string>Third</string>
 						</array>
 						<array class="NSMutableArray" key="IBSegmentWidths">
 							<real value="0.0"/>
@@ -479,7 +481,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">flatSegmentedControl</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="963825655"/>
+						<reference key="destination" ref="858957611"/>
 					</object>
 					<int key="connectionID">91</int>
 				</object>
@@ -537,7 +539,7 @@
 							<reference ref="909324789"/>
 							<reference ref="810853449"/>
 							<reference ref="707206566"/>
-							<reference ref="963825655"/>
+							<reference ref="858957611"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -603,7 +605,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">90</int>
-						<reference key="object" ref="963825655"/>
+						<reference key="object" ref="858957611"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>
@@ -631,6 +633,7 @@
 				<string key="86.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="90.CustomClassName">FUISegmentedControl</string>
 				<string key="90.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<integer value="2" key="90.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
