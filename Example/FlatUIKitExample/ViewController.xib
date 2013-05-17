@@ -15,6 +15,7 @@
 			<string>IBUIButton</string>
 			<string>IBUILabel</string>
 			<string>IBUIProgressView</string>
+			<string>IBUISegmentedControl</string>
 			<string>IBUISlider</string>
 			<string>IBUIStepper</string>
 			<string>IBUIView</string>
@@ -227,7 +228,7 @@
 						<string key="NSFrame">{{20, 6}, {281, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="212597874"/>
+						<reference key="NSNextKeyView" ref="678733754"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -249,7 +250,7 @@
 						<string key="NSFrame">{{21, 140}, {84, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="268545041"/>
+						<reference key="NSNextKeyView" ref="968084967"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -264,6 +265,30 @@
 						<reference key="IBUIFontDescription" ref="1048403948"/>
 						<reference key="IBUIFont" ref="192877300"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+					</object>
+					<object class="IBUILabel" id="968084967">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{111, 97}, {88, 44}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="268545041"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">Segmented Control</string>
+						<reference key="IBUITextColor" ref="636572243"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUITextAlignment">1</int>
+						<reference key="IBUIFontDescription" ref="1048403948"/>
+						<reference key="IBUIFont" ref="192877300"/>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<double key="preferredMaxLayoutWidth">88</double>
 					</object>
 					<object class="IBUILabel" id="641060054">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -298,6 +323,44 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<float key="IBUIProgress">0.5</float>
+					</object>
+					<object class="IBUISegmentedControl" id="678733754">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{22, 40}, {277, 44}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="212597874"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBNumberOfSegments">3</int>
+						<int key="IBSelectedSegmentIndex">0</int>
+						<array key="IBSegmentTitles">
+							<string>First</string>
+							<string>Second</string>
+							<string>Third</string>
+						</array>
+						<array class="NSMutableArray" key="IBSegmentWidths">
+							<real value="0.0"/>
+							<real value="0.0"/>
+							<real value="0.0"/>
+						</array>
+						<array class="NSMutableArray" key="IBSegmentEnabledStates">
+							<boolean value="YES"/>
+							<boolean value="YES"/>
+							<boolean value="YES"/>
+						</array>
+						<array class="NSMutableArray" key="IBSegmentContentOffsets">
+							<string>{0, 0}</string>
+							<string>{0, 0}</string>
+							<string>{0, 0}</string>
+						</array>
+						<array class="NSMutableArray" key="IBSegmentImages">
+							<object class="NSNull" id="4"/>
+							<reference ref="4"/>
+							<reference ref="4"/>
+						</array>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 64}, {320, 504}}</string>
@@ -453,6 +516,24 @@
 					<int key="connectionID">89</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">flatSegmentedControl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="678733754"/>
+					</object>
+					<int key="connectionID">91</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">labels</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="968084967"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">93</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showAlertView:</string>
 						<reference key="source" ref="707206566"/>
@@ -494,7 +575,6 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="774585933"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="707206566"/>
 							<reference ref="641060054"/>
 							<reference ref="70757270"/>
 							<reference ref="268545041"/>
@@ -506,6 +586,9 @@
 							<reference ref="109893868"/>
 							<reference ref="909324789"/>
 							<reference ref="810853449"/>
+							<reference ref="707206566"/>
+							<reference ref="678733754"/>
+							<reference ref="968084967"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -569,6 +652,16 @@
 						<reference key="object" ref="909324789"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">90</int>
+						<reference key="object" ref="678733754"/>
+						<reference key="parent" ref="774585933"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">92</int>
+						<reference key="object" ref="968084967"/>
+						<reference key="parent" ref="774585933"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -592,12 +685,16 @@
 				<string key="76.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="85.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="86.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="90.CustomClassName">FUISegmentedControl</string>
+				<string key="90.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<integer value="2" key="90.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">89</int>
+			<int key="maxID">93</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -607,6 +704,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/FUIButton.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">FUISegmentedControl</string>
+					<string key="superclassName">UISegmentedControl</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/FUISegmentedControl.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -637,6 +742,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="alertViewButton">FUIButton</string>
 						<string key="flatProgress">UIProgressView</string>
+						<string key="flatSegmentedControl">FUISegmentedControl</string>
 						<string key="flatSwitch">FUISwitch</string>
 						<string key="pushViewControllerButton">FUIButton</string>
 						<string key="slider">UISlider</string>
@@ -650,6 +756,10 @@
 						<object class="IBToOneOutletInfo" key="flatProgress">
 							<string key="name">flatProgress</string>
 							<string key="candidateClassName">UIProgressView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="flatSegmentedControl">
+							<string key="name">flatSegmentedControl</string>
+							<string key="candidateClassName">FUISegmentedControl</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="flatSwitch">
 							<string key="name">flatSwitch</string>
