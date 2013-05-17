@@ -12,6 +12,7 @@
 
 @property(nonatomic, readwrite) UIColor *selectedColor;
 @property(nonatomic, readwrite) UIColor *deselectedColor;
+@property(nonatomic, readwrite) UIColor *dividerColor;
 @property(nonatomic, readwrite) CGFloat cornerRadius;
 
 

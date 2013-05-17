@@ -36,6 +36,7 @@
     self.cornerRadius = 5.0;
     self.selectedColor = [UIColor belizeHoleColor];
     self.deselectedColor = [UIColor silverColor];
+    self.dividerColor = [UIColor grayColor];
 }
 
 - (void)setDeselectedColor:(UIColor *)deselectedColor {
@@ -45,6 +46,16 @@
 
 - (void)setSelectedColor:(UIColor *)selectedColor {
     _selectedColor = selectedColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)setDividerColor:(UIColor *)dividerColor {
+    _dividerColor = dividerColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    _cornerRadius = cornerRadius;
     [self configureFlatSegmentedControl];
 }
 
@@ -59,8 +70,14 @@
                                                             shadowColor:[UIColor clearColor]
                                                            shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
+    UIImage *dividerImage = [[UIImage imageWithColor:self.dividerColor cornerRadius:0] imageWithMinimumSize:CGSizeMake(1, 1)];
+    
     [self setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     [self setBackgroundImage:deselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 
 }
 
