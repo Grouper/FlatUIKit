@@ -44,6 +44,7 @@
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:nil
                                                                              action:nil];
+    [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
     self.alertViewButton.buttonColor = [UIColor turquoiseColor];
     self.alertViewButton.shadowColor = [UIColor greenSeaColor];

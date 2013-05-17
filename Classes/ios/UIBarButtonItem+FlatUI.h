@@ -14,4 +14,6 @@
                       highlightedColor:(UIColor *)highlightedColor
                           cornerRadius:(CGFloat) cornerRadius;
 
+- (void) removeTitleShadow;
+
 @end

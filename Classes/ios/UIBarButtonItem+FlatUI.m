@@ -49,4 +49,13 @@
     
 }
 
+- (void) removeTitleShadow {
+    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:UIControlStateNormal] mutableCopy];
+    if (!titleTextAttributes) {
+        titleTextAttributes = [NSMutableDictionary dictionary];
+    }
+    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
+    [self setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
+}
+
 @end
