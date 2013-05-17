@@ -18,6 +18,7 @@
 #import "FUIAlertView.h"
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
+#import "FUISegmentedControl.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
+@property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
 
 
 @end
@@ -88,6 +90,14 @@
     
     [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor wisteriaColor]];
     
+    self.flatSegmentedControl.selectedFont = [UIFont boldFlatFontOfSize:16];
+    self.flatSegmentedControl.selectedFontColor = [UIColor cloudsColor];
+    self.flatSegmentedControl.deselectedFont = [UIFont flatFontOfSize:16];
+    self.flatSegmentedControl.deselectedFontColor = [UIColor cloudsColor];
+    self.flatSegmentedControl.selectedColor = [UIColor amethystColor];
+    self.flatSegmentedControl.deselectedColor = [UIColor silverColor];
+    self.flatSegmentedControl.dividerColor = [UIColor midnightBlueColor];
+    self.flatSegmentedControl.cornerRadius = 5.0;
 }
 
 - (IBAction)showAlertView:(id)sender {

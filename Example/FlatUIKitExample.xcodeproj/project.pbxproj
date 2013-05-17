@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
 		FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53114F1744C7C1002711E1 /* UIKit.framework */; };
 		FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311511744C7C1002711E1 /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
+		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
 		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
 		6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
 		FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +224,8 @@
 				FA53118A1744C920002711E1 /* UIStepper+FlatUI.m */,
 				FA53118B1744C920002711E1 /* UITabBar+FlatUI.h */,
 				FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */,
+				6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */,
+				6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */,
 				FA6498991744CACB004B1A74 /* ViewController.m in Sources */,
 				6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */,
+				6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
