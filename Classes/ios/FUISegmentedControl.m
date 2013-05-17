@@ -7,6 +7,8 @@
 //
 
 #import "FUISegmentedControl.h"
+#import "UIImage+FlatUI.h"
+#import "UIColor+FlatUI.h"
 
 @implementation FUISegmentedControl
 
@@ -15,17 +17,51 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self defaultColors];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    // Drawing code
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        [self defaultColors];
+    }
+    return self;
 }
-*/
+
+- (void)defaultColors{
+    self.cornerRadius = 5.0;
+    self.selectedColor = [UIColor belizeHoleColor];
+    self.deselectedColor = [UIColor silverColor];
+}
+
+- (void)setDeselectedColor:(UIColor *)deselectedColor {
+    _deselectedColor = deselectedColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)setSelectedColor:(UIColor *)selectedColor {
+    _selectedColor = selectedColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)configureFlatSegmentedControl {
+    
+    UIImage *selectedBackgroundImage = [UIImage buttonImageWithColor:self.selectedColor
+                                                      cornerRadius:self.cornerRadius
+                                                       shadowColor:[UIColor clearColor]
+                                                      shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *deselectedBackgroundImage = [UIImage buttonImageWithColor:self.deselectedColor
+                                                           cornerRadius:self.cornerRadius
+                                                            shadowColor:[UIColor clearColor]
+                                                           shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [self setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self setBackgroundImage:deselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+}
 
 @end

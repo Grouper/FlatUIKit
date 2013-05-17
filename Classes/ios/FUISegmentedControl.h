@@ -10,4 +10,9 @@
 
 @interface FUISegmentedControl : UISegmentedControl
 
+@property(nonatomic, readwrite) UIColor *selectedColor;
+@property(nonatomic, readwrite) UIColor *deselectedColor;
+@property(nonatomic, readwrite) CGFloat cornerRadius;
+
+
 @end
