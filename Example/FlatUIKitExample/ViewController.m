@@ -18,6 +18,7 @@
 #import "FUIAlertView.h"
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
+#import "FUISegmentedControl.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
+@property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
 
 
 @end

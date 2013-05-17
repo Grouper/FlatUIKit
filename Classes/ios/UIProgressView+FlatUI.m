@@ -1,5 +1,5 @@
 //
-//  UIProgressView_FlatUI.h
+//  UIProgressView+FlatUI.h
 //  FlatUITestProj
 //
 //  Created by Alex Medearis on 5/16/13.
