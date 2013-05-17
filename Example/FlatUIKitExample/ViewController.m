@@ -70,8 +70,8 @@
                                   disabledColor:[UIColor amethystColor]
                                       iconColor:[UIColor cloudsColor]];
     
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18]};
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     
     self.flatSwitch.onColor = [UIColor turquoiseColor];
     self.flatSwitch.offColor = [UIColor cloudsColor];
