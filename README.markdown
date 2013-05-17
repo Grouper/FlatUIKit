@@ -31,6 +31,19 @@ FUIButton is a drop-in subclass of UIButton that exposes the additional properti
 
 ![FUIButton](http://blog.joingrouper.com/FlatUIKit/images/fuibutton-small.gif)
 
+### SegmentedControls
+
+FUISegmentedControl is a drop-in subclass of UISegmentedControl that exposes the additional properties selectedColor, deselectedColor, selectedFont, deselectedFont, selectedFontColor, deselectedFontColor, dividerColor and cornerRadius. Note that if you set any of these, it is recommended that you set all of them.
+
+    mySegmentedControl.selectedFont = [UIFont boldFlatFontOfSize:16];
+    mySegmentedControl.selectedFontColor = [UIColor cloudsColor];
+    mySegmentedControl.deselectedFont = [UIFont flatFontOfSize:16];
+    mySegmentedControl.deselectedFontColor = [UIColor cloudsColor];
+    mySegmentedControl.selectedColor = [UIColor amethystColor];
+    mySegmentedControl.deselectedColor = [UIColor silverColor];
+    mySegmentedControl.dividerColor = [UIColor midnightBlueColor];
+    mySegmentedControl.cornerRadius = 5.0;
+   
 ### Switches
 
 FUISwitch is not a subclass of UISwitch (UISwitch is too inflexible to subclass), but rather a reimplementation that exposes all of the methods of UISwitch. In addition, it also provides access to its underlying on/off UILabels and other subviews.
