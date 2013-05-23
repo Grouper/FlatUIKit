@@ -14,34 +14,34 @@
 + (UIFont *)flatFontOfSize:(CGFloat)size {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"Lato-Regular" withExtension:@"ttf"];
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"NanumGothic" withExtension:@"ttf"];
 		CFErrorRef error;
         CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
         error = nil;
     });
-    return [UIFont fontWithName:@"Lato-Regular" size:size];
+    return [UIFont fontWithName:@"NanumGothic" size:size];
 }
 
 + (UIFont *)boldFlatFontOfSize:(CGFloat)size {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"Lato-Bold" withExtension:@"ttf"];
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"NanumGothicBold" withExtension:@"ttf"];
 		CFErrorRef error;
         CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
         error = nil;
     });
-    return [UIFont fontWithName:@"Lato-Bold" size:size];
+    return [UIFont fontWithName:@"NanumGothicBold" size:size];
 }
 
 + (UIFont *)italicFlatFontOfSize:(CGFloat)size {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"Lato-Italic" withExtension:@"ttf"];
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"NanumGothic" withExtension:@"ttf"];
 		CFErrorRef error;
         CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
         error = nil;
     });
-    return [UIFont fontWithName:@"Lato-Italic" size:size];
+    return [UIFont fontWithName:@"NanumGothic" size:size];
 }
 
 @end
