@@ -123,6 +123,15 @@ To customize bar button items for your entire application (including back button
 
 ![FUINavBar](http://blog.joingrouper.com/FlatUIKit/images/fuinavbar-small.gif)
 
+However, this might cause rendering issues with controllers that are pushed from actionsheets, sharesheets or links in webviews. To prevent this behavior, scope the customized bar buttom items to your controllers:
+
+```objective-c
+[UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
+                              highlightedColor:[UIColor belizeHoleColor]
+                                  cornerRadius:3
+                               whenContainedIn:[YourViewController class]];
+```
+
 ### Navigation Bars
 As above, we provide a category on UINavigationBar to configure it flatly with a single color:
 

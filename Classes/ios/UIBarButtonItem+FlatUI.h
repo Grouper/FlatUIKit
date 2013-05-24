@@ -14,6 +14,11 @@
                       highlightedColor:(UIColor *)highlightedColor
                           cornerRadius:(CGFloat) cornerRadius;
 
++ (void) configureFlatButtonsWithColor:(UIColor *) color
+                      highlightedColor:(UIColor *)highlightedColor
+                          cornerRadius:(CGFloat) cornerRadius
+                       whenContainedIn:(Class <UIAppearanceContainer>)ContainerClass;
+
 - (void) removeTitleShadow;
 
 @end
