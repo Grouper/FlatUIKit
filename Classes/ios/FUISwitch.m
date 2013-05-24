@@ -140,7 +140,7 @@
         
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        BOOL left = newOffset.x > self.frame.size.width / 2;
+        BOOL left = newOffset.x > maxOffset / 2;
         [self setOn:(!left) animated:YES];
     }
     
