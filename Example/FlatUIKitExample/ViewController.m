@@ -40,13 +40,26 @@
     [super viewDidLoad];
     self.title = @"Flat UI";
     self.view.backgroundColor = [UIColor cloudsColor];
-    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor] highlightedColor:[UIColor belizeHoleColor] cornerRadius:3];
+    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
+                                  highlightedColor:[UIColor belizeHoleColor]
+                                      cornerRadius:3
+                                   whenContainedIn:[UINavigationBar class], nil];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:nil
                                                                              action:nil];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:nil
+                                                                             action:nil];
+    [self.navigationItem.rightBarButtonItem removeTitleShadow];
+    
+    [self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:[UIColor alizarinColor]
+                                                       highlightedColor:[UIColor pomegranateColor]
+                                                           cornerRadius:3];
     
     self.alertViewButton.buttonColor = [UIColor turquoiseColor];
     self.alertViewButton.shadowColor = [UIColor greenSeaColor];
