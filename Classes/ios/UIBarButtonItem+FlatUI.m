@@ -98,6 +98,45 @@
     
 }
 
+-(void) configureFlatButtonsWithColor:(UIColor *) color
+                     highlightedColor:(UIColor *)highlightedColor
+                         cornerRadius:(CGFloat) cornerRadius {
+    
+    
+    UIImage *backButtonPortraitImage = [UIImage backButtonImageWithColor:color
+                                                              barMetrics:UIBarMetricsDefault
+                                                            cornerRadius:cornerRadius];
+    UIImage *highlightedBackButtonPortraitImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                         barMetrics:UIBarMetricsDefault
+                                                                       cornerRadius:cornerRadius];
+    UIImage *backButtonLandscapeImage = [UIImage backButtonImageWithColor:color
+                                                               barMetrics:UIBarMetricsLandscapePhone
+                                                             cornerRadius:2];
+    UIImage *highlightedBackButtonLandscapeImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                          barMetrics:UIBarMetricsLandscapePhone
+                                                                        cornerRadius:2];
+
+    [self setBackButtonBackgroundImage:backButtonPortraitImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsDefault];
+    [self setBackButtonBackgroundImage:backButtonLandscapeImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    [self setBackButtonBackgroundImage:highlightedBackButtonPortraitImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsDefault];
+    [self setBackButtonBackgroundImage:highlightedBackButtonLandscapeImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    
+    [self setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+    [self setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    UIImage *buttonImage = [UIImage imageWithColor:color cornerRadius:cornerRadius];
+    [self setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+}
+
 - (void) removeTitleShadow {
     NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:UIControlStateNormal] mutableCopy];
     if (!titleTextAttributes) {
