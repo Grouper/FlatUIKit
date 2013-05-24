@@ -143,8 +143,12 @@
 
 - (void)show {
     self.alertContainer.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
-    UIView *rootView = mainWindow.rootViewController.view;
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    UIView *rootView = topController.view;
     self.frame = rootView.bounds;
     
     [rootView addSubview:self];
