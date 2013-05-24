@@ -48,6 +48,53 @@
     
     UIImage *buttonImage = [UIImage imageWithColor:color cornerRadius:cornerRadius];
     [appearance setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    id toolbarAppearance = [UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil];
+    [toolbarAppearance setBackgroundImage:[UIImage buttonImageWithColor:color cornerRadius:cornerRadius shadowColor:color shadowInsets:UIEdgeInsetsZero] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+}
+
++ (void) configureFlatButtonsWithColor:(UIColor *) color
+                      highlightedColor:(UIColor *)highlightedColor
+                          cornerRadius:(CGFloat) cornerRadius
+                       whenContainedIn:(Class <UIAppearanceContainer>)ContainerClass
+{
+    
+    UIImage *backButtonPortraitImage = [UIImage backButtonImageWithColor:color
+                                                              barMetrics:UIBarMetricsDefault
+                                                            cornerRadius:cornerRadius];
+    UIImage *highlightedBackButtonPortraitImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                         barMetrics:UIBarMetricsDefault
+                                                                       cornerRadius:cornerRadius];
+    UIImage *backButtonLandscapeImage = [UIImage backButtonImageWithColor:color
+                                                               barMetrics:UIBarMetricsLandscapePhone
+                                                             cornerRadius:2];
+    UIImage *highlightedBackButtonLandscapeImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                          barMetrics:UIBarMetricsLandscapePhone
+                                                                        cornerRadius:2];
+    
+    id appearance = [UIBarButtonItem appearanceWhenContainedIn:ContainerClass, nil];
+    
+    [appearance setBackButtonBackgroundImage:backButtonPortraitImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonBackgroundImage:backButtonLandscapeImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    [appearance setBackButtonBackgroundImage:highlightedBackButtonPortraitImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonBackgroundImage:highlightedBackButtonLandscapeImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    UIImage *buttonImage = [UIImage imageWithColor:color cornerRadius:cornerRadius];
+    [appearance setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    id toolbarAppearance = [UIBarButtonItem appearanceWhenContainedIn:ContainerClass, nil];
+    [toolbarAppearance setBackgroundImage:[UIImage buttonImageWithColor:color cornerRadius:cornerRadius shadowColor:color shadowInsets:UIEdgeInsetsZero] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
 }
 
