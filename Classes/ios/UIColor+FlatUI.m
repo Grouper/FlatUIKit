@@ -117,10 +117,23 @@
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor
                                  percentBlend:(CGFloat) percentBlend {
-    
-    CGFloat onRed, offRed, newRed, onGreen, offGreen, newGreen, onBlue, offBlue, newBlue;
-    [foregroundColor getRed:&onRed green:&onGreen blue:&onBlue alpha:nil];
-    [backgroundColor getRed:&offRed green:&offGreen blue:&offBlue alpha:nil];
+    CGFloat onRed, offRed, newRed, onGreen, offGreen, newGreen, onBlue, offBlue, newBlue, onWhite, offWhite;
+    if ([foregroundColor getWhite:&onWhite alpha:nil]) {
+        onRed = onWhite;
+        onBlue = onWhite;
+        onGreen = onWhite;
+    }
+    else {
+        [foregroundColor getRed:&onRed green:&onGreen blue:&onBlue alpha:nil];
+    }
+    if ([backgroundColor getWhite:&offWhite alpha:nil]) {
+        offRed = offWhite;
+        offBlue = offWhite;
+        offGreen = offWhite;
+    }
+    else {
+        [backgroundColor getRed:&offRed green:&offGreen blue:&offBlue alpha:nil];
+    }
     newRed = onRed * percentBlend + offRed * (1-percentBlend);
     newGreen = onGreen * percentBlend + offGreen * (1-percentBlend);
     newBlue = onBlue * percentBlend + offBlue * (1-percentBlend);
