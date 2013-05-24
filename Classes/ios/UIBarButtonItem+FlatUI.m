@@ -48,7 +48,9 @@
     
     UIImage *buttonImage = [UIImage imageWithColor:color cornerRadius:cornerRadius];
     [appearance setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
+
+    id toolbarAppearance = [UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil];
+    [toolbarAppearance setBackgroundImage:[UIImage buttonImageWithColor:color cornerRadius:cornerRadius shadowColor:color shadowInsets:UIEdgeInsetsZero] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void) removeTitleShadow {
