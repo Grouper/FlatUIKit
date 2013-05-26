@@ -23,7 +23,7 @@
 
 - (void) configureFlatSliderWithTrackColor:(UIColor *)trackColor
                              progressColor:(UIColor *)progressColor
-                          thumbColorNormal:(UIColor *)thumbColorNormal
+                          thumbColorNormal:(UIColor *)normalThumbColor
                      thumbColorHighlighted:(UIColor *)highlightedThumbColor
 {
     
@@ -35,7 +35,7 @@
     [self setMinimumTrackImage:progressImage forState:UIControlStateNormal];
     [self setMaximumTrackImage:trackImage forState:UIControlStateNormal];
     
-    UIImage *normalSliderImage = [UIImage circularImageWithColor:thumbColorNormal size:CGSizeMake(24, 24)];
+    UIImage *normalSliderImage = [UIImage circularImageWithColor:normalThumbColor size:CGSizeMake(24, 24)];
     [self setThumbImage:normalSliderImage forState:UIControlStateNormal];
     
     UIImage *highlighedSliderImage = [UIImage circularImageWithColor:highlightedThumbColor size:CGSizeMake(24, 24)];
