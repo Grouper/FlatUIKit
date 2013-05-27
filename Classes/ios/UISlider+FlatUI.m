@@ -15,15 +15,31 @@
                              progressColor:(UIColor *)progressColor
                                 thumbColor:(UIColor *)thumbColor {
     
+    [self configureFlatSliderWithTrackColor:trackColor
+                              progressColor:progressColor
+                           thumbColorNormal:thumbColor
+                      thumbColorHighlighted:thumbColor];
+}
+
+- (void) configureFlatSliderWithTrackColor:(UIColor *)trackColor
+                             progressColor:(UIColor *)progressColor
+                          thumbColorNormal:(UIColor *)normalThumbColor
+                     thumbColorHighlighted:(UIColor *)highlightedThumbColor
+{
+    
     UIImage *progressImage = [[UIImage imageWithColor:progressColor cornerRadius:5.0]
                               imageWithMinimumSize:CGSizeMake(10, 10)];
     UIImage *trackImage = [[UIImage imageWithColor:trackColor cornerRadius:5.0]
                            imageWithMinimumSize:CGSizeMake(10, 10)];
-
+    
     [self setMinimumTrackImage:progressImage forState:UIControlStateNormal];
     [self setMaximumTrackImage:trackImage forState:UIControlStateNormal];
-    UIImage *normalSliderImage = [UIImage circularImageWithColor:thumbColor size:CGSizeMake(24, 24)];
+    
+    UIImage *normalSliderImage = [UIImage circularImageWithColor:normalThumbColor size:CGSizeMake(24, 24)];
     [self setThumbImage:normalSliderImage forState:UIControlStateNormal];
+    
+    UIImage *highlighedSliderImage = [UIImage circularImageWithColor:highlightedThumbColor size:CGSizeMake(24, 24)];
+    [self setThumbImage:highlighedSliderImage forState:UIControlStateHighlighted];
 }
 
 @end
