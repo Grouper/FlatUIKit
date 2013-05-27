@@ -44,7 +44,9 @@ CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     CGRect topRect = CGRectMake(shadowInsets.left, shadowInsets.top, topWidth, topHeight);
     CGRect bottomRect = CGRectMake(0, 0, totalWidth, totalHeight);
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(totalWidth, totalHeight), NO, 0.0f);
-    [bottomImage drawInRect:bottomRect];
+    if (!CGRectEqualToRect(bottomRect, topRect)) {
+        [bottomImage drawInRect:bottomRect];
+    }
     [topImage drawInRect:topRect];
     UIImage *buttonImage = UIGraphicsGetImageFromCurrentImageContext();
     UIEdgeInsets resizeableInsets = UIEdgeInsetsMake(cornerRadius + shadowInsets.top,
