@@ -104,9 +104,8 @@
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated {
-    BOOL valueChanged = _on != on;
-    _on = on;
-    if (valueChanged) {
+    if (_on != on) {
+        _on = on;
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
     [self setPercentOn:_on * 1.0f animated:animated];
