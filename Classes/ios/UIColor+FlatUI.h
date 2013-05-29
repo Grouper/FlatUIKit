@@ -10,6 +10,7 @@
 
 @interface UIColor (FlatUI)
 
++ (UIColor *) colorFromHexCode:(NSString *)hexString;
 + (UIColor *) turquoiseColor;
 + (UIColor *) greenSeaColor;
 + (UIColor *) emerlandColor;
