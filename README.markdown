@@ -139,6 +139,17 @@ As above, we provide a category on UINavigationBar to configure it flatly with a
 [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 ```
 
+### Grouped TableView Cells
+You can modify the backgroundColor and selectedBackgroundColor of a grouped UITableViewCell without losing the rounded corners. The cell will copy the UITableView's separator color. The separator height is exposed as separatorHeight and the radius as cornerRadius.
+
+```objective-c
+FUICellBackgroundView* backgroundView = [[FUICellBackgroundView alloc] initWithFrame:cell.backgroundView.bounds andTableView:self.tableView andIndexPath:indexPath];
+backgroundView.backgroundColor = [UIColor midnightBlueColor];
+cell.backgroundView = backgroundView;
+```
+
+The same goes for the selectedBackgroundColor, just assign the view to cell.selectedBackgroundColor.
+
 Colors
 -------
 
