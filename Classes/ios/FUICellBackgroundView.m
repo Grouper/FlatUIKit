@@ -13,25 +13,9 @@
 	if ((self = [super initWithFrame:frame])) {
 		self.cornerRadius = 10.f;
         self.separatorHeight = 1.f;
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	}
 
-	return self;
-}
-
-- (id)initWithFrame:(CGRect)frame andTableView:(UITableView*)tableView andIndexPath:(NSIndexPath*)indexPath {
-	if ((self = [self initWithFrame:frame])) {
-        if ([tableView numberOfRowsInSection:indexPath.section] == 1)
-            self.position = FUICellBackgroundViewPositionSingle;
-        else if (indexPath.row == 0)
-            self.position = FUICellBackgroundViewPositionTop;
-        else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1)
-            self.position = FUICellBackgroundViewPositionBottom;
-        else
-            self.position = UACellBackgroundViewPositionMiddle;
-        
-        self.separatorColor = tableView.separatorColor;
-	}
-    
 	return self;
 }
 
@@ -39,8 +23,27 @@
 	return NO;
 }
 
--(void)drawRect:(CGRect)aRect {
-	CGContextRef c = UIGraphicsGetCurrentContext();
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    //Determine position
+    UITableView* tableView = (UITableView*)self.superview.superview;
+    NSIndexPath* indexPath = [tableView indexPathForCell:(UITableViewCell*)self.superview];
+    
+    if ([tableView numberOfRowsInSection:indexPath.section] == 1)
+        self.position = FUICellBackgroundViewPositionSingle;
+    else if (indexPath.row == 0)
+        self.position = FUICellBackgroundViewPositionTop;
+    else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1)
+        self.position = FUICellBackgroundViewPositionBottom;
+    else
+        self.position = UACellBackgroundViewPositionMiddle;
+    
+    self.separatorColor = tableView.separatorColor;
+}
+
+- (void)drawRect:(CGRect)aRect {
+    CGContextRef c = UIGraphicsGetCurrentContext();
 
 	int lineWidth = 1;
 

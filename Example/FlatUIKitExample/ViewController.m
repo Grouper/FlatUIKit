@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 #import "UIColor+FlatUI.h"
 #import "UISlider+FlatUI.h"
 #import "UIStepper+FlatUI.h"
@@ -51,10 +52,10 @@
                                                                              action:nil];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView"
                                                                               style:UIBarButtonItemStylePlain
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                            action:@selector(showTableView:)];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
     [self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:[UIColor alizarinColor]
@@ -131,6 +132,11 @@
 - (IBAction)pushViewController:(id)sender {
     UIViewController *viewController = [[ViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)showTableView:(id)sender {
+    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:tableViewController animated:YES];
 }
 
 @end

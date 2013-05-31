@@ -20,6 +20,4 @@ typedef enum  {
 @property (nonatomic, strong) UIColor* separatorColor;
 @property (nonatomic) CGFloat separatorHeight;
 
-- (id)initWithFrame:(CGRect)frame andTableView:(UITableView*)tableView andIndexPath:(NSIndexPath*)indexPath;
-
 @end
