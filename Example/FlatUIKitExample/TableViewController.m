@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
 
-    self.title = @"Grouped TableView";
+    self.title = @"Table View";
     
     //Set the separator color
     self.tableView.separatorColor = [UIColor cloudsColor];
