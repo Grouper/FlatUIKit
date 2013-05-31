@@ -11,8 +11,8 @@
 
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
-		self.cornerRadius = 10.f;
-        self.separatorHeight = 1.f;
+		self.cornerRadius = 3.0f;
+        self.separatorHeight = 1.0f;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	}
 
@@ -30,14 +30,18 @@
     UITableView* tableView = (UITableView*)self.superview.superview;
     NSIndexPath* indexPath = [tableView indexPathForCell:(UITableViewCell*)self.superview];
     
-    if ([tableView numberOfRowsInSection:indexPath.section] == 1)
+    if ([tableView numberOfRowsInSection:indexPath.section] == 1) {
         self.position = FUICellBackgroundViewPositionSingle;
-    else if (indexPath.row == 0)
+    }
+    else if (indexPath.row == 0) {
         self.position = FUICellBackgroundViewPositionTop;
-    else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1)
+    }
+    else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1) {
         self.position = FUICellBackgroundViewPositionBottom;
-    else
+    }
+    else {
         self.position = UACellBackgroundViewPositionMiddle;
+    }
     
     self.separatorColor = tableView.separatorColor;
 }
@@ -45,8 +49,9 @@
 - (void)drawRect:(CGRect)aRect {
     //Determine tableView style
     UITableView* tableView = (UITableView*)self.superview.superview;
-    if (tableView.style != UITableViewStyleGrouped)
+    if (tableView.style != UITableViewStyleGrouped) {
         self.cornerRadius = 0.f;
+    }
     
     CGContextRef c = UIGraphicsGetCurrentContext();
 

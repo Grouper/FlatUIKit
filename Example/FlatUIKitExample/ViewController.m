@@ -129,11 +129,6 @@
     [alertView show];
 }
 
-- (IBAction)pushViewController:(id)sender {
-    UIViewController *viewController = [[ViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
 - (void)showTableView:(id)sender {
     TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:tableViewController animated:YES];
