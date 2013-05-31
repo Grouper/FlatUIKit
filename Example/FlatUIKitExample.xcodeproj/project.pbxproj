@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
+		C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */; };
+		C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA6838175895C500926483 /* FUICellBackgroundView.m */; };
+		C1DA683C1758972C00926483 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA683B1758972C00926483 /* TableViewController.m */; };
 		FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53114F1744C7C1002711E1 /* UIKit.framework */; };
 		FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311511744C7C1002711E1 /* Foundation.framework */; };
 		FA5311541744C7C1002711E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311531744C7C1002711E1 /* CoreGraphics.framework */; };
@@ -49,6 +52,12 @@
 		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
 		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
 		6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		C1DA68311758953900926483 /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
+		C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
+		C1DA6837175895C500926483 /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
+		C1DA6838175895C500926483 /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
+		C1DA683A1758972C00926483 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		C1DA683B1758972C00926483 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA53114F1744C7C1002711E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA5311511744C7C1002711E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +159,8 @@
 			children = (
 				FA53115E1744C7C1002711E1 /* AppDelegate.h */,
 				FA53115F1744C7C1002711E1 /* AppDelegate.m */,
+				C1DA683A1758972C00926483 /* TableViewController.h */,
+				C1DA683B1758972C00926483 /* TableViewController.m */,
 				FA5311671744C7C1002711E1 /* ViewController.h */,
 				FA6498981744CACB004B1A74 /* ViewController.m */,
 				FA5311681744C7C1002711E1 /* ViewController.xib */,
@@ -206,6 +217,8 @@
 				FA5311781744C920002711E1 /* FUIAlertView.m */,
 				FA5311791744C920002711E1 /* FUIButton.h */,
 				FA53117A1744C920002711E1 /* FUIButton.m */,
+				C1DA6837175895C500926483 /* FUICellBackgroundView.h */,
+				C1DA6838175895C500926483 /* FUICellBackgroundView.m */,
 				FA53117B1744C920002711E1 /* FUISwitch.h */,
 				FA53117C1744C920002711E1 /* FUISwitch.m */,
 				FA53117D1744C920002711E1 /* UIBarButtonItem+FlatUI.h */,
@@ -226,6 +239,8 @@
 				FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */,
 				6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */,
 				6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */,
+				C1DA68311758953900926483 /* UITableViewCell+FlatUI.h */,
+				C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -339,6 +354,9 @@
 				FA6498991744CACB004B1A74 /* ViewController.m in Sources */,
 				6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */,
 				6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */,
+				C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */,
+				C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */,
+				C1DA683C1758972C00926483 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

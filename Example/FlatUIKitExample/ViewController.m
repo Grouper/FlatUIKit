@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 #import "UIColor+FlatUI.h"
 #import "UISlider+FlatUI.h"
 #import "UIStepper+FlatUI.h"
@@ -45,16 +46,16 @@
                                       cornerRadius:3
                                    whenContainedIn:[UINavigationBar class], nil];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Plain Table"
                                                                               style:UIBarButtonItemStylePlain
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                             action:@selector(showPlainTableView:)];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grouped Table"
                                                                               style:UIBarButtonItemStylePlain
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                            action:@selector(showTableView:)];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
     [self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:[UIColor alizarinColor]
@@ -131,6 +132,16 @@
 - (IBAction)pushViewController:(id)sender {
     UIViewController *viewController = [[ViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)showTableView:(id)sender {
+    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:tableViewController animated:YES];
+}
+
+- (void)showPlainTableView:(id)sender {
+    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [self.navigationController pushViewController:tableViewController animated:YES];
 }
 
 @end
