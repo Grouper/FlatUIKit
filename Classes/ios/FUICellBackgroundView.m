@@ -43,6 +43,11 @@
 }
 
 - (void)drawRect:(CGRect)aRect {
+    //Determine tableView style
+    UITableView* tableView = (UITableView*)self.superview.superview;
+    if (tableView.style != UITableViewStyleGrouped)
+        self.cornerRadius = 0.f;
+    
     CGContextRef c = UIGraphicsGetCurrentContext();
 
 	int lineWidth = 1;
@@ -96,6 +101,10 @@
 
 		CGContextSetFillColorWithColor(c, self.backgroundColor.CGColor);
         CGContextFillRect(c, self.bounds);
+        if (self.cornerRadius == 0.f) {
+            CGContextSetFillColorWithColor(c, self.separatorColor.CGColor);
+            CGContextFillRect(c, CGRectMake(0, self.bounds.size.height - self.separatorHeight, self.bounds.size.width, self.bounds.size.height - self.separatorHeight));
+        }
 
 		CGContextAddPath(c, path);
 		CGPathRelease(path);

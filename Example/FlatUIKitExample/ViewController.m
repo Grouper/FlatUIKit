@@ -46,13 +46,13 @@
                                       cornerRadius:3
                                    whenContainedIn:[UINavigationBar class], nil];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Button"
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Plain Table"
                                                                               style:UIBarButtonItemStylePlain
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                             action:@selector(showPlainTableView:)];
     [self.navigationItem.rightBarButtonItem removeTitleShadow];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grouped Table"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                             action:@selector(showTableView:)];
@@ -136,6 +136,11 @@
 
 - (void)showTableView:(id)sender {
     TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:tableViewController animated:YES];
+}
+
+- (void)showPlainTableView:(id)sender {
+    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:tableViewController animated:YES];
 }
 
