@@ -33,7 +33,7 @@ myButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
 [myButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 ```
 
-![FUIButton](http://blog.joingrouper.com/FlatUIKit/images/fuibutton-small.gif)
+![FUIButton](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuibutton-small.gif)
 
 ### SegmentedControls
 
@@ -63,7 +63,7 @@ mySwitch.offLabel.font = [UIFont boldFlatFontOfSize:14];
 mySwitch.onLabel.font = [UIFont boldFlatFontOfSize:14];
 ```
 
-![FUISwitch](http://blog.joingrouper.com/FlatUIKit/images/fuiswitch-small.gif)
+![FUISwitch](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuiswitch-small.gif)
 
 ### Alert Views
 
@@ -87,7 +87,7 @@ alertView.defaultButtonTitleColor = [UIColor asbestosColor];
 [alertView show];
 ```
 
-![FUIAlertView](http://blog.joingrouper.com/FlatUIKit/images/fuialertview-small.gif)
+<img src='https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuialertview.gif' alt='FUIAlertView' width=316 height=336 />
 
 ### Sliders/Steppers/Progress Views
 To provide flat UISliders, UIProgressViews and UISteppers, we simply provide categories on UISlider/ProgressView/UIStepper to automatically configure their appearance with appropriate colors/corner radii. This makes for zero-friction integration with your existing project:
@@ -98,7 +98,7 @@ To provide flat UISliders, UIProgressViews and UISteppers, we simply provide cat
                                  thumbColor:[UIColor pomegranateColor]];
 ```
 
-![FUISlider](http://blog.joingrouper.com/FlatUIKit/images/fuislider-small.gif)
+![FUISlider](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuislider-small.gif)
 
 ```objective-c
 [myProgressView configureFlatProgressViewWithTrackColor:[UIColor silverColor]
@@ -110,7 +110,7 @@ To provide flat UISliders, UIProgressViews and UISteppers, we simply provide cat
                                iconColor:[UIColor cloudsColor]];
 ```
 
-![FUIStepper](http://blog.joingrouper.com/FlatUIKit/images/fuistepper-small.gif)
+![FUIStepper](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuistepper-small.gif)
 
 ### Bar Button Items
 To customize bar button items for your entire application (including back buttons), UIBarButtonItem+FlatUI provides a class method which leverages the UIBarButtonItem appearance proxy to do this in one step:
@@ -121,7 +121,7 @@ To customize bar button items for your entire application (including back button
                                   cornerRadius:3];
 ```
 
-![FUINavBar](http://blog.joingrouper.com/FlatUIKit/images/fuinavbar-small.gif)
+![FUINavBar](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuinavbar-small.gif)
 
 However, this might cause rendering issues with controllers that are pushed from actionsheets, sharesheets or links in webviews. To prevent this behavior, scope the customized bar buttom items to your controllers:
 
@@ -139,14 +139,19 @@ As above, we provide a category on UINavigationBar to configure it flatly with a
 [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 ```
 
-### Grouped TableView Cells
-You can modify the backgroundColor and selectedBackgroundColor of a grouped UITableViewCell without losing the rounded corners. The cell will copy the UITableView's separator color. The separator height is exposed as separatorHeight and the radius as cornerRadius.
+### TableView Cells
+You can modify the backgroundColor and selectedBackgroundColor of a UITableViewCell without losing the rounded corners. The cell will copy the UITableView's separator color. The separator height is exposed as separatorHeight and the radius as cornerRadius.
 
 ```objective-c
-cell = [UITableViewCell configureFlatCellWithColor:[UIColor midnightBlueColor] selectedColor:[UIColor cloudsColor] style:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor]
+                                     selectedColor:[UIColor cloudsColor]
+                                             style:UITableViewCellStyleDefault
+                                   reuseIdentifier:CellIdentifier];
+cell.cornerRadius = 5.0f; // optional
+cell.separatorHeight = 2.0f; // optional
 ```
 
-The same goes for the selectedBackgroundColor, just assign the view to cell.selectedBackgroundColor.
+![FUITableViewCell](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuitableview-small.png)
 
 Colors
 -------
@@ -161,7 +166,7 @@ UIColor *myColor = [UIColor turquoiseColor];
 Fonts
 -------
 
-FlatUIKit comes bundled with Lato, a clean, beautiful open font. More info on Lato can be found [here](http://www.latofonts.com/). It is included in FlatUIKit automatically; using it can be done like this:
+FlatUIKit comes bundled with Lato, a clean, beautiful open font. More info on Lato can be found [here](http://www.latofonts.com/). It is included in FlatUIKit automatically; you can use it as follows:
 
 ```objective-c
 #import "UIFont+FlatUI.h"
