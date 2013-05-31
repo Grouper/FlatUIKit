@@ -182,6 +182,13 @@
     self.thumbView.backgroundColor = contentColor;
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    
+    if (highlighted)
+        self.backgroundColor = self.highlightedColor;
+}
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self setHighlighted:YES];
