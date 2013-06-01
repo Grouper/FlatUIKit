@@ -20,9 +20,14 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
+#import "FUIPopoverController.h"
 
 @interface ViewController ()
+{
+    FUIPopoverController *popover;
+}
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
+@property (weak, nonatomic) IBOutlet FUIButton *popoverButton;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
@@ -78,7 +83,8 @@
                                   disabledColor:[UIColor amethystColor]
                                       iconColor:[UIColor cloudsColor]];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18], UITextAttributeTextColor: [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+                                                                    UITextAttributeTextColor: [UIColor whiteColor]};
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     
     self.flatSwitch.onColor = [UIColor turquoiseColor];
@@ -103,6 +109,16 @@
     self.flatSegmentedControl.deselectedColor = [UIColor silverColor];
     self.flatSegmentedControl.dividerColor = [UIColor midnightBlueColor];
     self.flatSegmentedControl.cornerRadius = 5.0;
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.popoverButton.buttonColor = [UIColor carrotColor];
+        self.popoverButton.shadowColor = [UIColor alizarinColor];
+        self.popoverButton.shadowHeight = 3.0f;
+        self.popoverButton.cornerRadius = 6.0f;
+        self.popoverButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        [self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        [self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    }
 }
 
 - (IBAction)showAlertView:(id)sender {
@@ -120,6 +136,25 @@
     [alertView show];
 }
 
+- (IBAction)showPopover:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    vc.view.backgroundColor = [UIColor whiteColor];
+    vc.title = @"FUIPopoverController";
+    vc.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+                                                                  UITextAttributeTextColor: [UIColor whiteColor]};
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    popover = [[FUIPopoverController alloc] initWithContentViewController:nc];
+    popover.backgroundColor = [UIColor midnightBlueColor];
+    popover.delegate = self;
+    [popover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 - (void)showTableView:(id)sender {
     TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:tableViewController animated:YES];
@@ -128,6 +163,16 @@
 - (void)showPlainTableView:(id)sender {
     TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:tableViewController animated:YES];
+}
+
+- (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
+{
+    return YES;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    
 }
 
 @end

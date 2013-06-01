@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F331361175AA41100768372 /* FUIPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F331360175AA41100768372 /* FUIPopoverController.m */; };
 		4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */; };
 		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F33135F175AA41100768372 /* FUIPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverController.h; sourceTree = "<group>"; };
+		4F331360175AA41100768372 /* FUIPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverController.m; sourceTree = "<group>"; };
 		4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPad.xib; sourceTree = "<group>"; };
 		6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
 		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				FA53117A1744C920002711E1 /* FUIButton.m */,
 				C1DA6837175895C500926483 /* FUICellBackgroundView.h */,
 				C1DA6838175895C500926483 /* FUICellBackgroundView.m */,
+				4F33135F175AA41100768372 /* FUIPopoverController.h */,
+				4F331360175AA41100768372 /* FUIPopoverController.m */,
 				FA53117B1744C920002711E1 /* FUISwitch.h */,
 				FA53117C1744C920002711E1 /* FUISwitch.m */,
 				FA53117D1744C920002711E1 /* UIBarButtonItem+FlatUI.h */,
@@ -361,6 +366,7 @@
 				C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */,
 				C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */,
 				C1DA683C1758972C00926483 /* TableViewController.m in Sources */,
+				4F331361175AA41100768372 /* FUIPopoverController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
