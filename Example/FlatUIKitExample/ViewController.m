@@ -23,7 +23,6 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
-@property (weak, nonatomic) IBOutlet FUIButton *pushViewControllerButton;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
@@ -69,14 +68,6 @@
     self.alertViewButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
-    
-    self.pushViewControllerButton.buttonColor = [UIColor peterRiverColor];
-    self.pushViewControllerButton.shadowColor = [UIColor belizeHoleColor];
-    self.pushViewControllerButton.shadowHeight = 3.0f;
-    self.pushViewControllerButton.cornerRadius = 6.0f;
-    self.pushViewControllerButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-    [self.pushViewControllerButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
-    [self.pushViewControllerButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 
     [self.slider configureFlatSliderWithTrackColor:[UIColor silverColor]
                                      progressColor:[UIColor alizarinColor]
