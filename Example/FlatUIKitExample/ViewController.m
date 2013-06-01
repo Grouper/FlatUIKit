@@ -56,7 +56,7 @@
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                             action:@selector(showTableView:)];
-    [self.navigationItem.rightBarButtonItem removeTitleShadow];
+    [self.navigationItem.leftBarButtonItem removeTitleShadow];
     
     [self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:[UIColor alizarinColor]
                                                        highlightedColor:[UIColor pomegranateColor]
@@ -87,7 +87,7 @@
                                   disabledColor:[UIColor amethystColor]
                                       iconColor:[UIColor cloudsColor]];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18]};
+    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18], UITextAttributeTextColor: [UIColor whiteColor]};
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     
     self.flatSwitch.onColor = [UIColor turquoiseColor];

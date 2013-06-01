@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */; };
 		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
 		C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */; };
@@ -21,7 +22,7 @@
 		FA5311621744C7C1002711E1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311611744C7C1002711E1 /* Default.png */; };
 		FA5311641744C7C1002711E1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311631744C7C1002711E1 /* Default@2x.png */; };
 		FA5311661744C7C1002711E1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5311651744C7C1002711E1 /* Default-568h@2x.png */; };
-		FA5311691744C7C1002711E1 /* ViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = FA5311681744C7C1002711E1 /* ViewController.xib */; };
+		FA5311691744C7C1002711E1 /* ViewController_iPhone.xib in Sources */ = {isa = PBXBuildFile; fileRef = FA5311681744C7C1002711E1 /* ViewController_iPhone.xib */; };
 		FA53118D1744C920002711E1 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5311781744C920002711E1 /* FUIAlertView.m */; };
 		FA53118E1744C920002711E1 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53117A1744C920002711E1 /* FUIButton.m */; };
 		FA53118F1744C920002711E1 /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53117C1744C920002711E1 /* FUISwitch.m */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPad.xib; sourceTree = "<group>"; };
 		6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
 		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
 		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		FA5311631744C7C1002711E1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA5311651744C7C1002711E1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA5311671744C7C1002711E1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FA5311681744C7C1002711E1 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		FA5311681744C7C1002711E1 /* ViewController_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_iPhone.xib; sourceTree = "<group>"; };
 		FA5311771744C920002711E1 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		FA5311781744C920002711E1 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
 		FA5311791744C920002711E1 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
@@ -159,11 +161,12 @@
 			children = (
 				FA53115E1744C7C1002711E1 /* AppDelegate.h */,
 				FA53115F1744C7C1002711E1 /* AppDelegate.m */,
-				C1DA683A1758972C00926483 /* TableViewController.h */,
-				C1DA683B1758972C00926483 /* TableViewController.m */,
 				FA5311671744C7C1002711E1 /* ViewController.h */,
 				FA6498981744CACB004B1A74 /* ViewController.m */,
-				FA5311681744C7C1002711E1 /* ViewController.xib */,
+				FA5311681744C7C1002711E1 /* ViewController_iPhone.xib */,
+				4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */,
+				C1DA683A1758972C00926483 /* TableViewController.h */,
+				C1DA683B1758972C00926483 /* TableViewController.m */,
 				FA5311561744C7C1002711E1 /* Supporting Files */,
 			);
 			path = FlatUIKitExample;
@@ -327,6 +330,7 @@
 				FA6498AC1744CB0A004B1A74 /* Lato-Light.ttf in Resources */,
 				FA6498AD1744CB0A004B1A74 /* Lato-LightItalic.ttf in Resources */,
 				FA6498AE1744CB0A004B1A74 /* Lato-Regular.ttf in Resources */,
+				4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +343,7 @@
 			files = (
 				FA53115C1744C7C1002711E1 /* main.m in Sources */,
 				FA5311601744C7C1002711E1 /* AppDelegate.m in Sources */,
-				FA5311691744C7C1002711E1 /* ViewController.xib in Sources */,
+				FA5311691744C7C1002711E1 /* ViewController_iPhone.xib in Sources */,
 				FA53118D1744C920002711E1 /* FUIAlertView.m in Sources */,
 				FA53118E1744C920002711E1 /* FUIButton.m in Sources */,
 				FA53118F1744C920002711E1 /* FUISwitch.m in Sources */,
@@ -436,8 +440,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlatUIKitExample/FlatUIKitExample-Prefix.pch";
 				INFOPLIST_FILE = "FlatUIKitExample/FlatUIKitExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -448,8 +453,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlatUIKitExample/FlatUIKitExample-Prefix.pch";
 				INFOPLIST_FILE = "FlatUIKitExample/FlatUIKitExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
