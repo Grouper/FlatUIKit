@@ -10,6 +10,9 @@
 
 @interface UIImage (FlatUI)
 
++ (UIImage *)imageWithColor:(UIColor *)color
+               cornerRadius:(CGFloat)cornerRadius
+                       size:(CGSize)size;
 
 + (UIImage *)imageWithColor:(UIColor *)color
                cornerRadius:(CGFloat)cornerRadius;
