@@ -48,7 +48,7 @@ m[self.textfield configureFlatTextfieldWithColor:[UIColor turquoiseColor]
                                        shadowHeight:2.0];
 ```
 
-![FUITextField](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuitextfield.gif)
+![FUITextField](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuitextfield.png)
 
 ### SegmentedControls
 
