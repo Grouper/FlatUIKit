@@ -35,7 +35,6 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
 
-
 @end
 
 @implementation ViewController
@@ -137,7 +136,6 @@
 }
 
 - (IBAction)showPopover:(id)sender {
-    
     UIButton *button = (UIButton *)sender;
     
     UIViewController *vc = [[UIViewController alloc] init];
@@ -164,6 +162,9 @@
     TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:tableViewController animated:YES];
 }
+
+
+#pragma mark - UIPopoverControllerDelegate Methods
 
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {

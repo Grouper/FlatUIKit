@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIPopoverControllerDelegate>
+@interface ViewController : UIViewController <UIPopoverControllerDelegate, UIActionSheetDelegate>
 
 @end
