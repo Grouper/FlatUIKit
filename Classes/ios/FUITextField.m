@@ -15,9 +15,24 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-
+        [self sharedInit];
     }
     return self;
+}
+
+- (void) awakeFromNib
+{
+    [super awakeFromNib];
+    [self sharedInit];
+}
+
+- (void) sharedInit
+{
+    [self setFontColor:[UIColor whiteColor]];
+    [self setColor:[UIColor grayColor]];
+    [self setCornerRadius:5.0];
+    [self setPlaceholderColor:[UIColor darkGrayColor]];
+    [self configureFlatButton];
 }
 
 - (void) setCornerRadius:(CGFloat)cornerRadius
