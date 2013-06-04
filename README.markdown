@@ -164,7 +164,7 @@ popover.delegate = self;
 [popover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 ```
 
-![Popover](https://github.com/dzenbot/FlatUIKit/blob/master/Example/README%20images/fuipopovercontroller-small.gif)
+![Popover](https://raw.github.com/dzenbot/FlatUIKit/master/Example/README%20images/fuipopovercontroller-small.gif)
 
 Colors
 -------
