@@ -40,15 +40,15 @@ myButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
 FUITextField is a drop-in subclass of UITextField that exposes the additional properties color, fontColor, placeholderColor, textfieldShadowColor, cornerRadius, and shadowHeight. Note that if you set any of these, you have to set all of them.
 
 ```objective-c
-m[self.textfield configureFlatTextfieldWithColor:[UIColor turquoiseColor]
-                                          fontColor:[UIColor blackColor]
-                                   placeholderColor:[UIColor midnightBlueColor]
-                                        shadowColor:[UIColor silverColor]
-                                       cornerRadius:5.0
-                                       shadowHeight:2.0];
+[self.textfield configureFlatTextfieldWithColor:[UIColor turquoiseColor]
+                                      fontColor:[UIColor blackColor]
+                               placeholderColor:[UIColor midnightBlueColor]
+                                    shadowColor:[UIColor silverColor]
+                                   cornerRadius:5.0
+                                   shadowHeight:2.0];
 ```
 
-![FUITextField](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuitextfield.png)
+![FUITextField](https://raw.github.com/kimar/FlatUIKit/master/Example/README%20images/fuitextfield.png)
 
 ### SegmentedControls
 
