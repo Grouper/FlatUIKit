@@ -20,6 +20,7 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
+#import "UITextField+FlatUI.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
@@ -30,7 +31,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
-
+@property (weak, nonatomic) IBOutlet UITextField *textfield;
 
 @end
 
@@ -112,6 +113,14 @@
     self.flatSegmentedControl.deselectedColor = [UIColor silverColor];
     self.flatSegmentedControl.dividerColor = [UIColor midnightBlueColor];
     self.flatSegmentedControl.cornerRadius = 5.0;
+    
+    self.textfield.placeholder = @"Your input here!";
+    [self.textfield configureFlatTextfieldWithColor:[UIColor turquoiseColor]
+                                          fontColor:[UIColor blackColor]
+                                   placeholderColor:[UIColor midnightBlueColor]
+                                        shadowColor:[UIColor silverColor]
+                                       cornerRadius:5.0
+                                       shadowHeight:2.0];
 }
 
 - (IBAction)showAlertView:(id)sender {
