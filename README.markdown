@@ -154,7 +154,7 @@ cell.separatorHeight = 2.0f; // optional
 ![FUITableViewCell](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuitableview-small.png)
 
 
-### UIPopover
+### Popover
 Like some other flat components, we simply provide a category to automatically configure a popover appearance for iPad by only having to set a background color.
 
 ```objective-c
@@ -164,7 +164,7 @@ popover.delegate = self;
 [popover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 ```
 
-![FUITableViewCell](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuipopovercontroller-small.png)
+![Popover](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuipopovercontroller-small.png)
 
 Colors
 -------
