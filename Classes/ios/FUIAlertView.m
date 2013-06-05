@@ -156,16 +156,24 @@
     if ([self.delegate respondsToSelector:@selector(willPresentAlertView:)]) {
         [self.delegate willPresentAlertView:self];
     }
-    [UIView animateWithDuration:self.animationDuration animations:^{
+    [UIView animateWithDuration:self.animationDuration/1.5 animations:^{
         self.backgroundOverlay.alpha = 1.0f;
-        self.alertContainer.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        _visible = YES;
-        if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
-            [self.delegate didPresentAlertView:self];
-        }
-    }];
-
+        self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);}
+                     completion:^(BOOL finished) {
+                         
+                         [UIView animateWithDuration:self.animationDuration/2 animations:^{
+                             self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);} completion:^(BOOL finished) {
+                                 
+                                 [UIView animateWithDuration:self.animationDuration/2 animations:^{
+                                     self.alertContainer.transform = CGAffineTransformIdentity;
+                                 } completion:^(BOOL finished) {
+                                     _visible = YES;
+                                     if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
+                                         [self.delegate didPresentAlertView:self];
+                                     }
+                                 }];
+                             }];
+                     }];
 }
 
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex {
