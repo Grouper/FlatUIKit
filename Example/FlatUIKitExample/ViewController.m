@@ -19,7 +19,7 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
-
+#import "UIToolbar+FlatUI.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
 @property (weak, nonatomic) IBOutlet FUIButton *pushViewControllerButton;
@@ -29,7 +29,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
-
+@property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
@@ -98,6 +98,8 @@
     self.flatSegmentedControl.deselectedColor = [UIColor silverColor];
     self.flatSegmentedControl.dividerColor = [UIColor midnightBlueColor];
     self.flatSegmentedControl.cornerRadius = 5.0;
+    
+    [self.toolBar configureFlatToolBarWithColor:[UIColor midnightBlueColor]];
 }
 
 - (IBAction)showAlertView:(id)sender {
