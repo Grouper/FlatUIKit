@@ -2,8 +2,8 @@
 //  FlatUIKit.h
 //  FlatUI
 //
-//  Created by Keisuke Kimura on 2013/06/08.
-//  Copyright (c) 2013年 Keisuke Kimura. All rights reserved.
+//  Created by Keisuke Kimura on 6/8/13.
+//  Copyright (c) 2013 Keisuke Kimura. All rights reserved.
 //
 
 #ifndef FlatUI_FlatUIKit_h
