@@ -31,10 +31,7 @@
 #import "UIImage+FlatUI.h"
 #import "UINavigationBar+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
+#import "UIStepper+FlatUI.h"
 #import "UISlider+FlatUI.h"
 #import "UITabBar+FlatUI.h"
 #import "UITableViewCell+FlatUI.h"
-
-#ifdef __IPHONE_6_0
-#import "UIStepper+FlatUI.h"
-#endif
