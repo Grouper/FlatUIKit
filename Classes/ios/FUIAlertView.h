@@ -42,6 +42,7 @@
 // it does not need to be called if the user presses on a button
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 
+- (void)clickButtonAtIndex:(NSInteger)buttonIndex;
 
 @property(nonatomic) NSMutableArray *buttons;
 @property(nonatomic, weak, readonly) UILabel *titleLabel;

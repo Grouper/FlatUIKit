@@ -226,6 +226,10 @@
     [self dismissWithClickedButtonIndex:index animated:YES];
 }
 
+- (void)clickButtonAtIndex:(NSInteger)buttonIndex {
+    [[self.buttons objectAtIndex:buttonIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void) setDefaultButtonFont:(UIFont *)defaultButtonFont {
     _defaultButtonFont = defaultButtonFont;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
