@@ -215,7 +215,7 @@
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.alertContentContainer addSubview:button];
     [self.buttons addObject:button];
-    return self.buttons.count;
+    return self.buttons.count-1;
 }
 
 - (void) buttonPressed:(FUIButton *)sender {

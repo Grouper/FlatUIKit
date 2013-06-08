@@ -54,9 +54,14 @@
     expect(otherButton2.titleLabel.text).to.equal(@"Title2");
 }
 
-- (void)testAddButtonWithTitleAddsNewButton {
+- (void)testAddButtonWithTitleReturnsCorrectIndex {
     NSInteger buttonIndex = [self.alertView addButtonWithTitle:@"New button"];
-    expect(buttonIndex).to.equal(2);
+    expect(buttonIndex).to.equal(1);
+    expect([self.alertView buttonTitleAtIndex:buttonIndex]).to.equal(@"New button");
+}
+
+- (void)testAddButtonWithTitleAddsNewButton {
+    [self.alertView addButtonWithTitle:@"New button"];
     expect(self.alertView.buttons.count).to.equal(2);
 }
 
