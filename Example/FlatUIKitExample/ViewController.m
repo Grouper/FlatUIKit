@@ -116,6 +116,7 @@
 
 - (IBAction)showAlertView:(id)sender {
     FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"Hello" message:@"This is an alert view" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Do Something", nil];
+    alertView.delegate = self;
     alertView.titleLabel.textColor = [UIColor cloudsColor];
     alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
     alertView.messageLabel.textColor = [UIColor cloudsColor];
