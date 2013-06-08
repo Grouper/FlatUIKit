@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6621A3461763285300850BE4 /* SenTestCase+FUITestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6621A3451763285300850BE4 /* SenTestCase+FUITestHelpers.m */; };
 		66494A5A17628CB900336C7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66494A5917628CB900336C7E /* UIKit.framework */; };
 		66494A5C17628CB900336C7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66494A5B17628CB900336C7E /* Foundation.framework */; };
 		66494A5E17628CB900336C7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66494A5D17628CB900336C7E /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		3BD2B5661C134B8EB071389F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6621A3441763285300850BE4 /* SenTestCase+FUITestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestCase+FUITestHelpers.h"; sourceTree = "<group>"; };
+		6621A3451763285300850BE4 /* SenTestCase+FUITestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestCase+FUITestHelpers.m"; sourceTree = "<group>"; };
 		66494A5617628CB900336C7E /* FUIKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUIKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66494A5917628CB900336C7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66494A5B17628CB900336C7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +197,8 @@
 			children = (
 				66494A8417628CB900336C7E /* FUIAlertViewTests.m */,
 				66494A7E17628CB900336C7E /* Supporting Files */,
+				6621A3441763285300850BE4 /* SenTestCase+FUITestHelpers.h */,
+				6621A3451763285300850BE4 /* SenTestCase+FUITestHelpers.m */,
 			);
 			path = FUIKitTestsTests;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66494A8517628CB900336C7E /* FUIAlertViewTests.m in Sources */,
+				6621A3461763285300850BE4 /* SenTestCase+FUITestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
