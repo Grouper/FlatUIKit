@@ -203,6 +203,7 @@
 }
 
 - (NSInteger)addButtonWithTitle:(NSString *)title {
+    if (!title) return -1;
     if (!self.buttons) {
         self.buttons = [NSMutableArray array];
     }
@@ -215,7 +216,7 @@
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.alertContentContainer addSubview:button];
     [self.buttons addObject:button];
-    return self.buttons.count;
+    return self.buttons.count-1;
 }
 
 - (void) buttonPressed:(FUIButton *)sender {
@@ -224,6 +225,10 @@
         [self.delegate alertView:self clickedButtonAtIndex:index];
     }
     [self dismissWithClickedButtonIndex:index animated:YES];
+}
+
+- (void)clickButtonAtIndex:(NSInteger)buttonIndex {
+    [[self.buttons objectAtIndex:buttonIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setDefaultButtonFont:(UIFont *)defaultButtonFont {
