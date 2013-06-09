@@ -24,7 +24,7 @@
 @property(nonatomic,copy) NSString *message;   // secondary explanation text
 
 // adds a button with the title. returns the index (0 based) of where it was added. buttons are displayed in the order added except for the
-// cancel button which will be positioned based on HI requirements. buttons cannot be customized.
+// cancel button which will be positioned based on HI requirements. Buttons cannot be customized. If you pass nil as a title no button will be added.
 - (NSInteger)addButtonWithTitle:(NSString *)title;    // returns index of button. 0 based.
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
 @property(nonatomic,readonly) NSInteger numberOfButtons;

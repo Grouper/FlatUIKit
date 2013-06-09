@@ -203,6 +203,7 @@
 }
 
 - (NSInteger)addButtonWithTitle:(NSString *)title {
+    if (!title) return -1;
     if (!self.buttons) {
         self.buttons = [NSMutableArray array];
     }

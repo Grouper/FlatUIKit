@@ -77,6 +77,12 @@
     expect(self.alertView.buttons.count).to.equal(2);
 }
 
+- (void)testAddButtonWithTitleParamaterCannotBeNil {
+    NSInteger buttonIndex = [self.alertView addButtonWithTitle:nil];
+    expect(buttonIndex).to.equal(-1);
+    expect([[self.alertView buttons] count]).to.equal(1);
+}
+
 - (void)testWillPresentAlertView {
     [self.alertView show];
     expect(self.willPresent).to.beTruthy();
