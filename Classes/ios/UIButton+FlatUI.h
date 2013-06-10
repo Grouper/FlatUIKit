@@ -1,9 +1,9 @@
 //
 //  UIButton+FlatUI.h
-//  FlatUIKitExample
+//  FlatUI
 //
-//  Created by 木村圭佑 on 2013/06/11.
-//
+//  Created by Keisuke Kimura on 6/11/13.
+//  Copyright (c) 2013 Keisuke Kimura. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
