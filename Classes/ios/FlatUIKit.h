@@ -22,6 +22,7 @@
 
 #import "FUIAlertView.h"
 #import "FUIButton.h"
+#import "UIButton+FlatUI.h"
 #import "FUICellBackgroundView.h"
 #import "FUISegmentedControl.h"
 #import "FUISwitch.h"
