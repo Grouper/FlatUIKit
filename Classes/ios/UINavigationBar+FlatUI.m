@@ -8,6 +8,7 @@
 
 #import "UINavigationBar+FlatUI.h"
 #import "UIImage+FlatUI.h"
+#import "UIFont+FlatUI.h"
 
 @implementation UINavigationBar (FlatUI)
 
@@ -20,6 +21,7 @@
     }
     [titleTextAttributes setValue:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
     [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
+    [titleTextAttributes setValue:[UIFont boldFlatFontOfSize:18] forKey:UITextAttributeFont];
     [self setTitleTextAttributes:titleTextAttributes];
     if([self respondsToSelector:@selector(setShadowImage:)])
     {
