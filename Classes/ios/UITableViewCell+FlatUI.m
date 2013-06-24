@@ -43,7 +43,6 @@
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     [(FUICellBackgroundView*)self.backgroundView setCornerRadius:cornerRadius];
-    [(FUICellBackgroundView*)self.selectedBackgroundView setCornerRadius:cornerRadius];
 }
 
 - (void)setSeparatorHeight:(CGFloat)separatorHeight {
