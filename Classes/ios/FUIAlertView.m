@@ -9,7 +9,7 @@
 #import "FUIAlertView.h"
 #import "FUIButton.h"
 
-@interface FUIAlertView()
+@interface FUIAlertView ()
 
 @property(nonatomic, weak) UIView *alertContentContainer;
 
@@ -19,7 +19,7 @@
 
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message
-           delegate:(id<FUIAlertViewDelegate>)delegate
+           delegate:(id <FUIAlertViewDelegate>)delegate
   cancelButtonTitle:(NSString *)cancelButtonTitle
   otherButtonTitles:(NSString *)otherButtonTitles, ... {
     self = [super initWithFrame:CGRectZero];
@@ -27,28 +27,30 @@
         self.title = title;
         self.message = message;
         self.delegate = delegate;
-        
+
         self.buttonSpacing = 10;
         self.animationDuration = 0.2f;
-        
+
+        self.yPosition = CGFLOAT_MIN;
+
         UIView *backgroundOverlay = [[UIView alloc] init];
         backgroundOverlay.backgroundColor = [UIColor blueColor];
         [self addSubview:backgroundOverlay];
         backgroundOverlay.alpha = 0;
         _backgroundOverlay = backgroundOverlay;
-        
+
         UIView *alertContainer = [[UIView alloc] init];
         alertContainer.backgroundColor = [UIColor yellowColor];
         [self addSubview:alertContainer];
         [self bringSubviewToFront:alertContainer];
         _alertContainer = alertContainer;
-        
+
         UIView *alertContentContainer = [[UIView alloc] init];
         alertContentContainer.backgroundColor = [UIColor clearColor];
         [self.alertContainer addSubview:alertContentContainer];
         [self.alertContainer bringSubviewToFront:alertContentContainer];
         _alertContentContainer = alertContentContainer;
-        
+
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.numberOfLines = 0;
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -56,7 +58,7 @@
         titleLabel.text = self.title;
         [alertContentContainer addSubview:titleLabel];
         _titleLabel = titleLabel;
-        
+
         UILabel *messageLabel = [[UILabel alloc] init];
         messageLabel.numberOfLines = 0;
         messageLabel.backgroundColor = [UIColor clearColor];
@@ -64,7 +66,7 @@
         messageLabel.text = self.message;
         [alertContentContainer addSubview:messageLabel];
         _messageLabel = messageLabel;
-        
+
         va_list args;
         va_start(args, otherButtonTitles);
         for (NSString *arg = otherButtonTitles; arg != nil; arg = va_arg(args, NSString*)) {
@@ -76,7 +78,7 @@
     return self;
 }
 
-- (void) layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
     if (CGAffineTransformIsIdentity(self.alertContainer.transform)) {
         self.backgroundOverlay.frame = self.bounds;
@@ -85,8 +87,13 @@
         contentContainerFrame.size = [self calculateSize];
         self.alertContentContainer.frame = contentContainerFrame;
         CGRect alertContainerFrame = CGRectInset(contentContainerFrame, -padding, -padding);
-        alertContainerFrame.origin = CGPointMake((self.frame.size.width - alertContainerFrame.size.width) / 2,
-                                                 (self.frame.size.height - alertContainerFrame.size.height) / 2);
+        if (self.yPosition == CGFLOAT_MIN) {
+            alertContainerFrame.origin = CGPointMake((self.frame.size.width - alertContainerFrame.size.width) / 2,
+                    (self.frame.size.height - alertContainerFrame.size.height) / 2);
+        } else {
+            alertContainerFrame.origin = CGPointMake((self.frame.size.width - alertContainerFrame.size.width) / 2,
+                    self.yPosition);
+        }
         alertContainerFrame.origin.y = MAX(10, alertContainerFrame.origin.y - 30);
         self.alertContainer.frame = alertContainerFrame;
         CGRect titleFrame = self.titleLabel.frame;
@@ -94,7 +101,7 @@
         self.titleLabel.frame = titleFrame;
         [self.titleLabel sizeToFit];
         titleFrame = self.titleLabel.frame;
-        CGPoint titleOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.titleLabel.frame.size.width)/2, 0);
+        CGPoint titleOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.titleLabel.frame.size.width) / 2, 0);
         titleFrame.origin = titleOrigin;
         self.titleLabel.frame = titleFrame;
         CGRect messageFrame = self.messageLabel.frame;
@@ -102,10 +109,10 @@
         self.messageLabel.frame = messageFrame;
         [self.messageLabel sizeToFit];
         messageFrame = self.messageLabel.frame;
-        CGPoint messageOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.messageLabel.frame.size.width)/2, CGRectGetMaxY(titleFrame) + 10);
+        CGPoint messageOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.messageLabel.frame.size.width) / 2, CGRectGetMaxY(titleFrame) + 10);
         messageFrame.origin = messageOrigin;
         self.messageLabel.frame = messageFrame;
-        
+
         CGFloat startingButtonY = self.alertContentContainer.frame.size.height - [self totalButtonHeight];
         for (UIButton *button in self.buttons) {
             CGRect buttonFrame = button.frame;
@@ -119,8 +126,7 @@
 }
 
 
-
-- (CGFloat) totalButtonHeight {
+- (CGFloat)totalButtonHeight {
     __block CGFloat buttonHeight = 0;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         buttonHeight += (button.frame.size.height + self.buttonSpacing);
@@ -129,7 +135,7 @@
     return buttonHeight;
 }
 
-- (CGSize) calculateSize {
+- (CGSize)calculateSize {
     CGFloat contentWidth = 250;
     CGFloat titleHeight = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
     CGFloat messageHeight = [self.messageLabel.text sizeWithFont:self.messageLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
@@ -137,42 +143,44 @@
     return CGSizeMake(contentWidth, titleHeight + 10 + messageHeight + 10 + buttonHeight);
 }
 
-- (NSInteger) numberOfButtons {
+- (NSInteger)numberOfButtons {
     return self.buttons.count;
 }
 
 - (void)show {
     self.alertContainer.transform = CGAffineTransformMakeScale(0.01, 0.01);
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
+
     while (topController.presentedViewController) {
         topController = topController.presentedViewController;
     }
     UIView *rootView = topController.view;
     self.frame = rootView.bounds;
-    
+
     [rootView addSubview:self];
     [rootView bringSubviewToFront:self];
     if ([self.delegate respondsToSelector:@selector(willPresentAlertView:)]) {
         [self.delegate willPresentAlertView:self];
     }
-    [UIView animateWithDuration:self.animationDuration/1.5 animations:^{
+    [UIView animateWithDuration:self.animationDuration / 1.5 animations:^{
         self.backgroundOverlay.alpha = 1.0f;
-        self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);}
+        self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+    }
                      completion:^(BOOL finished) {
-                         
-                         [UIView animateWithDuration:self.animationDuration/2 animations:^{
-                             self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);} completion:^(BOOL finished) {
-                                 
-                                 [UIView animateWithDuration:self.animationDuration/2 animations:^{
-                                     self.alertContainer.transform = CGAffineTransformIdentity;
-                                 } completion:^(BOOL finished) {
-                                     _visible = YES;
-                                     if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
-                                         [self.delegate didPresentAlertView:self];
-                                     }
-                                 }];
+
+                         [UIView animateWithDuration:self.animationDuration / 2 animations:^{
+                             self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+                         }                completion:^(BOOL finished) {
+
+                             [UIView animateWithDuration:self.animationDuration / 2 animations:^{
+                                 self.alertContainer.transform = CGAffineTransformIdentity;
+                             }                completion:^(BOOL finished) {
+                                 _visible = YES;
+                                 if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
+                                     [self.delegate didPresentAlertView:self];
+                                 }
                              }];
+                         }];
                      }];
 }
 
@@ -185,7 +193,7 @@
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
     //todo delegate
-    
+
     self.alertContainer.transform = CGAffineTransformIdentity;
     if ([self.delegate respondsToSelector:@selector(alertView:willDismissWithButtonIndex:)]) {
         [self.delegate alertView:self willDismissWithButtonIndex:buttonIndex];
@@ -193,7 +201,7 @@
     [UIView animateWithDuration:self.animationDuration animations:^{
         self.backgroundOverlay.alpha = 0.0f;
         self.alertContainer.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    } completion:^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         [self removeFromSuperview];
         _visible = NO;
         if ([self.delegate respondsToSelector:@selector(alertView:didDismissWithButtonIndex:)]) {
@@ -218,7 +226,7 @@
     return self.buttons.count;
 }
 
-- (void) buttonPressed:(FUIButton *)sender {
+- (void)buttonPressed:(FUIButton *)sender {
     NSInteger index = [self.buttons indexOfObject:sender];
     if ([self.delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
         [self.delegate alertView:self clickedButtonAtIndex:index];
@@ -226,28 +234,28 @@
     [self dismissWithClickedButtonIndex:index animated:YES];
 }
 
-- (void) setDefaultButtonFont:(UIFont *)defaultButtonFont {
+- (void)setDefaultButtonFont:(UIFont *)defaultButtonFont {
     _defaultButtonFont = defaultButtonFont;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         button.titleLabel.font = defaultButtonFont;
     }];
 }
 
-- (void) setDefaultButtonTitleColor:(UIColor *)defaultButtonTitleColor {
+- (void)setDefaultButtonTitleColor:(UIColor *)defaultButtonTitleColor {
     _defaultButtonTitleColor = defaultButtonTitleColor;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         [button setTitleColor:defaultButtonTitleColor forState:UIControlStateNormal & UIControlStateHighlighted];
     }];
 }
 
-- (void) setDefaultButtonColor:(UIColor *)defaultButtonColor {
+- (void)setDefaultButtonColor:(UIColor *)defaultButtonColor {
     _defaultButtonColor = defaultButtonColor;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         button.buttonColor = defaultButtonColor;
     }];
 }
 
-- (void) setDefaultButtonShadowColor:(UIColor *)defaultButtonShadowColor {
+- (void)setDefaultButtonShadowColor:(UIColor *)defaultButtonShadowColor {
     _defaultButtonShadowColor = defaultButtonShadowColor;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         button.shadowColor = defaultButtonShadowColor;

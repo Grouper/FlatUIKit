@@ -30,6 +30,9 @@
 @property(nonatomic,readonly) NSInteger numberOfButtons;
 @property(nonatomic) NSInteger cancelButtonIndex;      // if the delegate does not implement -alertViewCancel:, we pretend this button was clicked on. default is -1
 
+// Override the y position of the alert, instead of centering
+@property(nonatomic) CGFloat yPosition;
+
 // TODO: not implemented
 //@property(nonatomic,readonly) NSInteger firstOtherButtonIndex;	// -1 if no otherButtonTitles or initWithTitle:... not used
 
