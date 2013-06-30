@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F331361175AA41100768372 /* FUIPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F331360175AA41100768372 /* FUIPopoverController.m */; };
 		4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */; };
 		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
+		A04638721780F2BD00EF98AF /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A04638701780F2BD00EF98AF /* UIPopoverController+FlatUI.m */; };
+		A09F8894175FB5D800AAC740 /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8893175FB5D800AAC740 /* FUIPopoverBackgroundView.m */; };
 		C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */; };
 		C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA6838175895C500926483 /* FUICellBackgroundView.m */; };
 		C1DA683C1758972C00926483 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA683B1758972C00926483 /* TableViewController.m */; };
@@ -50,13 +51,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F33135F175AA41100768372 /* FUIPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverController.h; sourceTree = "<group>"; };
-		4F331360175AA41100768372 /* FUIPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverController.m; sourceTree = "<group>"; };
 		4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPad.xib; sourceTree = "<group>"; };
 		6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
 		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
 		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
 		6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		A04638701780F2BD00EF98AF /* UIPopoverController+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+FlatUI.m"; sourceTree = "<group>"; };
+		A04638711780F2BD00EF98AF /* UIPopoverController+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIPopoverController+FlatUI.h"; path = "/Users/jackflintermann/Developer/FlatUIKit/FlatUIKit/Classes/ios/UIPopoverController+FlatUI.h"; sourceTree = "<absolute>"; };
+		A09F8892175FB5D800AAC740 /* FUIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		A09F8893175FB5D800AAC740 /* FUIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverBackgroundView.m; sourceTree = "<group>"; };
 		C1DA68311758953900926483 /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
 		C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
 		C1DA6837175895C500926483 /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 		FA5311761744C920002711E1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				A09F8892175FB5D800AAC740 /* FUIPopoverBackgroundView.h */,
+				A09F8893175FB5D800AAC740 /* FUIPopoverBackgroundView.m */,
 				6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */,
 				6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */,
 				FA5311771744C920002711E1 /* FUIAlertView.h */,
@@ -225,8 +230,6 @@
 				FA53117A1744C920002711E1 /* FUIButton.m */,
 				C1DA6837175895C500926483 /* FUICellBackgroundView.h */,
 				C1DA6838175895C500926483 /* FUICellBackgroundView.m */,
-				4F33135F175AA41100768372 /* FUIPopoverController.h */,
-				4F331360175AA41100768372 /* FUIPopoverController.m */,
 				FA53117B1744C920002711E1 /* FUISwitch.h */,
 				FA53117C1744C920002711E1 /* FUISwitch.m */,
 				FA53117D1744C920002711E1 /* UIBarButtonItem+FlatUI.h */,
@@ -249,6 +252,8 @@
 				6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */,
 				C1DA68311758953900926483 /* UITableViewCell+FlatUI.h */,
 				C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */,
+				A04638711780F2BD00EF98AF /* UIPopoverController+FlatUI.h */,
+				A04638701780F2BD00EF98AF /* UIPopoverController+FlatUI.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -366,7 +371,8 @@
 				C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */,
 				C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */,
 				C1DA683C1758972C00926483 /* TableViewController.m in Sources */,
-				4F331361175AA41100768372 /* FUIPopoverController.m in Sources */,
+				A09F8894175FB5D800AAC740 /* FUIPopoverBackgroundView.m in Sources */,
+				A04638721780F2BD00EF98AF /* UIPopoverController+FlatUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

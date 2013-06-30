@@ -20,11 +20,10 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
-#import "FUIPopoverController.h"
+#import "UIPopoverController+FlatUI.h"
 
-@interface ViewController ()
-{
-    FUIPopoverController *popover;
+@interface ViewController () {
+    UIPopoverController *_popoverController;
 }
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
 @property (weak, nonatomic) IBOutlet FUIButton *popoverButton;
@@ -147,10 +146,11 @@
     
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    popover = [[FUIPopoverController alloc] initWithContentViewController:nc];
-    popover.backgroundColor = [UIColor midnightBlueColor];
-    popover.delegate = self;
-    [popover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    _popoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
+    [_popoverController configureFlatPopoverWithBackgroundColor:[UIColor turquoiseColor] cornerRadius:9.0];
+    _popoverController.delegate = self;
+    
+    [_popoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)showTableView:(id)sender {
@@ -171,9 +171,8 @@
     return YES;
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    
+- (void) popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    _popoverController = nil;
 }
 
 @end
