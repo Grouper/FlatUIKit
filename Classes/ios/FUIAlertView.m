@@ -145,7 +145,7 @@
     self.alertContainer.transform = CGAffineTransformMakeScale(0.01, 0.01);
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
     
-    while (topController.presentedViewController) {
+    while (topController.presentedViewController && !topController.presentedViewController.isBeingDismissed) {
         topController = topController.presentedViewController;
     }
     UIView *rootView = topController.view;
