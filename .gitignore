@@ -8,7 +8,9 @@ bin/
 *.pbxuser
 *.perspective
 *.perspectivev3
-Example/FlatUIKitExample.xcodeproj/project.xcworkspace/xcuserdata/
-Example/FlatUIKitExample.xcodeproj/xcuserdata/
+xcuserdata
 objects
 Settings.bundle
+Pods
+Podfile.lock
+*.xcworkspace
