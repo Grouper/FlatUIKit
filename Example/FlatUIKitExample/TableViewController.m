@@ -63,7 +63,12 @@
     if (!cell) {
         cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor] style:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.cornerRadius = 5.f; //Optional
-        cell.separatorHeight = 2.f; //Optional
+        if (self.tableView.style == UITableViewStyleGrouped) {
+            cell.separatorHeight = 2.f; //Optional            
+        }
+        else {
+            cell.separatorHeight = 0.;
+        }
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"Section %d Row %d", indexPath.section, indexPath.row];
