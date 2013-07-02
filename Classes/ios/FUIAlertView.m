@@ -85,8 +85,8 @@
         contentContainerFrame.size = [self calculateSize];
         self.alertContentContainer.frame = contentContainerFrame;
         CGRect alertContainerFrame = CGRectInset(contentContainerFrame, -padding, -padding);
-        alertContainerFrame.origin = CGPointMake((self.frame.size.width - alertContainerFrame.size.width) / 2,
-                                                 (self.frame.size.height - alertContainerFrame.size.height) / 2);
+        alertContainerFrame.origin = CGPointMake(floorf((self.frame.size.width - alertContainerFrame.size.width) / 2),
+                                                 floorf((self.frame.size.height - alertContainerFrame.size.height) / 2));
         alertContainerFrame.origin.y = MAX(10, alertContainerFrame.origin.y - 30);
         self.alertContainer.frame = alertContainerFrame;
         CGRect titleFrame = self.titleLabel.frame;
@@ -94,7 +94,7 @@
         self.titleLabel.frame = titleFrame;
         [self.titleLabel sizeToFit];
         titleFrame = self.titleLabel.frame;
-        CGPoint titleOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.titleLabel.frame.size.width)/2, 0);
+        CGPoint titleOrigin = CGPointMake(floorf((self.alertContentContainer.frame.size.width - self.titleLabel.frame.size.width)/2), 0);
         titleFrame.origin = titleOrigin;
         self.titleLabel.frame = titleFrame;
         CGRect messageFrame = self.messageLabel.frame;
