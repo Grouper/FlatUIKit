@@ -10,7 +10,7 @@
 
 @implementation UIImage (FlatUI)
 
-CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
+static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     return cornerRadius * 2 + 1;
 }
 
