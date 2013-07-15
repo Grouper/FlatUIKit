@@ -51,6 +51,7 @@
 @property(nonatomic, weak, readonly) UIView *alertContainer;
 @property(nonatomic) CGFloat buttonSpacing;
 @property(nonatomic) CGFloat animationDuration;
+@property(nonatomic) BOOL hasCancelButton;
 
 //setting these properties overwrites any other button colors/fonts that have already been set
 @property(nonatomic, strong) UIFont *defaultButtonFont;
