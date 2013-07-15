@@ -64,14 +64,17 @@
         messageLabel.text = self.message;
         [alertContentContainer addSubview:messageLabel];
         _messageLabel = messageLabel;
-        
+
+        if (cancelButtonTitle) {
+            [self addButtonWithTitle:cancelButtonTitle];
+            [self setHasCancelButton:YES];
+        }
         va_list args;
         va_start(args, otherButtonTitles);
         for (NSString *arg = otherButtonTitles; arg != nil; arg = va_arg(args, NSString*)) {
             [self addButtonWithTitle:arg];
         }
         va_end(args);
-        [self addButtonWithTitle:cancelButtonTitle];
     }
     return self;
 }
@@ -105,20 +108,27 @@
         CGPoint messageOrigin = CGPointMake((self.alertContentContainer.frame.size.width - self.messageLabel.frame.size.width)/2, CGRectGetMaxY(titleFrame) + 10);
         messageFrame.origin = messageOrigin;
         self.messageLabel.frame = messageFrame;
-        
-        CGFloat startingButtonY = self.alertContentContainer.frame.size.height - [self totalButtonHeight];
-        for (UIButton *button in self.buttons) {
-            CGRect buttonFrame = button.frame;
-            buttonFrame.origin = CGPointMake(0, startingButtonY);
-            buttonFrame.size.width = self.alertContentContainer.frame.size.width;
-            button.frame = buttonFrame;
-            startingButtonY += (button.frame.size.height + self.buttonSpacing);
-        }
 
+        __block CGFloat startingButtonY = self.alertContentContainer.frame.size.height - [self totalButtonHeight];
+        [self.buttons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            UIButton *button = obj;
+            if (self.hasCancelButton && idx == 0) {
+                CGFloat lastButtonY = self.alertContentContainer.frame.size.height - button.frame.size.height;
+                [self setButton:obj atHeight:lastButtonY];
+            } else {
+                [self setButton:obj atHeight:startingButtonY];
+                startingButtonY += (button.frame.size.height + self.buttonSpacing);
+            }
+        }];
     }
 }
 
-
+- (void)setButton:(UIButton *)button atHeight:(CGFloat)height {
+    CGRect buttonFrame = button.frame;
+    buttonFrame.origin = CGPointMake(0, height);
+    buttonFrame.size.width = self.alertContentContainer.frame.size.width;
+    button.frame = buttonFrame;
+}
 
 - (CGFloat) totalButtonHeight {
     __block CGFloat buttonHeight = 0;
