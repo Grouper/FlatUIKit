@@ -64,6 +64,18 @@
     expect(cancelButton.titleLabel.text).to.equal(@"Cancel");
 }
 
+- (void)testAlertViewAlwaysPlacesCancelButtonBelowOtherButtons {
+    FUIAlertView *multiButtonAlert = [[FUIAlertView alloc] initWithTitle:@"Test Title" message:@"Test message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Button1", @"Button2", nil];
+    [multiButtonAlert layoutSubviews];
+
+    CGRect cancelButtonFrame = [[multiButtonAlert.buttons objectAtIndex:0] frame];
+    CGRect button1Frame = [[multiButtonAlert.buttons objectAtIndex:1] frame];
+    CGRect button2Frame = [[multiButtonAlert.buttons objectAtIndex:2] frame];
+
+    expect(cancelButtonFrame.origin.y).to.beGreaterThan(button1Frame.origin.y);
+    expect(cancelButtonFrame.origin.y).to.beGreaterThan(button2Frame.origin.y);
+}
+
 - (void)testAlertViewSetsCorrectOtherButtonTitles {
     FUIAlertView *multiButtonAlert = [[FUIAlertView alloc] initWithTitle:@"Test title" message:@"Test message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Title1", @"Title2", nil];
     UIButton *otherButton1 = [multiButtonAlert.buttons objectAtIndex:1];
