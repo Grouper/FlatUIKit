@@ -1,4 +1,4 @@
-desc 'Run the FUIKit tests for iOS'
+desc 'Setup the schemes required to run iOS tests'
 task :prepare do
   system(%Q{mkdir -p "Tests/FUIKitTests.xcodeproj/xcshareddata/xcschemes" && cp Tests/Schemes/*.xcscheme "Tests/FUIKitTests.xcodeproj/xcshareddata/xcschemes/"})
 end
@@ -9,6 +9,7 @@ task :ios => :prepare do
   $test_success = system('xctool -workspace Tests/FUIKitTests.xcworkspace -scheme FUIKitTests test -test-sdk iphonesimulator ONLY_ACTIVE_ARCH=NO')
 end
 
+desc 'Run all iOS tests'
 task :test => :ios do
   if $test_success
     puts '** All tests passed successfully **'
