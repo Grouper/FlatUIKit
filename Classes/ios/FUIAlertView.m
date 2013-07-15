@@ -64,14 +64,14 @@
         messageLabel.text = self.message;
         [alertContentContainer addSubview:messageLabel];
         _messageLabel = messageLabel;
-        
+
+        [self addButtonWithTitle:cancelButtonTitle];
         va_list args;
         va_start(args, otherButtonTitles);
         for (NSString *arg = otherButtonTitles; arg != nil; arg = va_arg(args, NSString*)) {
             [self addButtonWithTitle:arg];
         }
         va_end(args);
-        [self addButtonWithTitle:cancelButtonTitle];
     }
     return self;
 }
