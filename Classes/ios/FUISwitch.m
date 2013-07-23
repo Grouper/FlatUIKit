@@ -114,7 +114,7 @@
             [self sendActionsForControlEvents:UIControlEventValueChanged];
         }
     }
-    [self setPercentOn:_on * 1.0f animated:animated];
+    [self setPercentOn:[NSNumber numberWithBool:_on].integerValue * 1.0f animated:animated];
 }
 
 - (void) setPercentOn:(CGFloat)percentOn {
