@@ -148,7 +148,7 @@
 }
 
 - (NSInteger) numberOfButtons {
-    return self.buttons.count;
+    return (NSInteger)self.buttons.count;
 }
 
 - (void)show {
@@ -172,11 +172,11 @@
                      completion:^(BOOL finished) {
                          
                          [UIView animateWithDuration:self.animationDuration/2 animations:^{
-                             self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);} completion:^(BOOL finished) {
+                             self.alertContainer.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9f, 0.9f);} completion:^(BOOL finished0) {
                                  
                                  [UIView animateWithDuration:self.animationDuration/2 animations:^{
                                      self.alertContainer.transform = CGAffineTransformIdentity;
-                                 } completion:^(BOOL finished) {
+                                 } completion:^(BOOL finished1) {
                                      _visible = YES;
                                      if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
                                          [self.delegate didPresentAlertView:self];
@@ -187,10 +187,10 @@
 }
 
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex < 0 || buttonIndex > self.buttons.count) {
+    if (buttonIndex < 0 || buttonIndex > (NSInteger)self.buttons.count) {
         return nil;
     }
-    return [[self.buttons objectAtIndex:buttonIndex] titleForState:UIControlStateNormal];
+    return [[self.buttons objectAtIndex:(NSUInteger)buttonIndex] titleForState:UIControlStateNormal];
 }
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
@@ -226,19 +226,19 @@
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.alertContentContainer addSubview:button];
     [self.buttons addObject:button];
-    return self.buttons.count-1;
+    return (NSInteger)self.buttons.count-1;
 }
 
 - (void) buttonPressed:(FUIButton *)sender {
-    NSInteger index = [self.buttons indexOfObject:sender];
+    NSUInteger index = [self.buttons indexOfObject:sender];
     if ([self.delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
-        [self.delegate alertView:self clickedButtonAtIndex:index];
+        [self.delegate alertView:self clickedButtonAtIndex:(NSInteger)index];
     }
-    [self dismissWithClickedButtonIndex:index animated:YES];
+    [self dismissWithClickedButtonIndex:(NSInteger)index animated:YES];
 }
 
 - (void)clickButtonAtIndex:(NSInteger)buttonIndex {
-    [[self.buttons objectAtIndex:buttonIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [[self.buttons objectAtIndex:(NSUInteger)buttonIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setDefaultButtonFont:(UIFont *)defaultButtonFont {
