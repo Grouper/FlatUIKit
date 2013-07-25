@@ -9,10 +9,16 @@
 
 @implementation FUICellBackgroundView
 
++ (void)initialize {
+    if (self == [FUICellBackgroundView class]) {
+        FUICellBackgroundView *appearance = [self appearance];
+        [appearance setCornerRadius:3.0f];
+        [appearance setSeparatorHeight:1.0f];
+    }
+}
+
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
-		self.cornerRadius = 3.0f;
-        self.separatorHeight = 1.0f;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	}
 
