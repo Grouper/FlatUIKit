@@ -16,29 +16,32 @@
 
 + (UITableViewCell*) configureFlatCellWithColor:(UIColor *)color selectedColor:(UIColor *)selectedColor style:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    FUICellBackgroundView* backgroundView = [FUICellBackgroundView new];
+	[cell configureFlatCellWithColor:color selectedColor:selectedColor];
+    return cell;
+}
+
+- (void) configureFlatCellWithColor:(UIColor *)color selectedColor:(UIColor *)selectedColor
+{
+	FUICellBackgroundView* backgroundView = [FUICellBackgroundView new];
     backgroundView.backgroundColor = color;
-    cell.backgroundView = backgroundView;
+    self.backgroundView = backgroundView;
     
     FUICellBackgroundView* selectedBackgroundView = [FUICellBackgroundView new];
     selectedBackgroundView.backgroundColor = selectedColor;
-    cell.selectedBackgroundView = selectedBackgroundView;
+    self.selectedBackgroundView = selectedBackgroundView;
     
     //The labels need a clear background color or they will look very funky
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    if ([cell respondsToSelector:@selector(detailTextLabel)])
-        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    if ([self respondsToSelector:@selector(detailTextLabel)])
+        self.detailTextLabel.backgroundColor = [UIColor clearColor];
     
     //Guess some good text colors
-    cell.textLabel.textColor = selectedColor;
-    cell.textLabel.highlightedTextColor = color;
-    if ([cell respondsToSelector:@selector(detailTextLabel)]) {
-        cell.detailTextLabel.textColor = selectedColor;
-        cell.detailTextLabel.highlightedTextColor = color;
+    self.textLabel.textColor = selectedColor;
+    self.textLabel.highlightedTextColor = color;
+    if ([self respondsToSelector:@selector(detailTextLabel)]) {
+        self.detailTextLabel.textColor = selectedColor;
+        self.detailTextLabel.highlightedTextColor = color;
     }
-    
-    return cell;
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
