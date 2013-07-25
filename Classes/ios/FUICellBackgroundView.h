@@ -15,9 +15,9 @@ typedef enum  {
 @interface FUICellBackgroundView : UIView
 
 @property (nonatomic) FUICellBackgroundViewPosition position;
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat cornerRadius;
-@property (nonatomic, strong) UIColor* separatorColor;
+@property (nonatomic, strong) UIColor* separatorColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat separatorHeight;
 
 @end

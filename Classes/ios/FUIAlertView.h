@@ -54,10 +54,10 @@
 @property(nonatomic) BOOL hasCancelButton;
 
 //setting these properties overwrites any other button colors/fonts that have already been set
-@property(nonatomic, strong) UIFont *defaultButtonFont;
-@property(nonatomic, strong) UIColor *defaultButtonTitleColor;
-@property(nonatomic, strong) UIColor *defaultButtonColor;
-@property(nonatomic, strong) UIColor *defaultButtonShadowColor;
+@property(nonatomic, strong) UIFont *defaultButtonFont UI_APPEARANCE_SELECTOR;
+@property(nonatomic, strong) UIColor *defaultButtonTitleColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, strong) UIColor *defaultButtonColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, strong) UIColor *defaultButtonShadowColor UI_APPEARANCE_SELECTOR;
 
 @end
 
