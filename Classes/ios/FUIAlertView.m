@@ -17,6 +17,14 @@
 
 @implementation FUIAlertView
 
++ (void)initialize {
+    if (self == [FUIAlertView class]) {
+        FUIAlertView *appearance = [self appearance];
+        [appearance setButtonSpacing:10.0f];
+        [appearance setAnimationDuration:0.2f];
+    }
+}
+
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message
            delegate:(id<FUIAlertViewDelegate>)delegate
@@ -27,9 +35,6 @@
         self.title = title;
         self.message = message;
         self.delegate = delegate;
-        
-        self.buttonSpacing = 10;
-        self.animationDuration = 0.2f;
         
         UIView *backgroundOverlay = [[UIView alloc] init];
         backgroundOverlay.backgroundColor = [UIColor blueColor];
