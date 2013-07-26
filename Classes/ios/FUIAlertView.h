@@ -44,7 +44,7 @@
 
 - (void)clickButtonAtIndex:(NSInteger)buttonIndex;
 
-@property(nonatomic) NSMutableArray *buttons;
+@property(nonatomic, strong) NSMutableArray *buttons;
 @property(nonatomic, weak, readonly) UILabel *titleLabel;
 @property(nonatomic, weak, readonly) UILabel *messageLabel;
 @property(nonatomic, weak, readonly) UIView *backgroundOverlay;
