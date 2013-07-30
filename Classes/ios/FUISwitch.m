@@ -176,6 +176,11 @@
     [self updateBackground];
 }
 
+- (void) setSwitchCornerRadius:(CGFloat)switchCornerRadius {
+    _switchCornerRadius = switchCornerRadius;
+    self.layer.cornerRadius = _switchCornerRadius;
+}
+
 - (void) updateBackground {
     self.backgroundColor = [UIColor blendedColorWithForegroundColor:self.onBackgroundColor
                                                     backgroundColor:self.offBackgroundColor
