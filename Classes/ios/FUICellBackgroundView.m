@@ -31,21 +31,31 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
+    // UITableViewCells and UITableViews are not guaranteed to be the current
+    // view's parent and grandparent views, respectively. (e.g. iOS7 vs iOS6)
+    // As such, we iterate upwards until we find both.
+    UITableView *tableView = nil;
+    UITableViewCell *tableViewCell = nil;
+    UIResponder *nextResponder = self;
+    while (nextResponder && (!tableView || !tableViewCell)) {
+        nextResponder = nextResponder.nextResponder;
+        if ([nextResponder isMemberOfClass:[UITableView class]]) {
+            tableView = (UITableView *)nextResponder;
+        } else if ([nextResponder isMemberOfClass:[UITableViewCell class]]) {
+            tableViewCell = (UITableViewCell *)nextResponder;
+        }
+    }
     
-    //Determine position
-    UITableView* tableView = (UITableView*)self.superview.superview;
-    NSIndexPath* indexPath = [tableView indexPathForCell:(UITableViewCell*)self.superview];
-    
+    // Determine position in the tableView
+    NSIndexPath *indexPath = [tableView indexPathForCell:tableViewCell];
     if ([tableView numberOfRowsInSection:indexPath.section] == 1) {
         self.position = FUICellBackgroundViewPositionSingle;
-    }
-    else if (indexPath.row == 0) {
+    } else if (indexPath.row == 0) {
         self.position = FUICellBackgroundViewPositionTop;
-    }
-    else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1) {
+    } else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1) {
         self.position = FUICellBackgroundViewPositionBottom;
-    }
-    else {
+    } else {
         self.position = UACellBackgroundViewPositionMiddle;
     }
     
