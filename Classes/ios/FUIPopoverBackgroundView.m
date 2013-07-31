@@ -11,9 +11,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
 
-#define CONTENT_INSET 10.0
-#define ARROW_BASE 40.0
-#define ARROW_HEIGHT 20.0
+#define CONTENT_INSET 10.0f
+#define ARROW_BASE 40.0f
+#define ARROW_HEIGHT 20.0f
 
 static CGFloat _cornerRadius = 9.0;
 static UIColor *_backgroundColor;
@@ -149,7 +149,7 @@ static UIColor *_backgroundColor;
             _height -= ARROW_HEIGHT;
             _coordinate = ((self.frame.size.width / 2) + self.arrowOffset) - (ARROW_BASE/2);
             _arrowView.frame = CGRectMake(_coordinate, _height, ARROW_BASE, ARROW_HEIGHT);
-            _rotation = CGAffineTransformMakeRotation( M_PI );
+            _rotation = CGAffineTransformMakeRotation( (float)M_PI );
             break;
             
         case UIPopoverArrowDirectionLeft:
@@ -157,14 +157,14 @@ static UIColor *_backgroundColor;
             _width -= ARROW_BASE;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset) - (ARROW_HEIGHT/2);
             _arrowView.frame = CGRectMake(0, _coordinate, ARROW_BASE, ARROW_HEIGHT);
-            _rotation = CGAffineTransformMakeRotation( -M_PI_2 );
+            _rotation = CGAffineTransformMakeRotation( -(float)M_PI_2 );
             break;
             
         case UIPopoverArrowDirectionRight:
             _width -= ARROW_BASE;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset)- (ARROW_HEIGHT/2);
             _arrowView.frame = CGRectMake(_width, _coordinate, ARROW_BASE, ARROW_HEIGHT);
-            _rotation = CGAffineTransformMakeRotation( M_PI_2 );
+            _rotation = CGAffineTransformMakeRotation( (float)M_PI_2 );
             
             break;
             
