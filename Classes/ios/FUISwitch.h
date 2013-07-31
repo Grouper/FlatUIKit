@@ -16,6 +16,7 @@
 @property(nonatomic, readwrite) UIColor *onColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) UIColor *offColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) UIColor *highlightedColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, readwrite) CGFloat switchCornerRadius UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) CGFloat percentOn;
 @property(weak, readwrite, nonatomic) UILabel *offLabel;
 @property(weak, readwrite, nonatomic) UILabel *onLabel;
