@@ -11,35 +11,18 @@
 
 @implementation FUISegmentedControl
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        [self defaultColors];
++ (void)initialize {
+    if (self == [FUISegmentedControl class]) {
+        FUISegmentedControl *appearance = [self appearance];
+        [appearance setCornerRadius:5.0f];
+        [appearance setSelectedColor:[UIColor blueColor]];
+        [appearance setDeselectedColor:[UIColor darkGrayColor]];
+        [appearance setDividerColor:[UIColor grayColor]];
+        [appearance setSelectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
+        [appearance setDeselectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
+        [appearance setSelectedFontColor:[UIColor whiteColor]];
+        [appearance setDeselectedFontColor:[UIColor whiteColor]];
     }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Initialization code
-        [self defaultColors];
-    }
-    return self;
-}
-
-- (void)defaultColors{
-    self.cornerRadius = 5.0;
-    self.selectedColor = [UIColor blueColor];
-    self.deselectedColor = [UIColor darkGrayColor];
-    self.dividerColor = [UIColor grayColor];
-    self.selectedFont = [UIFont fontWithName:@"Arial" size:15.0];
-    self.deselectedFont = [UIFont fontWithName:@"Arial" size:15.0];
-    self.selectedFontColor = [UIColor whiteColor];
-    self.deselectedFontColor = [UIColor whiteColor];
 }
 
 - (void)setDeselectedColor:(UIColor *)deselectedColor {
