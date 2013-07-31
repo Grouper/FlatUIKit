@@ -58,6 +58,8 @@
 @property(nonatomic, strong) UIColor *defaultButtonTitleColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *defaultButtonColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *defaultButtonShadowColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, readwrite) CGFloat defaultButtonCornerRadius UI_APPEARANCE_SELECTOR;
+@property(nonatomic, readwrite) CGFloat defaultButtonShadowHeight UI_APPEARANCE_SELECTOR;
 
 @end
 

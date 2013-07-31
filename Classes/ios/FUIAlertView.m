@@ -274,4 +274,18 @@
     }];
 }
 
+- (void) setDefaultButtonCornerRadius:(CGFloat)defaultButtonCornerRadius {
+    _defaultButtonCornerRadius = defaultButtonCornerRadius;
+    [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
+        button.cornerRadius = defaultButtonCornerRadius;
+    }];
+}
+
+- (void) setDefaultButtonShadowHeight:(CGFloat)defaultButtonShadowHeight {
+    _defaultButtonShadowHeight = defaultButtonShadowHeight;
+    [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
+        button.shadowHeight = defaultButtonShadowHeight;
+    }];
+}
+
 @end
