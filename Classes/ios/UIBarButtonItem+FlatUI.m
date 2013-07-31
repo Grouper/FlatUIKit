@@ -59,6 +59,22 @@
   }
 }
 
+- (void) setTitleColor:(UIColor *) aColor
+           highlighted:(UIColor *) aHighlightedColor
+          removeShadow:(BOOL) aRemoveShadow {
+    NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+    for (NSNumber *state in states) {
+        UIControlState controlState = [state unsignedIntegerValue];
+        
+        NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+        if (!titleTextAttributes) { titleTextAttributes = [NSMutableDictionary dictionary]; }
+        
+        UIColor *color = controlState == UIControlStateNormal ? aColor : aHighlightedColor;
+        [titleTextAttributes setObject:color forKey:UITextAttributeTextColor];
+        [self setTitleTextAttributes:titleTextAttributes forState:controlState];
+    }
+    if (aRemoveShadow == YES) { [self removeTitleShadow]; }
+}
 
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
