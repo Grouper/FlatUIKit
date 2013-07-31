@@ -8,6 +8,7 @@
 
 #import "UIImage+FlatUI.h"
 
+
 @implementation UIImage (FlatUI)
 
 static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
@@ -110,7 +111,7 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
 + (UIImage *) backButtonImageWithColor:(UIColor *)color
                             barMetrics:(UIBarMetrics) metrics
                           cornerRadius:(CGFloat)cornerRadius {
-
+    
     CGSize size;
     if (metrics == UIBarMetricsDefault) {
         size = CGSizeMake(50, 30);
@@ -118,65 +119,65 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     else {
         size = CGSizeMake(60, 23);
     }
-  
-  
-  UIBezierPath *path = [self bezierPathForBackButtonInRect:CGRectMake(0, 0, size.width, size.height) cornerRadius:cornerRadius];
-  UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-
-  CGContextRef context = UIGraphicsGetCurrentContext();
-  CGContextSetStrokeColorWithColor(context, [UIColor colorWithR:0 g:122 b:245].CGColor);
-  CGContextSetLineWidth(context, 3.0f);
-
-  CGRect rect = CGRectMake(0, 0, size.width, size.height);
-  CGPoint tip = CGPointMake(8, CGRectGetMidY(rect));
-  CGPoint top = CGPointMake(13 + 4, CGRectGetMinY(rect) + 6);
-  CGPoint bottom = CGPointMake(13 + 4, CGRectGetMaxY(rect) - 6);
-  CGContextMoveToPoint(context, top.x, top.y);
-  CGContextAddLineToPoint(context, tip.x, tip.y);
-  CGContextAddLineToPoint(context, bottom.x, bottom.y);
-  CGContextStrokePath(context);
-  
-  [color setFill];
-  //[path addClip];
-  [path fill];
-  
-  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-  return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 0, cornerRadius, cornerRadius)];
+    
+    
+    UIBezierPath *path = [self bezierPathForBackButtonInRect:CGRectMake(0, 0, size.width, size.height) cornerRadius:cornerRadius];
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(context, [UIColor colorWithR:0 g:122 b:245].CGColor);
+    CGContextSetLineWidth(context, 3.0f);
+    
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGPoint tip = CGPointMake(8, CGRectGetMidY(rect));
+    CGPoint top = CGPointMake(13 + 4, CGRectGetMinY(rect) + 6);
+    CGPoint bottom = CGPointMake(13 + 4, CGRectGetMaxY(rect) - 6);
+    CGContextMoveToPoint(context, top.x, top.y);
+    CGContextAddLineToPoint(context, tip.x, tip.y);
+    CGContextAddLineToPoint(context, bottom.x, bottom.y);
+    CGContextStrokePath(context);
+    
+    [color setFill];
+    [path addClip];
+    [path fill];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 0, cornerRadius, cornerRadius)];
     
 }
 
 
 + (UIBezierPath *) bezierPathForBackButtonInRect:(CGRect)rect cornerRadius:(CGFloat)radius {
-  UIBezierPath *path = [UIBezierPath bezierPath];
-  CGPoint mPoint = CGPointMake(CGRectGetMaxX(rect) - radius, rect.origin.y);
-  CGPoint ctrlPoint = mPoint;
-  [path moveToPoint:mPoint];
-  
-  ctrlPoint.y += radius;
-  mPoint.x += radius;
-  mPoint.y += radius;
-  if (radius > 0) [path addArcWithCenter:ctrlPoint radius:radius startAngle:(float)M_PI + (float)M_PI_2 endAngle:0 clockwise:YES];
-  
-  mPoint.y = CGRectGetMaxY(rect) - radius;
-  [path addLineToPoint:mPoint];
-  
-  ctrlPoint = mPoint;
-  mPoint.y += radius;
-  mPoint.x -= radius;
-  ctrlPoint.x -= radius;
-  if (radius > 0) [path addArcWithCenter:ctrlPoint radius:radius startAngle:0 endAngle:(float)M_PI_2 clockwise:YES];
-  
-  mPoint.x = rect.origin.x + (10.0f);
-  [path addLineToPoint:mPoint];
-  
-  [path addLineToPoint:CGPointMake(rect.origin.x, CGRectGetMidY(rect))];
-  
-  mPoint.y = rect.origin.y;
-  [path addLineToPoint:mPoint];
-  
-  [path closePath];
-  return path;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    CGPoint mPoint = CGPointMake(CGRectGetMaxX(rect) - radius, rect.origin.y);
+    CGPoint ctrlPoint = mPoint;
+    [path moveToPoint:mPoint];
+    
+    ctrlPoint.y += radius;
+    mPoint.x += radius;
+    mPoint.y += radius;
+    if (radius > 0) [path addArcWithCenter:ctrlPoint radius:radius startAngle:(float)M_PI + (float)M_PI_2 endAngle:0 clockwise:YES];
+    
+    mPoint.y = CGRectGetMaxY(rect) - radius;
+    [path addLineToPoint:mPoint];
+    
+    ctrlPoint = mPoint;
+    mPoint.y += radius;
+    mPoint.x -= radius;
+    ctrlPoint.x -= radius;
+    if (radius > 0) [path addArcWithCenter:ctrlPoint radius:radius startAngle:0 endAngle:(float)M_PI_2 clockwise:YES];
+    
+    mPoint.x = rect.origin.x + (10.0f);
+    [path addLineToPoint:mPoint];
+    
+    [path addLineToPoint:CGPointMake(rect.origin.x, CGRectGetMidY(rect))];
+    
+    mPoint.y = rect.origin.y;
+    [path addLineToPoint:mPoint];
+    
+    [path closePath];
+    return path;
 }
 
 
