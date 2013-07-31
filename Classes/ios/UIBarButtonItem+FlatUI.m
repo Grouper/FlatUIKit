@@ -37,14 +37,29 @@
   [UIBarButtonItem configureItemOrProxy:appearance forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
 }
 
+
 - (void) removeTitleShadow {
-  NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:UIControlStateNormal] mutableCopy];
-  if (!titleTextAttributes) {
-    titleTextAttributes = [NSMutableDictionary dictionary];
+  NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+  
+  for (NSNumber *state in states) {
+    UIControlState controlState = [state unsignedIntegerValue];
+    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+    if (!titleTextAttributes) {
+      titleTextAttributes = [NSMutableDictionary dictionary];
+    }
+
+    /*** UNEXPECTED ***
+     UITextAttributeShadowOffset is deprecated in 5.0 - replaced with NSShadow
+     - tried using NSShadow, but the shadow on the title remained
+     - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
+     ******************/
+    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
+    [titleTextAttributes setObject:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
+    [self setTitleTextAttributes:titleTextAttributes forState:controlState];
   }
-  [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
-  [self setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
 }
+
+
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
 + (void) configureItemOrProxy:(id)appearance
