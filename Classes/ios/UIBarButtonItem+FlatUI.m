@@ -37,13 +37,37 @@
   [UIBarButtonItem configureItemOrProxy:appearance forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
 }
 
-- (void) removeTitleShadow {
-  NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:UIControlStateNormal] mutableCopy];
-  if (!titleTextAttributes) {
-    titleTextAttributes = [NSMutableDictionary dictionary];
+- (void) setTitleColor:(UIColor *) aColor
+           highlighted:(UIColor *) aHighlightedColor {
+  NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+  for (NSNumber *state in states) {
+    UIControlState controlState = [state unsignedIntegerValue];
+
+    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+    if (!titleTextAttributes) {
+      titleTextAttributes = [NSMutableDictionary dictionary];
+    }
+    UIColor *color = controlState == UIControlStateNormal ? aColor : aHighlightedColor;
+    [titleTextAttributes setObject:color forKey:UITextAttributeTextColor];
+    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
+  
+    [self setTitleTextAttributes:titleTextAttributes forState:controlState];
   }
-  [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
-  [self setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
+}
+
+- (void) removeTitleShadow {
+  NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+  
+  for (NSNumber *state in states) {
+    UIControlState controlState = [state unsignedIntegerValue];
+    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+    if (!titleTextAttributes) {
+      titleTextAttributes = [NSMutableDictionary dictionary];
+    }
+    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)] forKey:UITextAttributeTextShadowOffset];
+    [titleTextAttributes setObject:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
+    [self setTitleTextAttributes:titleTextAttributes forState:controlState];
+  }
 }
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
