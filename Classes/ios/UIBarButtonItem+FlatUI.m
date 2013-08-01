@@ -317,7 +317,7 @@
     // hide the text
     // maybe we should pass the navbar color?
     UIColor *clear = [UIColor clearColor];
-    [back setTitleColor:clear  highlighted:clear removeShadow:YES];
+    [back setTitleColor:clear highlighted:clear removeShadow:YES];
 
     
     return back;
