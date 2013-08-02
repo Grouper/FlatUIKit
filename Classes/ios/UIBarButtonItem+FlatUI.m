@@ -35,7 +35,7 @@
  @param aMetric the bar metrics
  */
 + (UIImage *) backButtonImageWith_iOS7_style_WithChevronColor:(UIColor *) aColor
-                                            barMetrics:(UIBarMetrics) aMetrics;
+                                                   barMetrics:(UIBarMetrics) aMetrics;
 
 
 
@@ -285,8 +285,8 @@
                                     forState:UIControlStateHighlighted
                                   barMetrics:UIBarMetricsLandscapePhone];
     
-    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -2.0f) forBarMetrics:UIBarMetricsDefault];
-    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -2.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -1.0f) forBarMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
 
     /*
      unnecessary ?
