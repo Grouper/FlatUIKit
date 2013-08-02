@@ -17,6 +17,14 @@
 
 @implementation FUIAlertView
 
++ (void)initialize {
+    if (self == [FUIAlertView class]) {
+        FUIAlertView *appearance = [self appearance];
+        [appearance setButtonSpacing:10.0f];
+        [appearance setAnimationDuration:0.2f];
+    }
+}
+
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message
            delegate:(id<FUIAlertViewDelegate>)delegate
@@ -27,9 +35,6 @@
         self.title = title;
         self.message = message;
         self.delegate = delegate;
-        
-        self.buttonSpacing = 10;
-        self.animationDuration = 0.2f;
         
         UIView *backgroundOverlay = [[UIView alloc] init];
         backgroundOverlay.backgroundColor = [UIColor blueColor];
@@ -266,6 +271,20 @@
     _defaultButtonShadowColor = defaultButtonShadowColor;
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         button.shadowColor = defaultButtonShadowColor;
+    }];
+}
+
+- (void) setDefaultButtonCornerRadius:(CGFloat)defaultButtonCornerRadius {
+    _defaultButtonCornerRadius = defaultButtonCornerRadius;
+    [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
+        button.cornerRadius = defaultButtonCornerRadius;
+    }];
+}
+
+- (void) setDefaultButtonShadowHeight:(CGFloat)defaultButtonShadowHeight {
+    _defaultButtonShadowHeight = defaultButtonShadowHeight;
+    [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
+        button.shadowHeight = defaultButtonShadowHeight;
     }];
 }
 
