@@ -42,7 +42,7 @@
     return [UIColor colorFromHexCode:@"16A085"];
 }
 
-+ (UIColor *) emerlandColor {
++ (UIColor *) emeraldColor {
     return [UIColor colorFromHexCode:@"2ECC71"];
 }
 

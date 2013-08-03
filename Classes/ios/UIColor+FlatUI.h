@@ -13,7 +13,7 @@
 + (UIColor *) colorFromHexCode:(NSString *)hexString;
 + (UIColor *) turquoiseColor;
 + (UIColor *) greenSeaColor;
-+ (UIColor *) emerlandColor;
++ (UIColor *) emeraldColor;
 + (UIColor *) nephritisColor;
 + (UIColor *) peterRiverColor;
 + (UIColor *) belizeHoleColor;
