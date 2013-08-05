@@ -25,6 +25,21 @@
     }
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if(self.needsLayoutSubviews) {
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        
+        if (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsLandscape(orientation)) {
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 22);
+        } else {
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 30);
+        }
+    }
+}
+
 - (void)setDeselectedColor:(UIColor *)deselectedColor {
     _deselectedColor = deselectedColor;
     [self configureFlatSegmentedControl];
