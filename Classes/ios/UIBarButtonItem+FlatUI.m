@@ -61,12 +61,18 @@
      
      - not tested on portrait rotation (non-default bar metrics)
      
-     - the constants are heuristics - if you think you can improve on them, go for it
-     
      *******************/
+     // matches nicely, but causes text clipping
     static CGFloat const k_tip_x = 8;
     static CGFloat const k_wing_x = 16;
     static CGFloat const k_wing_y_offset = 6;
+
+    /*
+     // does not match so nicely, but kinda sorta fixes text clipping
+    static CGFloat const k_tip_x = 2;
+    static CGFloat const k_wing_x = 10;
+    static CGFloat const k_wing_y_offset = 6;
+     */
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     CGPoint tip = CGPointMake(k_tip_x, CGRectGetMidY(rect));
     CGPoint top = CGPointMake(k_wing_x, CGRectGetMinY(rect) + k_wing_y_offset);
@@ -85,7 +91,7 @@
     [[UIColor lightGrayColor] setFill];
     [path addClip];
     [path fill];
-     */
+    */
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -285,8 +291,8 @@
                                     forState:UIControlStateHighlighted
                                   barMetrics:UIBarMetricsLandscapePhone];
     
-    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -1.0f) forBarMetrics:UIBarMetricsDefault];
-    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(12.0f, -1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(6.0f, -3.0f) forBarMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(6.0f, -3.0f) forBarMetrics:UIBarMetricsLandscapePhone];
 
     /*
      unnecessary ?
