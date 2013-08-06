@@ -128,10 +128,14 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     CGContextSetStrokeColorWithColor(context, [UIColor colorWithR:0 g:122 b:245].CGColor);
     CGContextSetLineWidth(context, 3.0f);
     
+    static CGFloat const k_tip_x = 8;
+    static CGFloat const k_wing_x = 17;
+    static CGFloat const k_wing_y_offset = 6;
+    
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    CGPoint tip = CGPointMake(8, CGRectGetMidY(rect));
-    CGPoint top = CGPointMake(13 + 4, CGRectGetMinY(rect) + 6);
-    CGPoint bottom = CGPointMake(13 + 4, CGRectGetMaxY(rect) - 6);
+    CGPoint tip = CGPointMake(k_tip_x, CGRectGetMidY(rect));
+    CGPoint top = CGPointMake(k_wing_x, CGRectGetMinY(rect) + k_wing_y_offset);
+    CGPoint bottom = CGPointMake(k_wing_x, CGRectGetMaxY(rect) - k_wing_y_offset);
     CGContextMoveToPoint(context, top.x, top.y);
     CGContextAddLineToPoint(context, tip.x, tip.y);
     CGContextAddLineToPoint(context, bottom.x, bottom.y);
@@ -143,8 +147,18 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 0, cornerRadius, cornerRadius)];
     
+    // avoid tiling by stretching from the right-hand side only
+    UIEdgeInsets insets = UIEdgeInsetsMake(k_wing_y_offset + 1 + cornerRadius, k_wing_x + 1 + cornerRadius,
+                                           k_wing_y_offset + 1 + cornerRadius, 1 + cornerRadius);
+    if ([image respondsToSelector:@selector(resizableImageWithCapInsets:resizingMode:)]) {
+        return [image resizableImageWithCapInsets:insets
+                                     resizingMode:UIImageResizingModeStretch];
+        
+    } else {
+        return [image resizableImageWithCapInsets:insets];
+    }
+
 }
 
 
