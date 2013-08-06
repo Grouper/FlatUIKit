@@ -158,8 +158,8 @@ cell.separatorHeight = 2.0f; // optional
 Like some other flat components, we simply provide a category to automatically configure a popover appearance for iPad by only having to set a background color.
 
 ```objective-c
-popover = [[FUIPopoverController alloc] initWithContentViewController:nc];
-popover.backgroundColor = [UIColor midnightBlueColor];
+popover = [[UIPopoverController alloc] initWithContentViewController:nc];
+[popover configureFlatPopoverWithBackgroundColor: [UIColor midnightBlueColor] cornerRadius:3];
 popover.delegate = self;
 [popover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 ```
