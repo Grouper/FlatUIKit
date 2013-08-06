@@ -30,4 +30,11 @@
 // removes the text shadows off a single bar button item (sadly, this can't be easily done for all buttons simultaneously)
 - (void) removeTitleShadow;
 
+// sets the title color in normal and highlighted control states and optionally
+// removes the title shadow
+- (void) setTitleColor:(UIColor *) aColor
+           highlighted:(UIColor *) aHighlightedColor
+          removeShadow:(BOOL) aRemoveShadow;
+
+
 @end

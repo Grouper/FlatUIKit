@@ -9,56 +9,73 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIImage+FlatUI.h"
 
+
 @implementation UIBarButtonItem (FlatUI)
 
 - (void) configureFlatButtonWithColor:(UIColor *)color
                      highlightedColor:(UIColor *)highlightedColor
                          cornerRadius:(CGFloat) cornerRadius {
-  
-  [UIBarButtonItem configureItemOrProxy:self forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
-  
+    
+    [UIBarButtonItem configureItemOrProxy:self forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
+    
 }
 
 + (void) configureFlatButtonsWithColor:(UIColor *) color
                       highlightedColor:(UIColor *)highlightedColor
                           cornerRadius:(CGFloat) cornerRadius {
-  
-  [self configureFlatButtonsWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius whenContainedIn:[UINavigationBar class], [UINavigationController class], [UIToolbar class], nil];
+    
+    [self configureFlatButtonsWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius whenContainedIn:[UINavigationBar class], [UINavigationController class], [UIToolbar class], nil];
 }
 
 + (void) configureFlatButtonsWithColor:(UIColor *) color
                       highlightedColor:(UIColor *)highlightedColor
                           cornerRadius:(CGFloat) cornerRadius
                        whenContainedIn:(Class <UIAppearanceContainer>)containerClass, ... {
-  va_list vl;
-  va_start(vl, containerClass);
-  id appearance = [UIBarButtonItem appearanceWhenContainedIn:containerClass, nil];
-  va_end(vl);
-  [UIBarButtonItem configureItemOrProxy:appearance forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
+    va_list vl;
+    va_start(vl, containerClass);
+    id appearance = [UIBarButtonItem appearanceWhenContainedIn:containerClass, nil];
+    va_end(vl);
+    [UIBarButtonItem configureItemOrProxy:appearance forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
 }
 
 
 - (void) removeTitleShadow {
-  NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
-  
-  for (NSNumber *state in states) {
-    UIControlState controlState = [state unsignedIntegerValue];
-    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
-    if (!titleTextAttributes) {
-      titleTextAttributes = [NSMutableDictionary dictionary];
+    NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+    
+    for (NSNumber *state in states) {
+        UIControlState controlState = [state unsignedIntegerValue];
+        NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+        if (!titleTextAttributes) {
+            titleTextAttributes = [NSMutableDictionary dictionary];
+        }
+        
+        /*** UNEXPECTED ***
+         UITextAttributeShadowOffset is deprecated in 5.0 - replaced with NSShadow
+         - tried using NSShadow, but the shadow on the title remained
+         - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
+         ******************/
+        [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
+        [titleTextAttributes setObject:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
+        [self setTitleTextAttributes:titleTextAttributes forState:controlState];
     }
-
-    /*** UNEXPECTED ***
-     UITextAttributeShadowOffset is deprecated in 5.0 - replaced with NSShadow
-     - tried using NSShadow, but the shadow on the title remained
-     - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
-     ******************/
-    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
-    [titleTextAttributes setObject:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
-    [self setTitleTextAttributes:titleTextAttributes forState:controlState];
-  }
 }
 
+- (void) setTitleColor:(UIColor *) aColor
+           highlighted:(UIColor *) aHighlightedColor
+          removeShadow:(BOOL) aRemoveShadow {
+    NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+    for (NSNumber *state in states) {
+        UIControlState controlState = [state unsignedIntegerValue];
+        
+        NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+        if (!titleTextAttributes) { titleTextAttributes = [NSMutableDictionary dictionary]; }
+        
+        UIColor *color = controlState == UIControlStateNormal ? aColor : aHighlightedColor;
+        [titleTextAttributes setObject:color forKey:UITextAttributeTextColor];
+        [self setTitleTextAttributes:titleTextAttributes forState:controlState];
+    }
+    if (aRemoveShadow == YES) { [self removeTitleShadow]; }
+}
 
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
@@ -66,39 +83,41 @@
        forFlatButtonWithColor:(UIColor *)color
              highlightedColor:(UIColor *)highlightedColor
                  cornerRadius:(CGFloat) cornerRadius {
-  UIImage *backButtonPortraitImage = [UIImage backButtonImageWithColor:color
-                                                            barMetrics:UIBarMetricsDefault
-                                                          cornerRadius:cornerRadius];
-  UIImage *highlightedBackButtonPortraitImage = [UIImage backButtonImageWithColor:highlightedColor
-                                                                       barMetrics:UIBarMetricsDefault
-                                                                     cornerRadius:cornerRadius];
-  UIImage *backButtonLandscapeImage = [UIImage backButtonImageWithColor:color
-                                                             barMetrics:UIBarMetricsLandscapePhone
-                                                           cornerRadius:2];
-  UIImage *highlightedBackButtonLandscapeImage = [UIImage backButtonImageWithColor:highlightedColor
-                                                                        barMetrics:UIBarMetricsLandscapePhone
-                                                                      cornerRadius:2];
-  
-  [appearance setBackButtonBackgroundImage:backButtonPortraitImage
-                                  forState:UIControlStateNormal
-                                barMetrics:UIBarMetricsDefault];
-  [appearance setBackButtonBackgroundImage:backButtonLandscapeImage
-                                  forState:UIControlStateNormal
-                                barMetrics:UIBarMetricsLandscapePhone];
-  [appearance setBackButtonBackgroundImage:highlightedBackButtonPortraitImage
-                                  forState:UIControlStateHighlighted
-                                barMetrics:UIBarMetricsDefault];
-  [appearance setBackButtonBackgroundImage:highlightedBackButtonLandscapeImage
-                                  forState:UIControlStateHighlighted
-                                barMetrics:UIBarMetricsLandscapePhone];
-  
-  [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
-  [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
-  
-  UIImage *buttonImageNormal       = [UIImage imageWithColor:color cornerRadius:cornerRadius];
-  UIImage *buttonImageHightlighted = [UIImage imageWithColor:highlightedColor cornerRadius:cornerRadius];
-  [appearance setBackgroundImage:buttonImageNormal forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-  [appearance setBackgroundImage:buttonImageHightlighted forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    UIImage *backButtonPortraitImage = [UIImage backButtonImageWithColor:color
+                                                              barMetrics:UIBarMetricsDefault
+                                                            cornerRadius:cornerRadius];
+    UIImage *highlightedBackButtonPortraitImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                         barMetrics:UIBarMetricsDefault
+                                                                       cornerRadius:cornerRadius];
+    UIImage *backButtonLandscapeImage = [UIImage backButtonImageWithColor:color
+                                                               barMetrics:UIBarMetricsLandscapePhone
+                                                             cornerRadius:2];
+    UIImage *highlightedBackButtonLandscapeImage = [UIImage backButtonImageWithColor:highlightedColor
+                                                                          barMetrics:UIBarMetricsLandscapePhone
+                                                                        cornerRadius:2];
+    
+    [appearance setBackButtonBackgroundImage:backButtonPortraitImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonBackgroundImage:backButtonLandscapeImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    [appearance setBackButtonBackgroundImage:highlightedBackButtonPortraitImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonBackgroundImage:highlightedBackButtonLandscapeImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsLandscapePhone];
+    
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+    [appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    UIImage *buttonImageNormal       = [UIImage imageWithColor:color cornerRadius:cornerRadius];
+    UIImage *buttonImageHightlighted = [UIImage imageWithColor:highlightedColor cornerRadius:cornerRadius];
+    [appearance setBackgroundImage:buttonImageNormal forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [appearance setBackgroundImage:buttonImageHightlighted forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
 }
+
+
 
 @end
