@@ -12,7 +12,7 @@
 #import "UIColor+FlatUI.h"
 
 #define CONTENT_INSET 10.0f
-#define ARROW_BASE 40.0f
+#define ARROW_BASE 30.0f
 #define ARROW_HEIGHT 20.0f
 
 static CGFloat _cornerRadius = 9.0;
@@ -34,7 +34,7 @@ static UIColor *_backgroundColor;
         if (!_backgroundColor) {
             _backgroundColor = [UIColor midnightBlueColor];
         }
-
+        
         _borderImageView = [[UIImageView alloc] init];
         [self addSubview:_borderImageView];
         
@@ -91,7 +91,7 @@ static UIColor *_backgroundColor;
 /*
  The following code is taken from the Treehouse blog and can be found (along with other awesome stuff) at
  http://blog.teamtreehouse.com/customizing-the-design-of-uipopovercontroller
-*/
+ */
 
 - (CGFloat) arrowOffset {
     return _arrowOffset;
@@ -153,19 +153,22 @@ static UIColor *_backgroundColor;
             break;
             
         case UIPopoverArrowDirectionLeft:
-            _left += ARROW_BASE;
+            _left += ARROW_BASE - 10;
             _width -= ARROW_BASE;
+            _width += 10;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset) - (ARROW_HEIGHT/2);
-            _arrowView.frame = CGRectMake(0, _coordinate, ARROW_BASE, ARROW_HEIGHT);
+            _arrowView.frame = CGRectMake(-(ARROW_BASE - ARROW_HEIGHT)/2, _coordinate, ARROW_BASE, ARROW_HEIGHT);
             _rotation = CGAffineTransformMakeRotation( -(float)M_PI_2 );
+            
+            
             break;
             
         case UIPopoverArrowDirectionRight:
             _width -= ARROW_BASE;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset)- (ARROW_HEIGHT/2);
-            _arrowView.frame = CGRectMake(_width, _coordinate, ARROW_BASE, ARROW_HEIGHT);
+            _arrowView.frame = CGRectMake(_width + ((ARROW_BASE - ARROW_HEIGHT)/2), _coordinate, ARROW_BASE, ARROW_HEIGHT);
             _rotation = CGAffineTransformMakeRotation( (float)M_PI_2 );
-            
+            _width += 10;
             break;
             
     }
@@ -177,3 +180,5 @@ static UIColor *_backgroundColor;
     
 }
 @end
+
+
