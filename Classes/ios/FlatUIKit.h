@@ -35,3 +35,4 @@
 #import "UISlider+FlatUI.h"
 #import "UITabBar+FlatUI.h"
 #import "UITableViewCell+FlatUI.h"
+#import "UIToolbar+FlatUI.h"
