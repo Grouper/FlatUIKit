@@ -35,6 +35,9 @@
         self.title = title;
         self.message = message;
         self.delegate = delegate;
+
+        // This mask is set to force lay out of subviews when superview's bounds change
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         UIView *backgroundOverlay = [[UIView alloc] init];
         backgroundOverlay.backgroundColor = [UIColor blueColor];
