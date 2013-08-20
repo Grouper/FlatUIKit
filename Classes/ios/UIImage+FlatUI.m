@@ -53,6 +53,7 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
                                                      cornerRadius + shadowInsets.left,
                                                      cornerRadius + shadowInsets.bottom,
                                                      cornerRadius + shadowInsets.right);
+    UIGraphicsEndImageContext();
     return [buttonImage resizableImageWithCapInsets:resizeableInsets];
     
 }
@@ -77,6 +78,7 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width, size.height), NO, 0.0f);
     [self drawInRect:rect];
     UIImage *resized = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return [resized resizableImageWithCapInsets:UIEdgeInsetsMake(size.height/2, size.width/2, size.height/2, size.width/2)];
 }
 
