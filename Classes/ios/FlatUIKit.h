@@ -22,6 +22,7 @@
 
 #import "FUIAlertView.h"
 #import "FUIButton.h"
+#import "FUITextField.h"
 #import "FUICellBackgroundView.h"
 #import "FUISegmentedControl.h"
 #import "FUISwitch.h"
