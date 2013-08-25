@@ -10,8 +10,8 @@
 #import "UIImage+FlatUI.h"
 
 @implementation FUITextField {
-	UIImage* _flatHighlightedBackgroundImage;
 	UIImage* _flatBackgroundImage;
+	UIImage* _flatHighlightedBackgroundImage;
 }
 
 - (void)setTextFieldColor:(UIColor *)textFieldColor {
@@ -54,7 +54,7 @@
 	[self setBackground:_flatBackgroundImage];
 }
 
-// A helper method to draw a simple rounded rectangle image that can be later used
+// A helper method to draw a simple rounded rectangle image that can be used as background
 - (UIImage*)textFieldImageWithColor:(UIColor*)color borderColor:(UIColor*)borderColor
 						borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius
 {
