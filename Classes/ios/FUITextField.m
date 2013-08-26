@@ -86,6 +86,16 @@
     return [super editingRectForBounds:UIEdgeInsetsInsetRect(bounds, self.edgeInsets)];
 }
 
+- (CGRect)leftViewRectForBounds:(CGRect)bounds {
+	bounds.origin.x += self.edgeInsets.left;
+	return [super leftViewRectForBounds:bounds];
+}
+
+- (CGRect)rightViewRectForBounds:(CGRect)bounds {
+	bounds.origin.x -= self.edgeInsets.right;
+	return [super rightViewRectForBounds:bounds];
+}
+
 // Switch background image to bordered image
 - (BOOL)becomeFirstResponder {
 	BOOL flag = [super becomeFirstResponder];
