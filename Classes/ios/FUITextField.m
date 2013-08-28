@@ -42,7 +42,7 @@
 	[super setTextColor:textColor];
 	
 	// Setup placeholder color with 60% alpha of original text color
-	if([self respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+	if([self respondsToSelector:@selector(setAttributedPlaceholder:)] && self.placeholder) {
 		self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{ NSForegroundColorAttributeName: [self.textColor colorWithAlphaComponent:.6] }];
 	}
 }
