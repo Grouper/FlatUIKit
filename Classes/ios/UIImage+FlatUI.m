@@ -8,6 +8,7 @@
 
 #import "UIImage+FlatUI.h"
 
+
 @implementation UIImage (FlatUI)
 
 static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
@@ -112,7 +113,7 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
 + (UIImage *) backButtonImageWithColor:(UIColor *)color
                             barMetrics:(UIBarMetrics) metrics
                           cornerRadius:(CGFloat)cornerRadius {
-
+    
     CGSize size;
     if (metrics == UIBarMetricsDefault) {
         size = CGSizeMake(50, 30);
@@ -120,16 +121,48 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     else {
         size = CGSizeMake(60, 23);
     }
+    
+    
     UIBezierPath *path = [self bezierPathForBackButtonInRect:CGRectMake(0, 0, size.width, size.height) cornerRadius:cornerRadius];
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(context, [UIColor colorWithR:0 g:122 b:245].CGColor);
+    CGContextSetLineWidth(context, 3.0f);
+    
+    static CGFloat const k_tip_x = 8;
+    static CGFloat const k_wing_x = 17;
+    static CGFloat const k_wing_y_offset = 6;
+    
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGPoint tip = CGPointMake(k_tip_x, CGRectGetMidY(rect));
+    CGPoint top = CGPointMake(k_wing_x, CGRectGetMinY(rect) + k_wing_y_offset);
+    CGPoint bottom = CGPointMake(k_wing_x, CGRectGetMaxY(rect) - k_wing_y_offset);
+    CGContextMoveToPoint(context, top.x, top.y);
+    CGContextAddLineToPoint(context, tip.x, tip.y);
+    CGContextAddLineToPoint(context, bottom.x, bottom.y);
+    CGContextStrokePath(context);
+    
     [color setFill];
     [path addClip];
     [path fill];
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 15, cornerRadius, cornerRadius)];
     
+    // avoid tiling by stretching from the right-hand side only
+    UIEdgeInsets insets = UIEdgeInsetsMake(k_wing_y_offset + 1 + cornerRadius, k_wing_x + 1 + cornerRadius,
+                                           k_wing_y_offset + 1 + cornerRadius, 1 + cornerRadius);
+    if ([image respondsToSelector:@selector(resizableImageWithCapInsets:resizingMode:)]) {
+        return [image resizableImageWithCapInsets:insets
+                                     resizingMode:UIImageResizingModeStretch];
+        
+    } else {
+        return [image resizableImageWithCapInsets:insets];
+    }
+
 }
+
 
 + (UIBezierPath *) bezierPathForBackButtonInRect:(CGRect)rect cornerRadius:(CGFloat)radius {
     UIBezierPath *path = [UIBezierPath bezierPath];
@@ -162,6 +195,7 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     [path closePath];
     return path;
 }
+
 
 
 

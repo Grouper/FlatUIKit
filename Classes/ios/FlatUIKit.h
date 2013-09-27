@@ -27,6 +27,7 @@
 #import "FUISegmentedControl.h"
 #import "FUISwitch.h"
 #import "UIBarButtonItem+FlatUI.h"
+#import "UIBarButtonItem+FlatUI_iOS7_BackButton.h"
 #import "UIColor+FlatUI.h"
 #import "UIFont+FlatUI.h"
 #import "UIImage+FlatUI.h"
@@ -36,3 +37,4 @@
 #import "UISlider+FlatUI.h"
 #import "UITabBar+FlatUI.h"
 #import "UITableViewCell+FlatUI.h"
+#import "UIToolbar+FlatUI.h"
