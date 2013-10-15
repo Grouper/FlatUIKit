@@ -30,6 +30,9 @@
 @property(nonatomic,readonly) NSInteger numberOfButtons;
 @property(nonatomic) NSInteger cancelButtonIndex;      // if the delegate does not implement -alertViewCancel:, we pretend this button was clicked on. default is -1
 
+//max height of the alert, if set
+@property(nonatomic) NSInteger maxHeight;
+
 // TODO: not implemented
 //@property(nonatomic,readonly) NSInteger firstOtherButtonIndex;	// -1 if no otherButtonTitles or initWithTitle:... not used
 
