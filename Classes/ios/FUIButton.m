@@ -46,6 +46,11 @@
     [self configureFlatButton];
 }
 
+- (void) setHighlightedColor:(UIColor *)highlightedColor{
+    _highlightedColor = highlightedColor;
+    [self configureFlatButton];
+}
+
 - (void) setShadowHeight:(CGFloat)shadowHeight {
     _shadowHeight = shadowHeight;
     UIEdgeInsets insets = self.defaultEdgeInsets;
@@ -61,7 +66,9 @@
                                                       cornerRadius:self.cornerRadius
                                                        shadowColor:self.shadowColor
                                                       shadowInsets:UIEdgeInsetsMake(0, 0, self.shadowHeight, 0)];
-    UIImage *highlightedBackgroundImage = [UIImage buttonImageWithColor:self.buttonColor
+    
+    UIColor *color = self.highlightedColor == nil ? self.buttonColor : self.highlightedColor;
+    UIImage *highlightedBackgroundImage = [UIImage buttonImageWithColor:color
                                                            cornerRadius:self.cornerRadius
                                                             shadowColor:[UIColor clearColor]
                                                            shadowInsets:UIEdgeInsetsMake(self.shadowHeight, 0, 0, 0)];
