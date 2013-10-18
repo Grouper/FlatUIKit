@@ -41,6 +41,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     self.title = @"Flat UI";
     self.view.backgroundColor = [UIColor cloudsColor];
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
