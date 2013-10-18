@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */; };
+		53C750241811DAD60059CDC6 /* FUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C750211811DAD60059CDC6 /* FUITextField.m */; };
+		53C750251811DAD60059CDC6 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C750231811DAD60059CDC6 /* UIToolbar+FlatUI.m */; };
 		6F4F7CD41746884200D9F472 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */; };
 		6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9CE3B1745476B004BEFAD /* UIProgressView+FlatUI.m */; };
 		A04638721780F2BD00EF98AF /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A04638701780F2BD00EF98AF /* UIPopoverController+FlatUI.m */; };
@@ -52,6 +54,11 @@
 
 /* Begin PBXFileReference section */
 		4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPad.xib; sourceTree = "<group>"; };
+		53C7501F1811DAD60059CDC6 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
+		53C750201811DAD60059CDC6 /* FUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUITextField.h; sourceTree = "<group>"; };
+		53C750211811DAD60059CDC6 /* FUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUITextField.m; sourceTree = "<group>"; };
+		53C750221811DAD60059CDC6 /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
+		53C750231811DAD60059CDC6 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
 		6F4F7CD21746884200D9F472 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
 		6F4F7CD31746884200D9F472 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
 		6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
@@ -220,6 +227,11 @@
 		FA5311761744C920002711E1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				53C7501F1811DAD60059CDC6 /* FlatUIKit.h */,
+				53C750201811DAD60059CDC6 /* FUITextField.h */,
+				53C750211811DAD60059CDC6 /* FUITextField.m */,
+				53C750221811DAD60059CDC6 /* UIToolbar+FlatUI.h */,
+				53C750231811DAD60059CDC6 /* UIToolbar+FlatUI.m */,
 				A09F8892175FB5D800AAC740 /* FUIPopoverBackgroundView.h */,
 				A09F8893175FB5D800AAC740 /* FUIPopoverBackgroundView.m */,
 				6FF9CE3A1745476B004BEFAD /* UIProgressView+FlatUI.h */,
@@ -351,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C750241811DAD60059CDC6 /* FUITextField.m in Sources */,
 				FA53115C1744C7C1002711E1 /* main.m in Sources */,
 				FA5311601744C7C1002711E1 /* AppDelegate.m in Sources */,
 				FA5311691744C7C1002711E1 /* ViewController_iPhone.xib in Sources */,
@@ -364,6 +377,7 @@
 				FA5311941744C920002711E1 /* UINavigationBar+FlatUI.m in Sources */,
 				FA5311951744C920002711E1 /* UISlider+FlatUI.m in Sources */,
 				FA5311961744C920002711E1 /* UIStepper+FlatUI.m in Sources */,
+				53C750251811DAD60059CDC6 /* UIToolbar+FlatUI.m in Sources */,
 				FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */,
 				FA6498991744CACB004B1A74 /* ViewController.m in Sources */,
 				6FF9CE3C1745476B004BEFAD /* UIProgressView+FlatUI.m in Sources */,
