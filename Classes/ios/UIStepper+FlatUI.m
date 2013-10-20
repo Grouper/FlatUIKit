@@ -18,9 +18,7 @@
                              iconColor:(UIColor *)iconColor {
     
     // iOS 6 compat check
-    if([self respondsToSelector:@selector(setBackgroundImage:forState:)])
-    {
-    
+    if ([self respondsToSelector:@selector(setBackgroundImage:forState:)]) {
         UIImage *normalImage = [UIImage imageWithColor:color cornerRadius:2.0];
         UIImage *highlightedImage = [UIImage imageWithColor:highlightedColor cornerRadius:2.0];
         UIImage *disabledImage = [UIImage imageWithColor:disabledColor cornerRadius:2.0];
@@ -43,9 +41,7 @@
         [self setIncrementImage:plusImage forState:UIControlStateDisabled];
         [self setDecrementImage:minusImage forState:UIControlStateNormal];
         [self setDecrementImage:minusImage forState:UIControlStateDisabled];
-        
     }
-    
 }
 
 @end

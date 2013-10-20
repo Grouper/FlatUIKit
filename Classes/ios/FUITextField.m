@@ -16,25 +16,21 @@
 
 - (void)setTextFieldColor:(UIColor *)textFieldColor {
 	_textFieldColor = textFieldColor;
-
 	[self configureTextField];
 }
 
 - (void)setBorderColor:(UIColor *)borderColor {
 	_borderColor = borderColor;
-	
 	[self configureTextField];
 }
 
 - (void)setBorderWidth:(CGFloat)borderWidth {
 	_borderWidth = borderWidth;
-	
 	[self configureTextField];
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
 	_cornerRadius = cornerRadius;
-	
 	[self configureTextField];
 }
 
@@ -56,8 +52,7 @@
 
 // A helper method to draw a simple rounded rectangle image that can be used as background
 - (UIImage*)textFieldImageWithColor:(UIColor*)color borderColor:(UIColor*)borderColor
-						borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius
-{
+						borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius {
 	CGRect rect = CGRectMake(0, 0, 44, 44);
 	UIBezierPath* bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, borderWidth, borderWidth) cornerRadius:cornerRadius];
 	

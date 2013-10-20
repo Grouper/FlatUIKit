@@ -17,8 +17,7 @@
 
 @implementation FUIButton
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.defaultEdgeInsets = self.titleEdgeInsets;
@@ -83,7 +82,6 @@
     
     [self setBackgroundImage:normalBackgroundImage forState:UIControlStateNormal];
     [self setBackgroundImage:highlightedBackgroundImage forState:UIControlStateHighlighted];
-    
 }
 
 @end

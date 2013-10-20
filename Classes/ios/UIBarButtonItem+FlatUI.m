@@ -14,15 +14,12 @@
 - (void) configureFlatButtonWithColor:(UIColor *)color
                      highlightedColor:(UIColor *)highlightedColor
                          cornerRadius:(CGFloat) cornerRadius {
-  
   [UIBarButtonItem configureItemOrProxy:self forFlatButtonWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius];
-  
 }
 
 + (void) configureFlatButtonsWithColor:(UIColor *) color
                       highlightedColor:(UIColor *)highlightedColor
                           cornerRadius:(CGFloat) cornerRadius {
-  
   [self configureFlatButtonsWithColor:color highlightedColor:highlightedColor cornerRadius:cornerRadius whenContainedIn:[UINavigationBar class], [UINavigationController class], [UIToolbar class], nil];
 }
 
@@ -58,8 +55,6 @@
     [self setTitleTextAttributes:titleTextAttributes forState:controlState];
   }
 }
-
-
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
 + (void) configureItemOrProxy:(id)appearance

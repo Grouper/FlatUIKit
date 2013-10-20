@@ -78,7 +78,6 @@
                                                    nil];
     [self setTitleTextAttributes:selectedAttributesDictionary forState:UIControlStateSelected];
     
-    
     NSDictionary * deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                                    self.deselectedFontColor,
                                                    UITextAttributeTextColor,
@@ -93,7 +92,6 @@
 }
 
 - (void)configureFlatSegmentedControl {
-    
     UIImage *selectedBackgroundImage = [UIImage buttonImageWithColor:self.selectedColor
                                                       cornerRadius:self.cornerRadius
                                                        shadowColor:[UIColor clearColor]

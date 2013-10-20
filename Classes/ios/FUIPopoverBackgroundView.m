@@ -63,8 +63,7 @@ static UIColor *_backgroundColor;
     return [[[UIImage imageWithColor:_backgroundColor cornerRadius:_cornerRadius] imageWithMinimumSize:self.frame.size] resizableImageWithCapInsets:UIEdgeInsetsMake(_cornerRadius, _cornerRadius, _cornerRadius, _cornerRadius)];
 }
 
-- (UIImage *)arrowImage
-{
+- (UIImage *)arrowImage {
     //Create a UIBezierPath for a Triangle
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(ARROW_BASE, ARROW_HEIGHT), NO, [UIScreen mainScreen].scale);
     
@@ -109,7 +108,6 @@ static UIColor *_backgroundColor;
     _arrowDirection = arrowDirection;
 }
 
-
 + (UIEdgeInsets)contentViewInsets{
     return UIEdgeInsetsMake(CONTENT_INSET, CONTENT_INSET, CONTENT_INSET, CONTENT_INSET);
 }
@@ -122,7 +120,6 @@ static UIColor *_backgroundColor;
     return ARROW_BASE;
 }
 
-
 #pragma mark - Layout subviews
 -  (void)layoutSubviews {
     [super layoutSubviews];
@@ -134,7 +131,6 @@ static UIColor *_backgroundColor;
     CGFloat _coordinate = 0.0;
     CGAffineTransform _rotation = CGAffineTransformIdentity;
     
-    
     switch (_arrowDirection) {
         default:
         case UIPopoverArrowDirectionUp:
@@ -143,15 +139,12 @@ static UIColor *_backgroundColor;
             _coordinate = ((self.frame.size.width / 2) + self.arrowOffset) - (ARROW_BASE/2);
             _arrowView.frame = CGRectMake(_coordinate, 0, ARROW_BASE, ARROW_HEIGHT);
             break;
-            
-            
         case UIPopoverArrowDirectionDown:
             _height -= ARROW_HEIGHT;
             _coordinate = ((self.frame.size.width / 2) + self.arrowOffset) - (ARROW_BASE/2);
             _arrowView.frame = CGRectMake(_coordinate, _height, ARROW_BASE, ARROW_HEIGHT);
             _rotation = CGAffineTransformMakeRotation( (float)M_PI );
             break;
-            
         case UIPopoverArrowDirectionLeft:
             _left += ARROW_BASE - 10;
             _width -= ARROW_BASE;
@@ -159,10 +152,7 @@ static UIColor *_backgroundColor;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset) - (ARROW_HEIGHT/2);
             _arrowView.frame = CGRectMake(-(ARROW_BASE - ARROW_HEIGHT)/2, _coordinate, ARROW_BASE, ARROW_HEIGHT);
             _rotation = CGAffineTransformMakeRotation( -(float)M_PI_2 );
-            
-            
             break;
-            
         case UIPopoverArrowDirectionRight:
             _width -= ARROW_BASE;
             _coordinate = ((self.frame.size.height / 2) + self.arrowOffset)- (ARROW_HEIGHT/2);
@@ -170,15 +160,10 @@ static UIColor *_backgroundColor;
             _rotation = CGAffineTransformMakeRotation( (float)M_PI_2 );
             _width += 10;
             break;
-            
     }
     
     _borderImageView.frame =  CGRectMake(_left, _top, _width, _height);
-    
-    
     [_arrowView setTransform:_rotation];
-    
 }
+
 @end
-
-

@@ -13,7 +13,7 @@
 // Thanks to http://stackoverflow.com/questions/3805177/how-to-convert-hex-rgb-color-codes-to-uicolor
 + (UIColor *) colorFromHexCode:(NSString *)hexString {
     NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    if([cleanString length] == 3) {
+    if ([cleanString length] == 3) {
         cleanString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
                        [cleanString substringWithRange:NSMakeRange(0, 1)],[cleanString substringWithRange:NSMakeRange(0, 1)],
                        [cleanString substringWithRange:NSMakeRange(1, 1)],[cleanString substringWithRange:NSMakeRange(1, 1)],
@@ -122,16 +122,14 @@
         onRed = onWhite;
         onBlue = onWhite;
         onGreen = onWhite;
-    }
-    else {
+    } else {
         [foregroundColor getRed:&onRed green:&onGreen blue:&onBlue alpha:nil];
     }
     if ([backgroundColor getWhite:&offWhite alpha:nil]) {
         offRed = offWhite;
         offBlue = offWhite;
         offGreen = offWhite;
-    }
-    else {
+    } else {
         [backgroundColor getRed:&offRed green:&offGreen blue:&offBlue alpha:nil];
     }
     newRed = onRed * percentBlend + offRed * (1-percentBlend);

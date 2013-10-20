@@ -15,11 +15,8 @@
 @dynamic cornerRadius, separatorHeight;
 
 + (UITableViewCell*) configureFlatCellWithColor:(UIColor *)color selectedColor:(UIColor *)selectedColor reuseIdentifier:(NSString*)reuseIdentifier inTableView:(UITableView *)tableView {
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    
     [cell configureFlatCellWithColor:color selectedColor:selectedColor];
-    
     return cell;
 }
 
@@ -44,7 +41,6 @@
         self.detailTextLabel.textColor = selectedColor;
         self.detailTextLabel.highlightedTextColor = color;
     }
-
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {

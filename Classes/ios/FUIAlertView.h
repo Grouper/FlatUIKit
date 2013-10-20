@@ -12,7 +12,6 @@
 
 @interface FUIAlertView : UIView
 
-
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message
            delegate:(id<FUIAlertViewDelegate>)delegate

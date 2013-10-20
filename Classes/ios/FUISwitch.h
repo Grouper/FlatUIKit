@@ -20,7 +20,7 @@
 @property(nonatomic, readwrite) CGFloat percentOn;
 @property(weak, readwrite, nonatomic) UILabel *offLabel;
 @property(weak, readwrite, nonatomic) UILabel *onLabel;
-- (void)setOn:(BOOL)on animated:(BOOL)animated; // does not send action
 
+- (void)setOn:(BOOL)on animated:(BOOL)animated; // does not send action
 
 @end

@@ -66,8 +66,7 @@
         cell.cornerRadius = 5.f; //Optional
         if (self.tableView.style == UITableViewStyleGrouped) {
             cell.separatorHeight = 2.f; //Optional            
-        }
-        else {
+        } else {
             cell.separatorHeight = 0.;
         }
     }

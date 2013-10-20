@@ -34,7 +34,6 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
                       cornerRadius:(CGFloat)cornerRadius
                        shadowColor:(UIColor *)shadowColor
                       shadowInsets:(UIEdgeInsets)shadowInsets {
-    
     UIImage *topImage = [self imageWithColor:color cornerRadius:cornerRadius];
     UIImage *bottomImage = [self imageWithColor:shadowColor cornerRadius:cornerRadius];
     CGFloat totalHeight = edgeSizeFromCornerRadius(cornerRadius) + shadowInsets.top + shadowInsets.bottom;
@@ -112,12 +111,10 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
 + (UIImage *) backButtonImageWithColor:(UIColor *)color
                             barMetrics:(UIBarMetrics) metrics
                           cornerRadius:(CGFloat)cornerRadius {
-
     CGSize size;
     if (metrics == UIBarMetricsDefault) {
         size = CGSizeMake(50, 30);
-    }
-    else {
+    } else {
         size = CGSizeMake(60, 23);
     }
     UIBezierPath *path = [self bezierPathForBackButtonInRect:CGRectMake(0, 0, size.width, size.height) cornerRadius:cornerRadius];
@@ -162,7 +159,5 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     [path closePath];
     return path;
 }
-
-
 
 @end

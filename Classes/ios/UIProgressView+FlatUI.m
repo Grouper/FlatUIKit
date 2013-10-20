@@ -8,7 +8,6 @@
 
 #import "UIImage+FlatUI.h"
 
-
 @implementation UIProgressView (FlatUI)
 
 - (void)configureFlatProgressViewWithTrackColor:(UIColor *)trackColor {
@@ -27,4 +26,5 @@
     [self configureFlatProgressViewWithTrackColor:trackColor];
     [self configureFlatProgressViewWithProgressColor:progressColor];
 }
+
 @end

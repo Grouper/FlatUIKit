@@ -26,7 +26,6 @@
                           thumbColorNormal:(UIColor *)normalThumbColor
                      thumbColorHighlighted:(UIColor *)highlightedThumbColor
 {
-    
     UIImage *progressImage = [[UIImage imageWithColor:progressColor cornerRadius:5.0]
                               imageWithMinimumSize:CGSizeMake(10, 10)];
     UIImage *trackImage = [[UIImage imageWithColor:trackColor cornerRadius:5.0]

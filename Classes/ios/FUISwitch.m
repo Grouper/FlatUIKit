@@ -144,8 +144,7 @@
         
         [self setPercentOn:(1 - newOffset.x/maxOffset) animated:NO];
         
-    }
-    else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
         BOOL left = newOffset.x > maxOffset / 2;
         [self setOn:(!left) animated:YES sendEvent:YES];
     }

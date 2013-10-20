@@ -21,7 +21,6 @@
 	if ((self = [super initWithFrame:frame])) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	}
-
 	return self;
 }
 
@@ -173,13 +172,11 @@
 		CGPathRelease(path);
 		CGContextRestoreGState(c);
 	}
-
 	CGColorSpaceRelease(colorspace);
 }
 
 - (void)setPosition:(FUICellBackgroundViewPosition)position {
     _position = position;
-    
     [self setNeedsDisplay];
 }
 
