@@ -26,8 +26,15 @@
     return self;
 }
 
+- (void) setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets {
+    [super setTitleEdgeInsets:titleEdgeInsets];
+    self.defaultEdgeInsets = titleEdgeInsets;
+    [self setShadowHeight:self.shadowHeight];
+}
+
 - (void) setHighlighted:(BOOL)highlighted {
-    self.titleEdgeInsets = highlighted ? self.highlightedEdgeInsets : self.normalEdgeInsets;
+    UIEdgeInsets insets = highlighted ? self.highlightedEdgeInsets : self.normalEdgeInsets;
+    [super setTitleEdgeInsets:insets];
     [super setHighlighted:highlighted];
 }
 
@@ -54,10 +61,11 @@
 - (void) setShadowHeight:(CGFloat)shadowHeight {
     _shadowHeight = shadowHeight;
     UIEdgeInsets insets = self.defaultEdgeInsets;
+    insets.top += shadowHeight;
     self.highlightedEdgeInsets = insets;
-    insets.top -= shadowHeight;
+    insets.top -= shadowHeight * 2.0f;
     self.normalEdgeInsets = insets;
-    self.titleEdgeInsets = insets;
+    [super setTitleEdgeInsets:insets];
     [self configureFlatButton];
 }
 
