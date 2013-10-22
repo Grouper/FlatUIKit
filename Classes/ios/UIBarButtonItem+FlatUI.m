@@ -50,8 +50,14 @@
      - tried using NSShadow, but the shadow on the title remained
      - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
      ******************/
-    [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
-    [titleTextAttributes setObject:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
+      
+    ///Added fixes for iOS7
+    NSShadow *shadow = [[NSShadow alloc] init];
+    [shadow setShadowOffset:CGSizeMake(0, 0)];
+    [shadow setShadowColor:[UIColor clearColor]];
+      
+    [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
+      
     [self setTitleTextAttributes:titleTextAttributes forState:controlState];
   }
 }
