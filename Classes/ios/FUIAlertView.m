@@ -98,7 +98,7 @@
         CGRect alertContainerFrame = CGRectInset(contentContainerFrame, -padding, -padding);
         alertContainerFrame.origin = CGPointMake(floorf((self.frame.size.width - alertContainerFrame.size.width) / 2),
                                                  floorf((self.frame.size.height - alertContainerFrame.size.height) / 2));
-        alertContainerFrame.origin.y = MAX(10, alertContainerFrame.origin.y - 30);
+        alertContainerFrame.origin.y = MAX(30, alertContainerFrame.origin.y - 30);
         self.alertContainer.frame = alertContainerFrame;
         CGRect titleFrame = self.titleLabel.frame;
         titleFrame.size.width = self.alertContentContainer.frame.size.width;
@@ -128,6 +128,23 @@
                 startingButtonY += (button.frame.size.height + self.buttonSpacing);
             }
         }];
+        if(self.messageLabel.superview&&![self.messageLabel.superview isEqual:self.alertContentContainer]) {
+            [self.messageLabel removeFromSuperview];
+            [self.alertContentContainer addSubview:self.messageLabel];
+        }
+        if(self.maxHeight) {
+            CGSize originalSize = messageFrame.size;
+            messageFrame.size.height = self.alertContentContainer.frame.size.height-self.titleLabel.frame.size.height-[self totalButtonHeight]-20;
+            if(messageFrame.size.height<originalSize.height) {
+                UIScrollView *messageScrollView = [[UIScrollView alloc] initWithFrame:messageFrame];
+                messageFrame.origin = CGPointZero;
+                messageFrame.size = originalSize;
+                self.messageLabel.frame = messageFrame;
+                [messageScrollView setContentSize:originalSize];
+                [messageScrollView addSubview:self.messageLabel];
+                [self.alertContentContainer addSubview:messageScrollView];
+            }
+        }
     }
 }
 
@@ -172,7 +189,11 @@
     }
     
     CGFloat buttonHeight = [self totalButtonHeight];
-    return CGSizeMake(contentWidth, titleHeight + 10 + messageHeight + 10 + buttonHeight);
+    CGFloat contentHeight = titleHeight + 10 + messageHeight + 10 + buttonHeight;
+    if(self.maxHeight && contentHeight>self.maxHeight)
+        return CGSizeMake(contentWidth, MAX(titleHeight + 10 + buttonHeight, self.maxHeight));
+    else
+        return CGSizeMake(contentWidth, contentHeight);
 }
 
 - (NSInteger) numberOfButtons {
