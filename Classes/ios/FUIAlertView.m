@@ -150,17 +150,27 @@
 - (CGSize) calculateSize {
     CGFloat contentWidth = 250;
     
-    ///Added iOS7 Fixes
-    CGRect titleRect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(contentWidth, CGFLOAT_MAX)
-                                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                                       attributes:@{NSFontAttributeName:self.titleLabel.font}
-                                                          context:nil];
-    CGRect messageRect = [self.messageLabel.text boundingRectWithSize:CGSizeMake(contentWidth, CGFLOAT_MAX)
+    CGFloat titleHeight;
+    CGFloat messageHeight;
+    
+    if ([self.titleLabel.text respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        // iOS7 methods
+        CGRect titleRect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(contentWidth, CGFLOAT_MAX)
                                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                                           attributes:@{NSFontAttributeName:self.messageLabel.font}
+                                                           attributes:@{NSFontAttributeName:self.titleLabel.font}
                                                               context:nil];
-    CGFloat titleHeight = titleRect.size.height;
-    CGFloat messageHeight = messageRect.size.height;
+        CGRect messageRect = [self.messageLabel.text boundingRectWithSize:CGSizeMake(contentWidth, CGFLOAT_MAX)
+                                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                                               attributes:@{NSFontAttributeName:self.messageLabel.font}
+                                                                  context:nil];
+        titleHeight = titleRect.size.height;
+        messageHeight = messageRect.size.height;
+    } else {
+        // Pre-iOS7 methods
+        titleHeight = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
+        messageHeight = [self.messageLabel.text sizeWithFont:self.messageLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
+    }
+    
     CGFloat buttonHeight = [self totalButtonHeight];
     return CGSizeMake(contentWidth, titleHeight + 10 + messageHeight + 10 + buttonHeight);
 }

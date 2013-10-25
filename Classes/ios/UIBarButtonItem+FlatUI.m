@@ -36,30 +36,35 @@
 
 
 - (void) removeTitleShadow {
-  NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
-  
-  for (NSNumber *state in states) {
-    UIControlState controlState = [state unsignedIntegerValue];
-    NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
-    if (!titleTextAttributes) {
-      titleTextAttributes = [NSMutableDictionary dictionary];
+    NSArray *states = @[@(UIControlStateNormal), @(UIControlStateHighlighted)];
+    
+    for (NSNumber *state in states) {
+        UIControlState controlState = [state unsignedIntegerValue];
+        NSMutableDictionary *titleTextAttributes = [[self titleTextAttributesForState:controlState] mutableCopy];
+        if (!titleTextAttributes) {
+            titleTextAttributes = [NSMutableDictionary dictionary];
+        }
+        
+        /*** UNEXPECTED ***
+         UITextAttributeShadowOffset is deprecated in 5.0 - replaced with NSShadow
+         - tried using NSShadow, but the shadow on the title remained
+         - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
+         ******************/
+        
+        if (&NSShadowAttributeName != NULL) {
+            // iOS6 methods
+            NSShadow *shadow = [[NSShadow alloc] init];
+            [shadow setShadowOffset:CGSizeZero];
+            [shadow setShadowColor:[UIColor clearColor]];
+            [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
+        } else {
+            // Pre-iOS6 methods
+            [titleTextAttributes setValue:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
+            [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
+        }
+        
+        [self setTitleTextAttributes:titleTextAttributes forState:controlState];
     }
-
-    /*** UNEXPECTED ***
-     UITextAttributeShadowOffset is deprecated in 5.0 - replaced with NSShadow
-     - tried using NSShadow, but the shadow on the title remained
-     - shadowOffset <== {0,0}, shadowColor <== nil (shadow not drawn according to docs)
-     ******************/
-      
-    ///Added fixes for iOS7
-    NSShadow *shadow = [[NSShadow alloc] init];
-    [shadow setShadowOffset:CGSizeMake(0, 0)];
-    [shadow setShadowColor:[UIColor clearColor]];
-      
-    [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
-      
-    [self setTitleTextAttributes:titleTextAttributes forState:controlState];
-  }
 }
 
 //helper method, basically a wrapper to allow creating a custom UIAppearance method that doesn't conform to the usual naming style
