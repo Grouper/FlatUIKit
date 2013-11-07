@@ -238,10 +238,17 @@
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
     //todo delegate
     
+    _dismissButtonIndex = buttonIndex;
+    
     self.alertContainer.transform = CGAffineTransformIdentity;
     if ([self.delegate respondsToSelector:@selector(alertView:willDismissWithButtonIndex:)]) {
         [self.delegate alertView:self willDismissWithButtonIndex:buttonIndex];
     }
+    
+    if (self.onDismissAction) {
+        self.onDismissAction();
+    }
+    
     [UIView animateWithDuration:self.animationDuration animations:^{
         self.backgroundOverlay.alpha = 0;
         self.alertContainer.alpha = 0;
@@ -277,6 +284,13 @@
     if ([self.delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
         [self.delegate alertView:self clickedButtonAtIndex:(NSInteger)index];
     }
+    
+    if (index == self.cancelButtonIndex && self.onCancelAction) {
+        self.onCancelAction();
+    } else if (index != self.cancelButtonIndex && self.onOkAction) {
+        self.onOkAction();
+    }
+    
     [self dismissWithClickedButtonIndex:(NSInteger)index animated:YES];
 }
 
