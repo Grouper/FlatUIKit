@@ -19,17 +19,17 @@
         titleTextAttributes = [NSMutableDictionary dictionary];
     }
     
-    if (&NSShadowAttributeName != NULL) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
         // iOS6 methods
         NSShadow *shadow = [[NSShadow alloc] init];
         [shadow setShadowOffset:CGSizeZero];
         [shadow setShadowColor:[UIColor clearColor]];
         [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
-    } else {
+#else
         // Pre-iOS6 methods
         [titleTextAttributes setValue:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
         [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
-    }
+#endif
     
     [self setTitleTextAttributes:titleTextAttributes];
     if ([self respondsToSelector:@selector(setShadowImage:)]) {
