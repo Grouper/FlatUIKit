@@ -22,6 +22,12 @@
 #import "FUISegmentedControl.h"
 #import "UIPopoverController+FlatUI.h"
 
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
 @interface ViewController () {
     UIPopoverController *_popoverController;
 }
@@ -86,8 +92,15 @@
                                   disabledColor:[UIColor amethystColor]
                                       iconColor:[UIColor cloudsColor]];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldFlatFontOfSize:18],
+                                                                    NSForegroundColorAttributeName: [UIColor whiteColor]};
+    } else {
+        // Pre-iOS7 methods
+        self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
                                                                     UITextAttributeTextColor: [UIColor whiteColor]};
+    }
+    
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     
     self.flatSwitch.onColor = [UIColor turquoiseColor];
@@ -144,11 +157,19 @@
     UIButton *button = (UIButton *)sender;
     
     UIViewController *vc = [[UIViewController alloc] init];
-    vc.contentSizeForViewInPopover = CGSizeMake(320, 480);
     vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = @"FUIPopoverController";
-    vc.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        vc.preferredContentSize = CGSizeMake(320, 480);
+        self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldFlatFontOfSize:18],
+                                                                        NSForegroundColorAttributeName: [UIColor whiteColor]};
+    } else {
+        // Pre-iOS7 methods
+        vc.contentSizeForViewInPopover = CGSizeMake(320, 480);
+        vc.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
                                                                   UITextAttributeTextColor: [UIColor whiteColor]};
+    }
     
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     
