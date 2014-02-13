@@ -68,23 +68,20 @@
 - (void)setupFonts {
     
     NSDictionary *selectedAttributesDictionary;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
-        // iOS6 methods
-        if (1 == 1) {
-            NSShadow *shadow = [[NSShadow alloc] init];
-            [shadow setShadowOffset:CGSizeZero];
-            [shadow setShadowColor:[UIColor clearColor]];
-            selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            self.selectedFontColor,
-                                            NSForegroundColorAttributeName,
-                                            shadow,
-                                            NSShadowAttributeName,
-                                            self.selectedFont,
-                                            NSFontAttributeName,
-                                            nil];
-        }
-
-#else
+    
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
+        NSShadow *shadow = [[NSShadow alloc] init];
+        [shadow setShadowOffset:CGSizeZero];
+        [shadow setShadowColor:[UIColor clearColor]];
+        selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        self.selectedFontColor,
+                                        NSForegroundColorAttributeName,
+                                        shadow,
+                                        NSShadowAttributeName,
+                                        self.selectedFont,
+                                        NSFontAttributeName,
+                                        nil];
+    } else {
         // Pre-iOS6 methods
         selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         self.selectedFontColor,
@@ -96,13 +93,13 @@
                                         self.selectedFont,
                                         UITextAttributeFont,
                                         nil];
-#endif
+    }
     
     [self setTitleTextAttributes:selectedAttributesDictionary forState:UIControlStateSelected];
     
     NSDictionary *deselectedAttributesDictionary;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
-        // iOS6 methods
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
+        // iOS6+ methods
         NSShadow *shadow = [[NSShadow alloc] init];
         [shadow setShadowOffset:CGSizeZero];
         [shadow setShadowColor:[UIColor clearColor]];
@@ -114,8 +111,8 @@
                                           self.deselectedFont,
                                           NSFontAttributeName,
                                           nil];
-#else
-        // Pre-iOS6 methods
+    } else {
+        // pre-iOS6 methods
         deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           self.deselectedFontColor,
                                           UITextAttributeTextColor,
@@ -126,7 +123,8 @@
                                           self.deselectedFont,
                                           UITextAttributeFont,
                                           nil];
-#endif
+    }
+
     [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
 }
 
