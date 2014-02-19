@@ -8,6 +8,7 @@
 
 #import "FUISegmentedControl.h"
 #import "UIImage+FlatUI.h"
+#import "UIColor+FlatUI.h"
 
 @implementation FUISegmentedControl
 
@@ -17,11 +18,14 @@
         [appearance setCornerRadius:5.0f];
         [appearance setSelectedColor:[UIColor blueColor]];
         [appearance setDeselectedColor:[UIColor darkGrayColor]];
+        [appearance setDisabledColor:[UIColor midnightBlueColor]];
         [appearance setDividerColor:[UIColor grayColor]];
         [appearance setSelectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
         [appearance setDeselectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
+        [appearance setDisabledFont:[UIFont fontWithName:@"Arial" size:15.0]];
         [appearance setSelectedFontColor:[UIColor whiteColor]];
         [appearance setDeselectedFontColor:[UIColor whiteColor]];
+        [appearance setDisabledFontColor:[UIColor whiteColor]];
     }
 }
 
@@ -32,6 +36,11 @@
 
 - (void)setSelectedColor:(UIColor *)selectedColor {
     _selectedColor = selectedColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)setDisabledColor:(UIColor *)disabledColor {
+    _disabledColor = disabledColor;
     [self configureFlatSegmentedControl];
 }
 
@@ -62,6 +71,16 @@
 
 - (void)setDeselectedFontColor:(UIColor *)deselectedFontColor {
     _deselectedFontColor = deselectedFontColor;
+    [self setupFonts];
+}
+
+- (void)setDisabledFont:(UIFont *)disabledFont {
+    _disabledFont = disabledFont;
+    [self setupFonts];
+}
+
+- (void)setDisabledFontColor:(UIColor *)disabledFontColor {
+    _disabledFontColor = disabledFontColor;
     [self setupFonts];
 }
 
@@ -126,6 +145,36 @@
     }
 
     [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
+
+    NSDictionary *disabledAttributesDictionary;
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
+        // iOS6+ methods
+        NSShadow *shadow = [[NSShadow alloc] init];
+        [shadow setShadowOffset:CGSizeZero];
+        [shadow setShadowColor:[UIColor clearColor]];
+        disabledAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                self.disabledFontColor,
+                NSForegroundColorAttributeName,
+                shadow,
+                NSShadowAttributeName,
+                self.disabledFont,
+                NSFontAttributeName,
+                nil];
+    } else {
+        // pre-iOS6 methods
+        disabledAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                self.disabledFontColor,
+                UITextAttributeTextColor,
+                [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                UITextAttributeTextShadowColor,
+                [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                UITextAttributeTextShadowOffset,
+                self.disabledFont,
+                UITextAttributeFont,
+                nil];
+    }
+
+    [self setTitleTextAttributes:disabledAttributesDictionary forState:UIControlStateDisabled];
 }
 
 - (void)configureFlatSegmentedControl {
@@ -137,11 +186,16 @@
                                                            cornerRadius:self.cornerRadius
                                                             shadowColor:[UIColor clearColor]
                                                            shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *disabledBackgroundImage = [UIImage buttonImageWithColor:self.disabledColor
+                                                          cornerRadius:self.cornerRadius
+                                                           shadowColor:[UIColor clearColor]
+                                                          shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     UIImage *dividerImage = [[UIImage imageWithColor:self.dividerColor cornerRadius:0] imageWithMinimumSize:CGSizeMake(1, 1)];
     
     [self setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     [self setBackgroundImage:deselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setBackgroundImage:disabledBackgroundImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
     [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
