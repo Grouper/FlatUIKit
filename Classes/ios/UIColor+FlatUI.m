@@ -35,83 +35,223 @@
 }
 
 + (UIColor *) turquoiseColor {
-    return [UIColor colorFromHexCode:@"1ABC9C"];
+    static UIColor *turquoise = nil;
+    static dispatch_once_t dispatchToken;
+
+    dispatch_once(&dispatchToken, ^{
+        turquoise = [UIColor colorFromHexCode:@"1ABC9C"];
+    });
+    
+    return turquoise;
 }
 
 + (UIColor *) greenSeaColor {
-    return [UIColor colorFromHexCode:@"16A085"];
+    static UIColor *greenSea = nil;
+    static dispatch_once_t greenToken;
+    
+    dispatch_once(&greenToken, ^{
+        greenSea = [UIColor colorFromHexCode:@"16A085"];
+    });
+    
+    return greenSea;
 }
 
 + (UIColor *) emerlandColor {
-    return [UIColor colorFromHexCode:@"2ECC71"];
+    static UIColor *emerald = nil;
+    static dispatch_once_t emeraldToken;
+    
+    dispatch_once(&emeraldToken, ^{
+        emerald = [UIColor colorFromHexCode:@"2ECC71"];
+    });
+    
+    return emerald;
 }
 
 + (UIColor *) nephritisColor {
-    return [UIColor colorFromHexCode:@"27AE60"];
+    static UIColor *nephritis = nil;
+    static dispatch_once_t nephritisToken;
+    
+    dispatch_once(&nephritisToken, ^{
+        nephritis = [UIColor colorFromHexCode:@"27AE60"];
+    });
+    
+    return nephritis;
 }
 
 + (UIColor *) peterRiverColor {
-    return [UIColor colorFromHexCode:@"3498DB"];
+    static UIColor *peterRiver = nil;
+    static dispatch_once_t peterToken;
+    
+    dispatch_once(&peterToken, ^{
+        peterRiver = [UIColor colorFromHexCode:@"27AE60"];
+    });
+    
+    return peterRiver;
 }
 
 + (UIColor *) belizeHoleColor {
-    return [UIColor colorFromHexCode:@"2980B9"];
+    static UIColor *tripToBelize = nil; // Let's cook!
+    static dispatch_once_t belizeToken;
+    
+    dispatch_once(&belizeToken, ^{
+        tripToBelize = [UIColor colorFromHexCode:@"2980B9"];
+    });
+    
+    return tripToBelize;
 }
 
 + (UIColor *) amethystColor {
-    return [UIColor colorFromHexCode:@"9B59B6"];
+    static UIColor *amethyst = nil;
+    static dispatch_once_t amethystToken;
+    
+    dispatch_once(&amethystToken, ^{
+        amethyst = [UIColor colorFromHexCode:@"9B59B6"];
+    });
+    
+    return amethyst;
 }
 
 + (UIColor *) wisteriaColor {
-    return [UIColor colorFromHexCode:@"8E44AD"];
+    static UIColor *wisteria = nil;
+    static dispatch_once_t wisteriaToken;
+    
+    dispatch_once(&wisteriaToken, ^{
+        wisteria = [UIColor colorFromHexCode:@"8E44AD"];
+    });
+    
+    return wisteria;
 }
 
 + (UIColor *) wetAsphaltColor {
-    return [UIColor colorFromHexCode:@"34495E"];
+    static UIColor *asphalt = nil;
+    static dispatch_once_t asphaltToken;
+    
+    dispatch_once(&asphaltToken, ^{
+        asphalt = [UIColor colorFromHexCode:@"34495E"];
+    });
+    
+    return asphalt;
 }
 
 + (UIColor *) midnightBlueColor {
-    return [UIColor colorFromHexCode:@"2C3E50"];
+    static UIColor *midnightBlue = nil;
+    static dispatch_once_t midnightBlueToken;
+    
+    dispatch_once(&midnightBlueToken, ^{
+        midnightBlue = [UIColor colorFromHexCode:@"2C3E50"];
+    });
+    
+    return midnightBlue;
 }
 
 + (UIColor *) sunflowerColor {
-    return [UIColor colorFromHexCode:@"F1C40F"];
+    static UIColor *sunflower = nil;
+    static dispatch_once_t sunflowerToken;
+    
+    dispatch_once(&sunflowerToken, ^{
+        sunflower = [UIColor colorFromHexCode:@"F1C40F"];
+    });
+    
+    return sunflower;
 }
 
 + (UIColor *) tangerineColor {
-    return [UIColor colorFromHexCode:@"F39C12"];
+    static UIColor *tangerine = nil;
+    static dispatch_once_t tangerineToken;
+    
+    dispatch_once(&tangerineToken, ^{
+        tangerine = [UIColor colorFromHexCode:@"F39C12"];
+    });
+    
+    return tangerine;
 }
 
 + (UIColor *) carrotColor {
-    return [UIColor colorFromHexCode:@"E67E22"];
+    static UIColor *carrot = nil;
+    static dispatch_once_t carrotToken;
+    
+    dispatch_once(&carrotToken, ^{
+        carrot = [UIColor colorFromHexCode:@"E67E22"];
+    });
+    
+    return carrot;
 }
 
 + (UIColor *) pumpkinColor {
-    return [UIColor colorFromHexCode:@"D35400"];
+    static UIColor *pumpkin = nil;
+    static dispatch_once_t pumpkinToken;
+    
+    dispatch_once(&pumpkinToken, ^{
+        pumpkin = [UIColor colorFromHexCode:@"D35400"];
+    });
+    
+    return pumpkin;
 }
 
 + (UIColor *) alizarinColor {
-    return [UIColor colorFromHexCode:@"E74C3C"];
+    static UIColor *alizarin = nil;
+    static dispatch_once_t alizarinToken;
+    
+    dispatch_once(&alizarinToken, ^{
+        alizarin = [UIColor colorFromHexCode:@"E74C3C"];
+    });
+    
+    return alizarin;
 }
 
 + (UIColor *) pomegranateColor {
-    return [UIColor colorFromHexCode:@"C0392B"];
+    static UIColor *pomegranate = nil;
+    static dispatch_once_t pomegranateToken;
+    
+    dispatch_once(&pomegranateToken, ^{
+        pomegranate = [UIColor colorFromHexCode:@"C0392B"];
+    });
+    
+    return pomegranate;
 }
 
 + (UIColor *) cloudsColor {
-    return [UIColor colorFromHexCode:@"ECF0F1"];
+    static UIColor *clouds = nil;
+    static dispatch_once_t cloudsToken;
+    
+    dispatch_once(&cloudsToken, ^{
+        clouds = [UIColor colorFromHexCode:@"ECF0F1"];
+    });
+    
+    return clouds;
 }
 
 + (UIColor *) silverColor {
-    return [UIColor colorFromHexCode:@"BDC3C7"];
+    static UIColor *silver = nil;
+    static dispatch_once_t silverToken;
+    
+    dispatch_once(&silverToken, ^{
+        silver = [UIColor colorFromHexCode:@"BDC3C7"];
+    });
+    
+    return silver;
 }
 
 + (UIColor *) concreteColor {
-    return [UIColor colorFromHexCode:@"95A5A6"];
+    static UIColor *concrete = nil;
+    static dispatch_once_t concreteToken;
+    
+    dispatch_once(&concreteToken, ^{
+        concrete = [UIColor colorFromHexCode:@"95A5A6"];
+    });
+    
+    return concrete;
 }
 
 + (UIColor *) asbestosColor {
-    return [UIColor colorFromHexCode:@"7F8C8D"];
+    static UIColor *asbestos = nil;
+    static dispatch_once_t asbestosToken;
+    
+    dispatch_once(&asbestosToken, ^{
+        asbestos = [UIColor colorFromHexCode:@"7F8C8D"];
+    });
+    
+    return asbestos;
 }
 
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
