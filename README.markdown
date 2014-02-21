@@ -145,8 +145,8 @@ You can modify the backgroundColor and selectedBackgroundColor of a UITableViewC
 ```objective-c
 cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor]
                                      selectedColor:[UIColor cloudsColor]
-                                   reuseIdentifier:CellIdentifier
-                                   inTableView:tableView];
+                                             style:UITableViewCellStyleDefault
+                                   reuseIdentifier:CellIdentifier];
 cell.cornerRadius = 5.0f; // optional
 cell.separatorHeight = 2.0f; // optional
 ```
