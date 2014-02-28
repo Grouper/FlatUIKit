@@ -52,8 +52,18 @@
     [self configureFlatButton];
 }
 
-- (void) setHighlightedColor:(UIColor *)highlightedColor{
+- (void) setHighlightedColor:(UIColor *)highlightedColor {
     _highlightedColor = highlightedColor;
+    [self configureFlatButton];
+}
+
+- (void) setDisabledColor:(UIColor *)disabledColor {
+    _disabledColor = disabledColor;
+    [self configureFlatButton];
+}
+
+- (void) setDisabledShadowColor:(UIColor *)disabledShadowColor {
+    _disabledShadowColor = disabledShadowColor;
     [self configureFlatButton];
 }
 
@@ -73,13 +83,22 @@
                                                       cornerRadius:self.cornerRadius
                                                        shadowColor:self.shadowColor
                                                       shadowInsets:UIEdgeInsetsMake(0, 0, self.shadowHeight, 0)];
-    
-    UIColor *color = self.highlightedColor == nil ? self.buttonColor : self.highlightedColor;
-    UIImage *highlightedBackgroundImage = [UIImage buttonImageWithColor:color
+
+    UIColor *highlightedColor = self.highlightedColor == nil ? self.buttonColor : self.highlightedColor;
+    UIImage *highlightedBackgroundImage = [UIImage buttonImageWithColor:highlightedColor
                                                            cornerRadius:self.cornerRadius
                                                             shadowColor:[UIColor clearColor]
                                                            shadowInsets:UIEdgeInsetsMake(self.shadowHeight, 0, 0, 0)];
-    
+
+    if (self.disabledColor) {
+        UIColor *disabledShadowColor = self.disabledShadowColor == nil ? self.shadowColor : self.disabledShadowColor;
+        UIImage *disabledBackgroundImage = [UIImage buttonImageWithColor:self.disabledColor
+                                                            cornerRadius:self.cornerRadius
+                                                             shadowColor:disabledShadowColor
+                                                            shadowInsets:UIEdgeInsetsMake(0, 0, self.shadowHeight, 0)];
+        [self setBackgroundImage:disabledBackgroundImage forState:UIControlStateDisabled];
+    }
+
     [self setBackgroundImage:normalBackgroundImage forState:UIControlStateNormal];
     [self setBackgroundImage:highlightedBackgroundImage forState:UIControlStateHighlighted];
 }
