@@ -83,7 +83,7 @@
     static dispatch_once_t peterToken;
     
     dispatch_once(&peterToken, ^{
-        peterRiver = [UIColor colorFromHexCode:@"27AE60"];
+        peterRiver = [UIColor colorFromHexCode:@"#3498DB"];
     });
     
     return peterRiver;
