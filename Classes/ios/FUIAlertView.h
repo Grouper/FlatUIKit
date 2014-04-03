@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FUITextField.h"
+
+typedef NS_ENUM(NSInteger, FUIAlertViewStyle) {
+    FUIAlertViewStyleDefault = 0,
+    FUIAlertViewStyleSecureTextInput,
+    FUIAlertViewStylePlainTextInput,
+    FUIAlertViewStyleLoginAndPasswordInput
+};
 
 @protocol FUIAlertViewDelegate;
 
@@ -45,6 +53,9 @@
 
 @property(nonatomic,readonly,getter=isVisible) BOOL visible;
 
+// Flat Alert view style - defaults to FUIAlertViewStyleDefault
+@property(nonatomic,assign) FUIAlertViewStyle alertViewStyle;
+
 // shows popup alert animated.
 - (void)show;
 
@@ -53,6 +64,10 @@
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 
 - (void)clickButtonAtIndex:(NSInteger)buttonIndex;
+
+/* Retrieve a text field at an index - raises NSRangeException when textFieldIndex is out-of-bounds.
+ The field at index 0 will be the first text field (the single field or the login field), the field at index 1 will be the password field. */
+- (FUITextField *)textFieldAtIndex:(NSInteger)textFieldIndex;
 
 @property(nonatomic, strong) NSMutableArray *buttons;
 @property(nonatomic, weak, readonly) UILabel *titleLabel;

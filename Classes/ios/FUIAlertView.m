@@ -12,6 +12,7 @@
 @interface FUIAlertView()
 
 @property(nonatomic, weak) UIView *alertContentContainer;
+@property(nonatomic, strong) NSMutableArray* textFields;
 
 @end
 
@@ -36,6 +37,8 @@
         self.message = message;
         self.delegate = delegate;
 
+        self.textFields = [@[] mutableCopy];
+        
         // This mask is set to force lay out of subviews when superview's bounds change
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
@@ -72,6 +75,17 @@
         messageLabel.text = self.message;
         [alertContentContainer addSubview:messageLabel];
         _messageLabel = messageLabel;
+        
+        FUITextField* firstTextField = [[FUITextField alloc] init];
+        [firstTextField setTextAlignment:NSTextAlignmentCenter];
+        [self.textFields addObject:firstTextField];
+        [alertContentContainer addSubview:firstTextField];
+        
+        FUITextField* secureTextField = [[FUITextField alloc] init];
+        [secureTextField setSecureTextEntry:YES];
+        [secureTextField setTextAlignment:NSTextAlignmentCenter];
+        [self.textFields addObject:secureTextField];
+        [alertContentContainer addSubview:secureTextField];
 
         if (cancelButtonTitle) {
             [self addButtonWithTitle:cancelButtonTitle];
@@ -116,6 +130,17 @@
         CGPoint messageOrigin = CGPointMake(floorf((self.alertContentContainer.frame.size.width - self.messageLabel.frame.size.width)/2), CGRectGetMaxY(titleFrame) + 10);
         messageFrame.origin = messageOrigin;
         self.messageLabel.frame = messageFrame;
+        
+        if (self.alertViewStyle == FUIAlertViewStylePlainTextInput || self.alertViewStyle == FUIAlertViewStyleSecureTextInput) {
+            if (self.alertViewStyle == FUIAlertViewStyleSecureTextInput) {
+                [self.textFields[0] setSecureTextEntry:YES];
+            }
+            [self.textFields[0] setFrame:(CGRect){{0, self.messageLabel.frame.origin.y + self.messageLabel.frame.size.height + 10},{self.alertContentContainer.frame.size.width, 40}}];
+        }
+        if (self.alertViewStyle == FUIAlertViewStyleLoginAndPasswordInput) {
+            [self.textFields[0] setFrame:(CGRect){{0, self.messageLabel.frame.origin.y + self.messageLabel.frame.size.height + 10},{self.alertContentContainer.frame.size.width, 40}}];
+            [self.textFields[1] setFrame:(CGRect){{0, ((FUITextField*)self.textFields[0]).frame.origin.y + ((FUITextField*)self.textFields[0]).frame.size.height + 5},{self.alertContentContainer.frame.size.width, 40}}];
+        }
 
         __block CGFloat startingButtonY = self.alertContentContainer.frame.size.height - [self totalButtonHeight];
         [self.buttons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -169,6 +194,7 @@
     
     CGFloat titleHeight;
     CGFloat messageHeight;
+    CGFloat textFieldHeight;
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
         // iOS7 methods
@@ -187,9 +213,20 @@
         titleHeight = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
         messageHeight = [self.messageLabel.text sizeWithFont:self.messageLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
     }
-
+    
+    CGFloat singleTextFieldHeight = 40;
+    if (self.alertViewStyle == FUIAlertViewStyleDefault) {
+        textFieldHeight = -10;
+    }
+    if (self.alertViewStyle == FUIAlertViewStylePlainTextInput || self.alertViewStyle == FUIAlertViewStyleSecureTextInput) {
+        textFieldHeight = singleTextFieldHeight;
+    }
+    if (self.alertViewStyle == FUIAlertViewStyleLoginAndPasswordInput) {
+        textFieldHeight = singleTextFieldHeight * 2 + 10;
+    }
+    
     CGFloat buttonHeight = [self totalButtonHeight];
-    CGFloat contentHeight = titleHeight + 10 + messageHeight + 10 + buttonHeight;
+    CGFloat contentHeight = titleHeight + 10 + messageHeight + 10 + buttonHeight + 10 + textFieldHeight;
     if(self.maxHeight && contentHeight>self.maxHeight)
         return CGSizeMake(contentWidth, MAX(titleHeight + 10 + buttonHeight, self.maxHeight));
     else
@@ -338,6 +375,11 @@
     [self.buttons enumerateObjectsUsingBlock:^(FUIButton *button, NSUInteger idx, BOOL *stop) {
         button.shadowHeight = defaultButtonShadowHeight;
     }];
+}
+
+- (FUITextField *)textFieldAtIndex:(NSInteger)textFieldIndex
+{
+    return (textFieldIndex < 2) ? self.textFields[textFieldIndex] : nil;
 }
 
 @end
