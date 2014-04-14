@@ -87,6 +87,8 @@
         [self.textFields addObject:secureTextField];
         [alertContentContainer addSubview:secureTextField];
 
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+
         if (cancelButtonTitle) {
             [self addButtonWithTitle:cancelButtonTitle];
             [self setHasCancelButton:YES];
@@ -99,6 +101,11 @@
         va_end(args);
     }
     return self;
+}
+
+- (void)keyboardWillShow
+{
+    [self.alertContainer setTransform:CGAffineTransformMakeTranslation(0, - self.alertContainer.frame.origin.y + [[UIApplication sharedApplication] statusBarFrame].size.height)];
 }
 
 - (void) layoutSubviews {
@@ -194,7 +201,7 @@
     
     CGFloat titleHeight;
     CGFloat messageHeight;
-    CGFloat textFieldHeight;
+    CGFloat textFieldHeight = 0;
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
         // iOS7 methods
@@ -380,6 +387,11 @@
 - (FUITextField *)textFieldAtIndex:(NSInteger)textFieldIndex
 {
     return (textFieldIndex < 2) ? self.textFields[textFieldIndex] : nil;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 @end
