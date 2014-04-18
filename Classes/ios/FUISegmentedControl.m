@@ -17,6 +17,11 @@
     if (self == [FUISegmentedControl class]) {
         FUISegmentedControl *appearance = [self appearance];
         [appearance setCornerRadius:5.0f];
+        [appearance setSelectedColor:[UIColor blueColor]];
+        [appearance setDeselectedColor:[UIColor darkGrayColor]];
+        [appearance setSelectedFontColor:[UIColor whiteColor]];
+        [appearance setDeselectedFontColor:[UIColor whiteColor]];
+        [appearance setBorderColor:[UIColor blueColor]];
     }
 }
 
@@ -73,6 +78,16 @@
 - (void)setDisabledFontColor:(UIColor *)disabledFontColor {
     _disabledFontColor = disabledFontColor;
     [self setupFonts];
+}
+
+- (void)setBorderColor:(UIColor *)borderColor {
+    _borderColor = borderColor;
+    [self configureFlatSegmentedControl];
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    _borderWidth = borderWidth;
+    [self configureFlatSegmentedControl];
 }
 
 - (void)setupFonts {
@@ -134,7 +149,6 @@
                                           UITextAttributeFont,
                                           nil];
     }
-
     [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
 
     NSDictionary *disabledAttributesDictionary;
@@ -170,9 +184,9 @@
 
 - (void)configureFlatSegmentedControl {
     UIImage *selectedBackgroundImage = [UIImage buttonImageWithColor:self.selectedColor
-                                                      cornerRadius:self.cornerRadius
-                                                       shadowColor:[UIColor clearColor]
-                                                      shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+                                                        cornerRadius:self.cornerRadius
+                                                         shadowColor:[UIColor clearColor]
+                                                        shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIImage *deselectedBackgroundImage = [UIImage buttonImageWithColor:self.deselectedColor
                                                            cornerRadius:self.cornerRadius
                                                             shadowColor:[UIColor clearColor]
@@ -182,16 +196,24 @@
                                                            shadowColor:[UIColor clearColor]
                                                           shadowInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
-    UIImage *dividerImage = [[UIImage imageWithColor:self.dividerColor cornerRadius:0] imageWithMinimumSize:CGSizeMake(1, 1)];
+    
+    UIColor *selectedColor = (self.dividerColor) ? self.dividerColor : self.selectedColor;
+    UIColor *deselectedColor = (self.dividerColor) ? self.dividerColor : self.deselectedColor;
+    UIImage *selectedDividerImage = [[UIImage imageWithColor:selectedColor cornerRadius:0] imageWithMinimumSize:CGSizeMake(1, 1)];
+    UIImage *deselectedDividerImage = [[UIImage imageWithColor:deselectedColor cornerRadius:0] imageWithMinimumSize:CGSizeMake(1, 1)];
+    
     
     [self setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     [self setBackgroundImage:deselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self setBackgroundImage:disabledBackgroundImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [self setDividerImage:dividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 
+    [self setDividerImage:deselectedDividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:selectedDividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:deselectedDividerImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:selectedDividerImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    self.layer.borderWidth = self.borderWidth;
+    self.layer.borderColor = self.borderColor.CGColor;
+    self.layer.cornerRadius = self.cornerRadius;
 }
 
 @end

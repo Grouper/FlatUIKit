@@ -21,5 +21,7 @@
 @property(nonatomic, strong, readwrite) UIColor *selectedFontColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong, readwrite) UIColor *deselectedFontColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong, readwrite) UIColor *disabledFontColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, strong, readwrite) UIColor *borderColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic, readwrite) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
 
 @end
