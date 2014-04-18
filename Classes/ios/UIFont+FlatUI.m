@@ -15,7 +15,7 @@
     [super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray *fontNames = @[@"Lato-Regular", @"Lato-Bold", @"Lato-Italic"];
+        NSArray *fontNames = @[@"Lato-Regular", @"Lato-Bold", @"Lato-Italic", @"Lato-Light"];
         for (NSString *fontName in fontNames) {
             NSURL * url = [[NSBundle mainBundle] URLForResource:fontName withExtension:@"ttf"];
             if (url) {
@@ -39,15 +39,7 @@
 }
 
 + (UIFont *)lightFlatFontOfSize:(CGFloat)size {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"Lato-Light" withExtension:@"ttf"];
-		CFErrorRef error;
-        CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
-        error = nil;
-    });
     return [UIFont fontWithName:@"Lato-Light" size:size];
 }
-
 
 @end
