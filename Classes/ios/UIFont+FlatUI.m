@@ -44,4 +44,16 @@
     return [UIFont fontWithName:@"Lato-Italic" size:size];
 }
 
++ (UIFont *)lightFlatFontOfSize:(CGFloat)size {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"Lato-Light" withExtension:@"ttf"];
+		CFErrorRef error;
+        CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
+        error = nil;
+    });
+    return [UIFont fontWithName:@"Lato-Light" size:size];
+}
+
+
 @end
