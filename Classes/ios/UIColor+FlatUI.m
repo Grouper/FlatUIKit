@@ -83,7 +83,7 @@
     static dispatch_once_t peterToken;
     
     dispatch_once(&peterToken, ^{
-        peterRiver = [UIColor colorFromHexCode:@"27AE60"];
+        peterRiver = [UIColor colorFromHexCode:@"#3498DB"];
     });
     
     return peterRiver;
@@ -258,19 +258,17 @@
                               backgroundColor:(UIColor *)backgroundColor
                                  percentBlend:(CGFloat) percentBlend {
     CGFloat onRed, offRed, newRed, onGreen, offGreen, newGreen, onBlue, offBlue, newBlue, onWhite, offWhite;
-    if ([foregroundColor getWhite:&onWhite alpha:nil]) {
+    if (![foregroundColor getRed:&onRed green:&onGreen blue:&onBlue alpha:nil]) {
+        [foregroundColor getWhite:&onWhite alpha:nil];
         onRed = onWhite;
         onBlue = onWhite;
         onGreen = onWhite;
-    } else {
-        [foregroundColor getRed:&onRed green:&onGreen blue:&onBlue alpha:nil];
     }
-    if ([backgroundColor getWhite:&offWhite alpha:nil]) {
+    if (![backgroundColor getRed:&offRed green:&offGreen blue:&offBlue alpha:nil]) {
+        [backgroundColor getWhite:&offWhite alpha:nil];
         offRed = offWhite;
         offBlue = offWhite;
         offGreen = offWhite;
-    } else {
-        [backgroundColor getRed:&offRed green:&offGreen blue:&offBlue alpha:nil];
     }
     newRed = onRed * percentBlend + offRed * (1-percentBlend);
     newGreen = onGreen * percentBlend + offGreen * (1-percentBlend);
