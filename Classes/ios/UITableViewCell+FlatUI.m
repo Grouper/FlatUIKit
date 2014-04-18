@@ -14,18 +14,23 @@
 
 @dynamic cornerRadius, separatorHeight;
 
-+ (UITableViewCell*) configureFlatCellWithColor:(UIColor *)color selectedColor:(UIColor *)selectedColor reuseIdentifier:(NSString*)reuseIdentifier inTableView:(UITableView *)tableView {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    [cell configureFlatCellWithColor:color selectedColor:selectedColor];
-    return cell;
+- (void) configureFlatCellWithColor:(UIColor *)color
+                      selectedColor:(UIColor *)selectedColor {
+    [self configureFlatCellWithColor:color
+                       selectedColor:selectedColor
+                     roundingCorners:0];
 }
 
-- (void) configureFlatCellWithColor:(UIColor *)color selectedColor:(UIColor *)selectedColor {
+- (void) configureFlatCellWithColor:(UIColor *)color
+                      selectedColor:(UIColor *)selectedColor
+                    roundingCorners:(UIRectCorner)corners {
     FUICellBackgroundView* backgroundView = [FUICellBackgroundView new];
     backgroundView.backgroundColor = color;
+    backgroundView.roundedCorners = corners;
     self.backgroundView = backgroundView;
     
     FUICellBackgroundView* selectedBackgroundView = [FUICellBackgroundView new];
+    selectedBackgroundView.roundedCorners = corners;
     selectedBackgroundView.backgroundColor = selectedColor;
     self.selectedBackgroundView = selectedBackgroundView;
     

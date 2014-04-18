@@ -11,20 +11,9 @@
 #import "UITableViewCell+FlatUI.h"
 #import "UIColor+FlatUI.h"
 
-@interface TableViewController ()
-
-@end
+static NSString * const FUITableViewControllerCellReuseIdentifier = @"FUITableViewControllerCellReuseIdentifier";
 
 @implementation TableViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -38,6 +27,7 @@
     //Set the background color
     self.tableView.backgroundColor = [UIColor cloudsColor];
     self.tableView.backgroundView = nil;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FUITableViewControllerCellReuseIdentifier];
 }
 
 #pragma mark - Table view data source
@@ -57,13 +47,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor] reuseIdentifier:CellIdentifier inTableView:(UITableView *)tableView];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell configureFlatCellWithColor:[UIColor greenSeaColor] selectedColor:[UIColor cloudsColor]];
+    UIRectCorner corners = 0;
+    if (tableView.style == UITableViewStyleGrouped) {
+        if ([tableView numberOfRowsInSection:indexPath.section] == 1) {
+            corners = UIRectCornerAllCorners;
+        } else if (indexPath.row == 0) {
+            corners = UIRectCornerTopLeft | UIRectCornerTopRight;
+        } else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1) {
+            corners = UIRectCornerBottomLeft | UIRectCornerBottomRight;
+        }
     }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:FUITableViewControllerCellReuseIdentifier];
+    [cell configureFlatCellWithColor:[UIColor greenSeaColor]
+                       selectedColor:[UIColor cloudsColor]
+                     roundingCorners:corners];
     
     cell.cornerRadius = 5.f; //Optional
     if (self.tableView.style == UITableViewStyleGrouped) {
