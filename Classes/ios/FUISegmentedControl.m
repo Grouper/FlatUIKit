@@ -21,7 +21,6 @@
         [appearance setDeselectedColor:[UIColor darkGrayColor]];
         [appearance setSelectedFontColor:[UIColor whiteColor]];
         [appearance setDeselectedFontColor:[UIColor whiteColor]];
-        [appearance setBorderColor:[UIColor blueColor]];
     }
 }
 
