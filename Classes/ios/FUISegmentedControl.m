@@ -9,6 +9,7 @@
 #import "FUISegmentedControl.h"
 #import "UIImage+FlatUI.h"
 #import "UIColor+FlatUI.h"
+#import "UIFont+FlatUI.h"
 
 @implementation FUISegmentedControl
 
@@ -16,16 +17,6 @@
     if (self == [FUISegmentedControl class]) {
         FUISegmentedControl *appearance = [self appearance];
         [appearance setCornerRadius:5.0f];
-        [appearance setSelectedColor:[UIColor blueColor]];
-        [appearance setDeselectedColor:[UIColor darkGrayColor]];
-        [appearance setDisabledColor:[UIColor midnightBlueColor]];
-        [appearance setDividerColor:[UIColor grayColor]];
-        [appearance setSelectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
-        [appearance setDeselectedFont:[UIFont fontWithName:@"Arial" size:15.0]];
-        [appearance setDisabledFont:[UIFont fontWithName:@"Arial" size:15.0]];
-        [appearance setSelectedFontColor:[UIColor whiteColor]];
-        [appearance setDeselectedFontColor:[UIColor whiteColor]];
-        [appearance setDisabledFontColor:[UIColor whiteColor]];
     }
 }
 

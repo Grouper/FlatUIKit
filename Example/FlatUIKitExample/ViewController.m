@@ -121,9 +121,10 @@
     self.flatSegmentedControl.selectedFontColor = [UIColor cloudsColor];
     self.flatSegmentedControl.deselectedFont = [UIFont flatFontOfSize:16];
     self.flatSegmentedControl.deselectedFontColor = [UIColor cloudsColor];
-    self.flatSegmentedControl.selectedColor = [UIColor amethystColor];
-    self.flatSegmentedControl.deselectedColor = [UIColor silverColor];
-    self.flatSegmentedControl.dividerColor = [UIColor midnightBlueColor];
+    self.flatSegmentedControl.selectedColor = [UIColor pumpkinColor];
+    self.flatSegmentedControl.deselectedColor = [UIColor tangerineColor];
+    self.flatSegmentedControl.disabledColor = [UIColor silverColor];
+    self.flatSegmentedControl.dividerColor = [UIColor silverColor];
     self.flatSegmentedControl.cornerRadius = 5.0;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
