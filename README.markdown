@@ -14,7 +14,7 @@ pod 'FlatUIKit'
 
 to your Podfile. If you don't use Cocoapods you're welcome to use git submodules, or simply [download it](https://github.com/Grouper/FlatUIKit/archive/master.zip) and include it in your project manually.
 
-Note that FlatUIKit requires the CoreText framework as well as iOS > 5.0. The flat stepper component requires iOS > 6.0.
+Note that FlatUIKit requires the CoreText framework as well as iOS > 6.0.
 
 The Components
 -------
