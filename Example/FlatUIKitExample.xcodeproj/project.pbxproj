@@ -39,15 +39,9 @@
 		FA5311961744C920002711E1 /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53118A1744C920002711E1 /* UIStepper+FlatUI.m */; };
 		FA5311971744C920002711E1 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */; };
 		FA6498991744CACB004B1A74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6498981744CACB004B1A74 /* ViewController.m */; };
-		FA6498A51744CB0A004B1A74 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */; };
-		FA6498A61744CB0A004B1A74 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */; };
 		FA6498A71744CB0A004B1A74 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */; };
-		FA6498A81744CB0A004B1A74 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */; };
-		FA6498A91744CB0A004B1A74 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */; };
-		FA6498AA1744CB0A004B1A74 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */; };
 		FA6498AB1744CB0A004B1A74 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */; };
 		FA6498AC1744CB0A004B1A74 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */; };
-		FA6498AD1744CB0A004B1A74 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */; };
 		FA6498AE1744CB0A004B1A74 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */; };
 		FA6498B01744CB83004B1A74 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6498AF1744CB83004B1A74 /* CoreText.framework */; };
 /* End PBXBuildFile section */
@@ -342,15 +336,9 @@
 				FA5311621744C7C1002711E1 /* Default.png in Resources */,
 				FA5311641744C7C1002711E1 /* Default@2x.png in Resources */,
 				FA5311661744C7C1002711E1 /* Default-568h@2x.png in Resources */,
-				FA6498A51744CB0A004B1A74 /* Lato-Black.ttf in Resources */,
-				FA6498A61744CB0A004B1A74 /* Lato-BlackItalic.ttf in Resources */,
 				FA6498A71744CB0A004B1A74 /* Lato-Bold.ttf in Resources */,
-				FA6498A81744CB0A004B1A74 /* Lato-BoldItalic.ttf in Resources */,
-				FA6498A91744CB0A004B1A74 /* Lato-Hairline.ttf in Resources */,
-				FA6498AA1744CB0A004B1A74 /* Lato-HairlineItalic.ttf in Resources */,
 				FA6498AB1744CB0A004B1A74 /* Lato-Italic.ttf in Resources */,
 				FA6498AC1744CB0A004B1A74 /* Lato-Light.ttf in Resources */,
-				FA6498AD1744CB0A004B1A74 /* Lato-LightItalic.ttf in Resources */,
 				FA6498AE1744CB0A004B1A74 /* Lato-Regular.ttf in Resources */,
 				4F560ED517599BBE00AE48E7 /* ViewController_iPad.xib in Resources */,
 			);
