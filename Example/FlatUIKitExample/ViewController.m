@@ -54,6 +54,9 @@
     
     self.title = @"Flat UI";
     self.view.backgroundColor = [UIColor cloudsColor];
+    NSDictionary *attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIBarItem appearance] setTitleTextAttributes:attrs
+                                                forState:UIControlStateNormal];
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
                                   highlightedColor:[UIColor belizeHoleColor]
                                       cornerRadius:3
