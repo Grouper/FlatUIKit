@@ -143,10 +143,11 @@ As above, we provide a category on UINavigationBar to configure it flatly with a
 You can modify the backgroundColor and selectedBackgroundColor of a UITableViewCell without losing the rounded corners. The cell will copy the UITableView's separator color. The separator height is exposed as separatorHeight and the radius as cornerRadius.
 
 ```objective-c
-cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor]
-                                     selectedColor:[UIColor cloudsColor]
-                                             style:UITableViewCellStyleDefault
-                                   reuseIdentifier:CellIdentifier];
+UITableViewCell *cell = ...;
+[cell configureFlatCellWithColor:[UIColor greenSeaColor]
+                   selectedColor:[UIColor cloudsColor]
+                 roundingCorners:corners];
+
 cell.cornerRadius = 5.0f; // optional
 cell.separatorHeight = 2.0f; // optional
 ```
