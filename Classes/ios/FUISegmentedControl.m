@@ -90,10 +90,14 @@
 }
 
 - (void)setupFonts {
-    
+	// Although iOS 6 supports NSForegroundColorAttributeName,
+	// it doesn't seem to apply it to deselected segments but will apply the
+	// old UITextAttributeTextColor attribute. We therefore do a runtime version
+	// check and use the old attributes when needed
+
     NSDictionary *selectedAttributesDictionary;
     
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
+	if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         NSShadow *shadow = [[NSShadow alloc] init];
         [shadow setShadowOffset:CGSizeZero];
         [shadow setShadowColor:[UIColor clearColor]];
@@ -106,7 +110,7 @@
                                         NSFontAttributeName,
                                         nil];
     } else {
-        // Pre-iOS6 methods
+        // iOS6- methods
         selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         self.selectedFontColor,
                                         UITextAttributeTextColor,
@@ -122,7 +126,7 @@
     [self setTitleTextAttributes:selectedAttributesDictionary forState:UIControlStateSelected];
     
     NSDictionary *deselectedAttributesDictionary;
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         // iOS7+ methods
         NSShadow *shadow = [[NSShadow alloc] init];
         [shadow setShadowOffset:CGSizeZero];
@@ -135,23 +139,8 @@
                                           self.deselectedFont,
                                           NSFontAttributeName,
                                           nil];
-    } else if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
-        // iOS6 methods. Although iOS 6 supports NSForegroundColorAttributeName,
-		// it doesn't seem to apply it to deselected segments but will apply the
-		// old UITextAttributeTextColor attribute
-        NSShadow *shadow = [[NSShadow alloc] init];
-        [shadow setShadowOffset:CGSizeZero];
-        [shadow setShadowColor:[UIColor clearColor]];
-        deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          self.deselectedFontColor,
-                                          UITextAttributeTextColor,
-                                          shadow,
-                                          NSShadowAttributeName,
-                                          self.deselectedFont,
-                                          NSFontAttributeName,
-                                          nil];
-    } else {
-        // pre-iOS6 methods
+	} else {
+        // iOS6- methods.
         deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           self.deselectedFontColor,
                                           UITextAttributeTextColor,
@@ -166,8 +155,8 @@
     [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
 
     NSDictionary *disabledAttributesDictionary;
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
-        // iOS6+ methods
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+        // iOS7+ methods
         NSShadow *shadow = [[NSShadow alloc] init];
         [shadow setShadowOffset:CGSizeZero];
         [shadow setShadowColor:[UIColor clearColor]];
@@ -180,7 +169,7 @@
                 NSFontAttributeName,
                 nil];
     } else {
-        // pre-iOS6 methods
+        // iOS6- methods
         disabledAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                 self.disabledFontColor,
                 UITextAttributeTextColor,
