@@ -96,8 +96,6 @@
     UIImage *buttonImageHightlighted = [UIImage imageWithColor:highlightedColor cornerRadius:cornerRadius];
     [appearance setBackgroundImage:buttonImageNormal forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [appearance setBackgroundImage:buttonImageHightlighted forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    NSDictionary *attrs = [appearance titleTextAttributesForState:UIControlStateNormal];
-    [appearance setTitleTextAttributes:attrs forState:UIControlStateNormal];
 }
 
 @end
