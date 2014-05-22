@@ -5,6 +5,8 @@
 //  Created by Maciej Swic on 2013-05-30.
 //  Licensed under the MIT license.
 
+#import <UIKit/UIKit.h>
+
 @interface FUICellBackgroundView : UIView
 
 @property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
