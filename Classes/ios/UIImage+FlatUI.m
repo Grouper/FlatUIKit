@@ -112,11 +112,8 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
                             barMetrics:(UIBarMetrics) metrics
                           cornerRadius:(CGFloat)cornerRadius {
     CGSize size;
-    if (metrics == UIBarMetricsDefault) {
-        size = CGSizeMake(50, 30);
-    } else {
-        size = CGSizeMake(60, 23);
-    }
+    size = CGSizeMake(50, 27);
+
     UIBezierPath *path = [self bezierPathForBackButtonInRect:CGRectMake(0, 0, size.width, size.height) cornerRadius:cornerRadius];
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     [color setFill];
