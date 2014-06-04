@@ -9,6 +9,6 @@
 
 @interface UIToolbar (FlatUI)
 
-- (void)configureFlatToolbarWithColor:(UIColor *)color; UI_APPEARANCE_SELECTOR
+- (void)configureFlatToolbarWithColor:(UIColor *)color UI_APPEARANCE_SELECTOR;
 
 @end
