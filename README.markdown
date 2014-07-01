@@ -35,6 +35,22 @@ myButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
 
 ![FUIButton](https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuibutton-small.gif)
 
+### TextFields
+
+FUITextField is a drop-in subclass of UITextField that exposes the additional properties edgeInsets, textFieldColor, borderColor, borderWidth and cornerRadius. Note that if you set any of these, you have to set all of them.
+
+```objective-c
+myTextField.font = [UIFont flatFontOfSize:16];
+myTextField.backgroundColor = [UIColor clearColor];
+myTextField.edgeInsets = UIEdgeInsetsMake(4.0f, 15.0f, 4.0f, 15.0f);
+myTextField.textFieldColor = [UIColor whiteColor];
+myTextField.borderColor = [UIColor turquoiseColor];
+myTextField.borderWidth = 2.0f;
+myTextField.cornerRadius = 3.0f;
+```
+
+![FUITextField](Example/README%20images/fuitextfield-small.gif)
+
 ### SegmentedControls
 
 FUISegmentedControl is a drop-in subclass of UISegmentedControl that exposes the additional properties selectedColor, deselectedColor, selectedFont, deselectedFont, selectedFontColor, deselectedFontColor, dividerColor and cornerRadius. Note that if you set any of these, it is recommended that you set all of them.
