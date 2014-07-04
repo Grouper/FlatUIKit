@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
 
-  s.resources = "Resources/*"
-  s.framework  = 'CoreText'
+  s.resources    = "Resources/*"
+  s.frameworks   = 'QuartzCore', 'CoreText'
   s.requires_arc = true
 end
