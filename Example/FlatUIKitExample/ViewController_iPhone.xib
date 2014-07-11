@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -7,13 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="actionSheetButton" destination="Kk7-xQ-7ql" id="icP-Yy-1jj"/>
                 <outlet property="alertViewButton" destination="64" id="67"/>
                 <outlet property="flatProgress" destination="85" id="87"/>
                 <outlet property="flatSegmentedControl" destination="90" id="91"/>
                 <outlet property="flatSwitch" destination="60" id="62"/>
                 <outlet property="slider" destination="36" id="44"/>
                 <outlet property="stepper" destination="37" id="45"/>
-                <outlet property="view" destination="6" id="7"/>
+                <outlet property="view" destination="6" id="YOy-XU-ZAn"/>
                 <outletCollection property="labels" destination="74" id="80"/>
                 <outletCollection property="labels" destination="73" id="81"/>
                 <outletCollection property="labels" destination="72" id="82"/>
@@ -42,13 +43,25 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="64" customClass="FUIButton">
-                    <rect key="frame" x="20" y="406" width="280" height="44"/>
+                    <rect key="frame" x="18" y="405" width="132" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="SHOW ALERT VIEW">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="showAlertView:" destination="-1" eventType="touchUpInside" id="69"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kk7-xQ-7ql" customClass="FUIButton">
+                    <rect key="frame" x="168" y="405" width="133" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="SHOW ACTION SHEET">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showActionSheet:" destination="-1" eventType="touchUpInside" id="5zQ-xh-D9g"/>
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Steppers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="71">

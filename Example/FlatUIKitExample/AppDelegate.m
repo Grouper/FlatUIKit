@@ -8,6 +8,16 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "UITabBar+FlatUI.h"
+#import "UIColor+FlatUI.h"
+#import "Buttons_Alerts.h"
+#import "ColorsTableViewController.h"
+#import "FontsViewController.h"
+#import "ControlsViewController.h"
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#define USE_Tab 1
 
 @implementation AppDelegate
 
@@ -21,8 +31,34 @@
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
     }
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.window.rootViewController = navController;
+	if (USE_Tab) {
+		UINavigationController *nv1 = [[UINavigationController alloc] initWithRootViewController:[[ColorsTableViewController alloc] initWithStyle:UITableViewStylePlain]];
+
+		UINavigationController *nv2 = [[UINavigationController alloc] initWithRootViewController:[[Buttons_Alerts alloc] initWithNibName:@"Buttons_Alerts" bundle:nil]];
+		
+		UINavigationController *nv3 = [[UINavigationController alloc] initWithRootViewController:[[FontsViewController alloc] initWithNibName:@"FontsViewController" bundle:nil]];
+		
+		UINavigationController *nv4 = [[UINavigationController alloc] initWithRootViewController:[[ControlsViewController alloc] initWithNibName:@"ControlsViewController" bundle:nil]];
+		
+
+		
+		self.tabbarController = [[UITabBarController alloc] init];
+		if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+			self.tabbarController.tabBar.selectedImageTintColor = [UIColor turquoiseColor];
+			self.tabbarController.tabBar.barTintColor = [UIColor midnightBlueColor];
+		}else{
+			[self.tabbarController.tabBar configureFlatTabBarWithColor:[UIColor midnightBlueColor] selectedColor:[UIColor turquoiseColor]];
+		}
+		
+
+		[self.tabbarController setViewControllers:@[nv1, nv2, nv3, nv4]];
+		self.window.rootViewController = self.tabbarController;
+
+	}else{
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+		self.window.rootViewController = navController;
+
+	}
     [self.window makeKeyAndVisible];
     return YES;
 }

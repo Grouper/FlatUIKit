@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FUIAlertView.h"
+#import "FUIActionSheet.h"
 
-@interface ViewController : UIViewController <UIPopoverControllerDelegate, UIActionSheetDelegate, FUIAlertViewDelegate>
+@interface ViewController : UIViewController <UIPopoverControllerDelegate, UIActionSheetDelegate, FUIAlertViewDelegate, FUIActionSheetDelegate>
 
 @end
