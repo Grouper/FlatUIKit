@@ -42,6 +42,11 @@
         [self setDecrementImage:minusImage forState:UIControlStateNormal];
         [self setDecrementImage:minusImage forState:UIControlStateDisabled];
     }
+	
+	if ([[[UIDevice currentDevice] systemVersion] compare:@"7.1" options:NSNumericSearch] != NSOrderedAscending) {
+		[self setTintColor:iconColor];
+	}
+
 }
 
 @end
