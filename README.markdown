@@ -6,7 +6,7 @@ Interested in owning FlatUIKit?
 ------
 If you'd like to keep working on FlatUIKit, fork the repository and let me know by creating an issue with "NEW OWNER" in the title. I'll then add a note here to use your version instead. Thanks for the flat memories; we now return to your normally scheduled README.
 
-- Jack
+Jack
 
 FlatUIKit
 ======
