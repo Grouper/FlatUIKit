@@ -1,7 +1,17 @@
+An important note on FlatUIKit
+======
+I originally wrote FlatUIKit in March of 2013. It came about because iOS6's UI was dated and "Flat UI" was popular in the design community. Obviously, iOS7 came along and fixed almost all of the problems that FlatUIKit was originally created to solve. As I see it, the primary reason to use FlatUIKit now is for supporting pre-iOS7 apps. We're now on iOS8, and that's a small enough demographic that I no longer have the interest or time to maintain this library. As such, as of version 1.5 (which I'm currently pushing) there will be no more updates to FlatUIKit.
+
+Interested in owning FlatUIKit?
+------
+If you'd like to keep working on FlatUIKit, fork the repository and let me know by creating an issue with "NEW OWNER" in the title. I'll then add a note here to use your version instead. Thanks for the flat memories; we now return to your normally scheduled README.
+
+Jack
+
 FlatUIKit
 ======
 
-FlatUIKit is a collection of iOS components styled with the "Flat UI" aesthetic that we created while building [Grouper for iPhone](http://www.joingrouper.com/ios). Its design inspiration comes from [Flat UI](http://designmodo.github.io/Flat-UI/) and [Kyle Miller](http://kylemillercreative.com/#item=grouper). Styling is implemented via categories on/drop-in replacements for existing UIKit components, so integrating it into your project is very straightforward.
+FlatUIKit is a collection of iOS components styled with the "Flat UI" aesthetic that we created while building [Grouper for iPhone](http://www.joingrouper.com/ios). Its design inspiration comes from [Flat UI](http://designmodo.github.io/Flat-UI/) and [Kyle Miller](http://kylemillercreative.com/grouper-social-club). Styling is implemented via categories on/drop-in replacements for existing UIKit components, so integrating it into your project is very straightforward.
 
 Installation
 -------
