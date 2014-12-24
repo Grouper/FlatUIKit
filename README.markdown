@@ -197,6 +197,20 @@ FlatUIKit comes bundled with Lato, a clean, beautiful open font. More info on La
 UIFont *myFont = [UIFont flatFontOfSize:16];
 ```
 
+Icons
+-------
+
+You can now use the great icons provided by [FlatUIKit](http://designmodo.github.io/Flat-UI/) in your app.  The easiest way is to use a label, but I will be adding support to use them in buttons, ImageViews, and other conveniences.  
+
+```objective-c
+#import "NSString+Icons.h"
+UILabel *label = [...]
+label.font = [UIFont iconFontWithSize:16];
+label.text = [NSString iconStringForEnum:FUIHeart];
+```
+
+The icons follow roughly the same naming scheme as FlatUI, but you can look up the enumeration in NSString+Icons.h
+
 Contributions
 --------
 
