@@ -8,6 +8,7 @@
 
 #import "UIFont+FlatUI.h"
 #import <CoreText/CoreText.h>
+#import "NSString+Icons.h"
 
 @implementation UIFont (FlatUI)
 
@@ -42,4 +43,7 @@
     return [UIFont fontWithName:@"Lato-Light" size:size];
 }
 
++ (UIFont *)iconFontWithSize:(CGFloat)size{
+    return [UIFont fontWithName:kFlatUIFontFamilyName size:size];
+}
 @end

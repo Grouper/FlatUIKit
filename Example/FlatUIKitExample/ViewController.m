@@ -21,6 +21,8 @@
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
 #import "UIPopoverController+FlatUI.h"
+#import "NSString+Icons.h"
+#import "IconViewController.h"
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -39,6 +41,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *iconsButton;
 
 @end
 
@@ -86,6 +89,10 @@
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 
+    self.iconsButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [self.iconsButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    [self.iconsButton addTarget:self action:@selector(iconsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.slider configureFlatSliderWithTrackColor:[UIColor silverColor]
                                      progressColor:[UIColor alizarinColor]
                                         thumbColor:[UIColor pomegranateColor]];
@@ -129,7 +136,7 @@
     self.flatSegmentedControl.disabledColor = [UIColor silverColor];
     self.flatSegmentedControl.dividerColor = [UIColor silverColor];
     self.flatSegmentedControl.cornerRadius = 5.0;
-    
+   
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.popoverButton.buttonColor = [UIColor carrotColor];
         self.popoverButton.shadowColor = [UIColor alizarinColor];
@@ -204,6 +211,10 @@
     [self.navigationController pushViewController:tableViewController animated:YES];
 }
 
+-(void)iconsButtonPressed:(UIButton*)button {
+    IconViewController *iconViewController = [[IconViewController alloc]init];
+    [self.navigationController pushViewController:iconViewController animated:YES];
+}
 
 #pragma mark - UIPopoverControllerDelegate Methods
 

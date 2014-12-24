@@ -14,5 +14,5 @@
 + (UIFont *)boldFlatFontOfSize:(CGFloat)size;
 + (UIFont *)italicFlatFontOfSize:(CGFloat)size;
 + (UIFont *)lightFlatFontOfSize:(CGFloat)size;
-
++ (UIFont *)iconFontWithSize:(CGFloat)size;
 @end
