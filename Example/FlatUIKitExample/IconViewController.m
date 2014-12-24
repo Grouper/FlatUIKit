@@ -20,6 +20,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor cloudsColor];
+    self.title = @"Icons";
     self.navigationController.navigationBar.translucent = NO;
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     _collectionView=[[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];

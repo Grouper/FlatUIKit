@@ -41,7 +41,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 @property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
-@property (weak, nonatomic) IBOutlet UIButton *iconsButton;
+@property (weak, nonatomic) IBOutlet FUIButton *iconsButton;
 
 @end
 
@@ -89,7 +89,13 @@
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
 
-    self.iconsButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    self.iconsButton.titleLabel.font = [UIFont iconFontWithSize:16];
+    self.iconsButton.buttonColor = [UIColor turquoiseColor];
+    self.iconsButton.shadowColor = [UIColor greenSeaColor];
+    self.iconsButton.shadowHeight = 3.0f;
+    self.iconsButton.cornerRadius = 6.0f;
+    [self.iconsButton setTitle:[NSString stringWithFormat:@"%@ Icons", [NSString iconStringForEnum:FUIListBulleted]] forState:UIControlStateNormal];
+    
     [self.iconsButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [self.iconsButton addTarget:self action:@selector(iconsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
