@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) ViewController *viewController;
 
+@property (strong, nonatomic) UITabBarController *tabbarController;
+
 @end

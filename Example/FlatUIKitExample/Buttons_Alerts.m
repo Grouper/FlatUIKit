@@ -1,93 +1,83 @@
 //
-//  ViewController.m
-//  FlatUI
+//  Buttons_Alerts.m
+//  FlatUIKitExample
 //
-//  Created by Jack Flintermann on 5/3/13.
-//  Copyright (c) 2013 Jack Flintermann. All rights reserved.
+//  Created by Kevin A. Hoogheem on 7/11/14.
+//
 //
 
-#import "ViewController.h"
-#import "TableViewController.h"
+#import "Buttons_Alerts.h"
 #import "UIColor+FlatUI.h"
-#import "UISlider+FlatUI.h"
-#import "UIStepper+FlatUI.h"
-#import "UITabBar+FlatUI.h"
+#import "UIFont+FlatUI.h"
 #import "UINavigationBar+FlatUI.h"
 #import "FUIButton.h"
-#import "FUISwitch.h"
-#import "UIFont+FlatUI.h"
-#import "FUIAlertView.h"
-#import "UIBarButtonItem+FlatUI.h"
-#import "UIProgressView+FlatUI.h"
-#import "FUISegmentedControl.h"
 #import "UIPopoverController+FlatUI.h"
-#import "FUIActionSheet.h"
+#import "FUIAlertView.h"
+
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
-@interface ViewController () {
-    UIPopoverController *_popoverController;
+@interface Buttons_Alerts () {
+	UIPopoverController *_popoverController;
 }
+
 @property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
 @property (weak, nonatomic) IBOutlet FUIButton *actionSheetButton;
 @property (weak, nonatomic) IBOutlet FUIButton *popoverButton;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UIStepper *stepper;
-@property (weak, nonatomic) IBOutlet FUISwitch *flatSwitch;
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
-@property (weak, nonatomic) IBOutlet UIProgressView *flatProgress;
-@property (weak, nonatomic) IBOutlet FUISegmentedControl *flatSegmentedControl;
 
 @end
 
-@implementation ViewController
+@implementation Buttons_Alerts
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self  != nil) {
+		self.title = @"Buttons";		
+
+	}
+		
+    return (self);
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7) {
+    // Do any additional setup after loading the view from its nib.
+	if ([UIDevice currentDevice].systemVersion.floatValue >= 7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+	
+	self.navigationController.navigationBar.topItem.title = @"Buttons + Alerts";
+
+	self.view.backgroundColor = [UIColor cloudsColor];
+
+	if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldFlatFontOfSize:18],
+																		NSForegroundColorAttributeName: [UIColor whiteColor]};
+    } else {
+        // Pre-iOS7 methods
+        self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+																		UITextAttributeTextColor: [UIColor whiteColor]};
+    }
     
-    self.title = @"Flat UI";
-    self.view.backgroundColor = [UIColor cloudsColor];
-    NSDictionary *attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    [[UIBarItem appearance] setTitleTextAttributes:attrs
-                                                forState:UIControlStateNormal];
-    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
-                                  highlightedColor:[UIColor belizeHoleColor]
-                                      cornerRadius:3
-                                   whenContainedIn:[UINavigationBar class], nil];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Plain Table"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(showPlainTableView:)];
-    [self.navigationItem.rightBarButtonItem removeTitleShadow];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grouped Table"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                            action:@selector(showTableView:)];
-    [self.navigationItem.leftBarButtonItem removeTitleShadow];
-    
-    [self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:[UIColor alizarinColor]
-                                                       highlightedColor:[UIColor pomegranateColor]
-                                                           cornerRadius:3];
-    
-    self.alertViewButton.buttonColor = [UIColor turquoiseColor];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+
+	self.alertViewButton.buttonColor = [UIColor turquoiseColor];
     self.alertViewButton.shadowColor = [UIColor greenSeaColor];
     self.alertViewButton.shadowHeight = 3.0f;
     self.alertViewButton.cornerRadius = 6.0f;
     self.alertViewButton.titleLabel.font = [UIFont boldFlatFontOfSize:12];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [self.alertViewButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
-
+	
 	self.actionSheetButton.buttonColor = [UIColor silverColor];
     self.actionSheetButton.shadowColor = [UIColor concreteColor];
     self.actionSheetButton.shadowHeight = 2.0f;
@@ -96,61 +86,23 @@
     [self.actionSheetButton setTitleColor:[UIColor wetAsphaltColor] forState:UIControlStateNormal];
     [self.actionSheetButton setTitleColor:[UIColor wetAsphaltColor] forState:UIControlStateHighlighted];
 
-	
-    [self.slider configureFlatSliderWithTrackColor:[UIColor silverColor]
-                                     progressColor:[UIColor alizarinColor]
-                                        thumbColor:[UIColor pomegranateColor]];
-    
-    [self.stepper configureFlatStepperWithColor:[UIColor wisteriaColor]
-                               highlightedColor:[UIColor wisteriaColor]
-                                  disabledColor:[UIColor amethystColor]
-                                      iconColor:[UIColor cloudsColor]];
-    
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldFlatFontOfSize:18],
-                                                                    NSForegroundColorAttributeName: [UIColor whiteColor]};
-    } else {
-        // Pre-iOS7 methods
-        self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
-                                                                    UITextAttributeTextColor: [UIColor whiteColor]};
-    }
-    
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
-    
-    self.flatSwitch.onColor = [UIColor turquoiseColor];
-    self.flatSwitch.offColor = [UIColor cloudsColor];
-    self.flatSwitch.onBackgroundColor = [UIColor midnightBlueColor];
-    self.flatSwitch.offBackgroundColor = [UIColor silverColor];
-    self.flatSwitch.offLabel.font = [UIFont boldFlatFontOfSize:14];
-    self.flatSwitch.onLabel.font = [UIFont boldFlatFontOfSize:14];
-    
-    [self.labels enumerateObjectsUsingBlock:^(UILabel *label, NSUInteger idx, BOOL *stop) {
-        label.font = [UIFont flatFontOfSize:16];
-        label.textColor = [UIColor midnightBlueColor];
-    }];
-    
-    [self.flatProgress configureFlatProgressViewWithTrackColor:[UIColor silverColor] progressColor:[UIColor wisteriaColor]];
-    
-    self.flatSegmentedControl.selectedFont = [UIFont boldFlatFontOfSize:16];
-    self.flatSegmentedControl.selectedFontColor = [UIColor cloudsColor];
-    self.flatSegmentedControl.deselectedFont = [UIFont flatFontOfSize:16];
-    self.flatSegmentedControl.deselectedFontColor = [UIColor cloudsColor];
-    self.flatSegmentedControl.selectedColor = [UIColor pumpkinColor];
-    self.flatSegmentedControl.deselectedColor = [UIColor tangerineColor];
-    self.flatSegmentedControl.disabledColor = [UIColor silverColor];
-    self.flatSegmentedControl.dividerColor = [UIColor silverColor];
-    self.flatSegmentedControl.cornerRadius = 5.0;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.popoverButton.buttonColor = [UIColor carrotColor];
-        self.popoverButton.shadowColor = [UIColor alizarinColor];
-        self.popoverButton.shadowHeight = 3.0f;
-        self.popoverButton.cornerRadius = 6.0f;
-        self.popoverButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-        [self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
-        [self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
-    }
+	self.popoverButton.buttonColor = [UIColor carrotColor];
+	self.popoverButton.shadowColor = [UIColor alizarinColor];
+	self.popoverButton.shadowHeight = 3.0f;
+	self.popoverButton.cornerRadius = 6.0f;
+	self.popoverButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+	[self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+	[self.popoverButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+
+
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 - (IBAction)showAlertView:(id)sender {
     FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"Hello" message:@"This is an alert view" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Do Something", nil];
@@ -180,14 +132,14 @@
 
 - (IBAction)showActionSheet:(id)sender {
 	/*
-	UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Hello" delegate:nil cancelButtonTitle:@"cancel" destructiveButtonTitle:@"test" otherButtonTitles:@"button one", nil];
-	[actionsheet showInView:self.view];
-	actionsheet.delegate = self;
-	
+	 UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Hello" delegate:nil cancelButtonTitle:@"cancel" destructiveButtonTitle:@"test" otherButtonTitles:@"button one", nil];
+	 [actionsheet showInView:self.view];
+	 actionsheet.delegate = self;
+	 
 	 */
-
+	
 	FUIActionSheet *actionsheet = [[FUIActionSheet alloc] initWithTitle:@"Action Sheet" delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete all pictures" otherButtonTitles:@"Take Picture", @"Send Picture", nil];
-
+	
 	actionsheet.delegate = self;
 	actionsheet.titleLabel.textColor = [UIColor cloudsColor];
 	actionsheet.titleLabel.font = [UIFont boldFlatFontOfSize:16];
@@ -203,7 +155,7 @@
 	actionsheet.onCancelAction = ^{
 		NSLog(@"ActionSheet onCancelAction");
 	};
-
+	
 	actionsheet.onOkAction = ^(NSInteger buttonidx){
 		NSLog(@"ActionSheet onOkAction: %d", buttonidx);
 	};
@@ -214,10 +166,30 @@
 	};
 	
 	[actionsheet show];
-
+	
 }
 
 - (IBAction)showPopover:(id)sender {
+	
+	if (IPHONE) {
+		FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"Problem" message:@"Popovers dont work on iPhone." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+		alertView.alertViewStyle = FUIAlertViewStyleDefault;
+		
+		alertView.delegate = self;
+		alertView.titleLabel.textColor = [UIColor pomegranateColor];
+		alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+		alertView.messageLabel.textColor = [UIColor pomegranateColor];
+		alertView.messageLabel.font = [UIFont flatFontOfSize:14];
+		alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
+		alertView.alertContainer.backgroundColor = [UIColor peterRiverColor];
+		alertView.defaultButtonColor = [UIColor cloudsColor];
+		alertView.defaultButtonShadowColor = [UIColor belizeHoleColor];
+		alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
+		alertView.defaultButtonTitleColor = [UIColor asbestosColor];
+		[alertView show];
+		return;
+	}
+	
     UIButton *button = (UIButton *)sender;
     
     UIViewController *vc = [[UIViewController alloc] init];
@@ -232,7 +204,7 @@
         // Pre-iOS7 methods
         vc.contentSizeForViewInPopover = CGSizeMake(320, 480);
         vc.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
-                                                                  UITextAttributeTextColor: [UIColor whiteColor]};
+																	  UITextAttributeTextColor: [UIColor whiteColor]};
     }
     
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -242,16 +214,6 @@
     _popoverController.delegate = self;
     
     [_popoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-}
-
-- (void)showTableView:(id)sender {
-    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [self.navigationController pushViewController:tableViewController animated:YES];
-}
-
-- (void)showPlainTableView:(id)sender {
-    TableViewController* tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self.navigationController pushViewController:tableViewController animated:YES];
 }
 
 
@@ -291,5 +253,6 @@
 - (void)actionSheet:(FUIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	NSLog(@"ActionSheet didDismissWithButtonIndex: %d", buttonIndex);
 }
+
 
 @end
