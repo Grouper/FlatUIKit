@@ -124,8 +124,12 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     [path fill];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 15, cornerRadius, cornerRadius)];
-    
+	
+	if ([image respondsToSelector:@selector(resizableImageWithCapInsets:resizingMode:)]) {
+		return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 15, cornerRadius, cornerRadius) resizingMode:UIImageResizingModeStretch];
+	}else{
+		return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, 15, cornerRadius, cornerRadius)];
+	}
 }
 
 + (UIBezierPath *) bezierPathForBackButtonInRect:(CGRect)rect cornerRadius:(CGFloat)radius {
