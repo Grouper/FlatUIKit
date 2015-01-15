@@ -104,8 +104,8 @@
                                         thumbColor:[UIColor pomegranateColor]];
     
     [self.stepper configureFlatStepperWithColor:[UIColor wisteriaColor]
-                               highlightedColor:[UIColor wisteriaColor]
-                                  disabledColor:[UIColor amethystColor]
+                               highlightedColor:[UIColor amethystColor]
+                                  disabledColor:[UIColor silverColor]
                                       iconColor:[UIColor cloudsColor]];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

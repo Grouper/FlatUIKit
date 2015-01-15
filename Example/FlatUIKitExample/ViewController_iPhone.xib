@@ -11,7 +11,7 @@
                 <outlet property="flatProgress" destination="85" id="87"/>
                 <outlet property="flatSegmentedControl" destination="90" id="91"/>
                 <outlet property="flatSwitch" destination="60" id="62"/>
-                <outlet property="iconsButton" destination="TtD-Ay-BuF" id="lBY-Un-yhF"/>
+                <outlet property="iconsButton" destination="NUD-s0-Waz" id="b3M-KA-s3v"/>
                 <outlet property="slider" destination="36" id="44"/>
                 <outlet property="stepper" destination="37" id="45"/>
                 <outlet property="view" destination="6" id="7"/>
@@ -29,7 +29,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="37">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="36">
+                    <rect key="frame" x="17" y="282" width="284" height="29"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </slider>
+                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" id="37">
                     <rect key="frame" x="207" y="151" width="94" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </stepper>
@@ -110,17 +114,13 @@
                         <segment title="Disabled" enabled="NO"/>
                     </segments>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TtD-Ay-BuF" customClass="FUIButton">
-                    <rect key="frame" x="24" y="341" width="275" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NUD-s0-Waz" customClass="FUIButton">
+                    <rect key="frame" x="20" y="354" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Icons">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="36">
-                    <rect key="frame" x="17" y="282" width="284" height="29"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                </slider>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
