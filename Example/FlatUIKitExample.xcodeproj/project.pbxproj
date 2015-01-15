@@ -17,6 +17,9 @@
 		C1DA68331758953900926483 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */; };
 		C1DA6839175895C500926483 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA6838175895C500926483 /* FUICellBackgroundView.m */; };
 		C1DA683C1758972C00926483 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DA683B1758972C00926483 /* TableViewController.m */; };
+		F6172C9E1A4B21D30099EA30 /* NSString+Icons.m in Sources */ = {isa = PBXBuildFile; fileRef = F6172C9D1A4B21D30099EA30 /* NSString+Icons.m */; };
+		F6172CA21A4B37B10099EA30 /* IconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6172CA11A4B37B10099EA30 /* IconViewController.m */; };
+		F6172CA41A4B3F4F0099EA30 /* flat-ui-icons-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6172CA31A4B3F420099EA30 /* flat-ui-icons-regular.ttf */; };
 		FA5311501744C7C1002711E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53114F1744C7C1002711E1 /* UIKit.framework */; };
 		FA5311521744C7C1002711E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311511744C7C1002711E1 /* Foundation.framework */; };
 		FA5311541744C7C1002711E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5311531744C7C1002711E1 /* CoreGraphics.framework */; };
@@ -67,6 +70,11 @@
 		C1DA6838175895C500926483 /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
 		C1DA683A1758972C00926483 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		C1DA683B1758972C00926483 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F6172C9C1A4B21D30099EA30 /* NSString+Icons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Icons.h"; sourceTree = "<group>"; };
+		F6172C9D1A4B21D30099EA30 /* NSString+Icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Icons.m"; sourceTree = "<group>"; };
+		F6172CA01A4B37B10099EA30 /* IconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconViewController.h; sourceTree = "<group>"; };
+		F6172CA11A4B37B10099EA30 /* IconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconViewController.m; sourceTree = "<group>"; };
+		F6172CA31A4B3F420099EA30 /* flat-ui-icons-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "flat-ui-icons-regular.ttf"; sourceTree = "<group>"; };
 		FA53114C1744C7C1002711E1 /* FlatUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA53114F1744C7C1002711E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA5311511744C7C1002711E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -105,15 +113,9 @@
 		FA53118B1744C920002711E1 /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
 		FA53118C1744C920002711E1 /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
 		FA6498981744CACB004B1A74 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
-		FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
-		FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
-		FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
-		FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
 		FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
-		FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		FA6498AF1744CB83004B1A74 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -174,6 +176,8 @@
 				4F560ED417599BBE00AE48E7 /* ViewController_iPad.xib */,
 				C1DA683A1758972C00926483 /* TableViewController.h */,
 				C1DA683B1758972C00926483 /* TableViewController.m */,
+				F6172CA01A4B37B10099EA30 /* IconViewController.h */,
+				F6172CA11A4B37B10099EA30 /* IconViewController.m */,
 				FA5311561744C7C1002711E1 /* Supporting Files */,
 			);
 			path = FlatUIKitExample;
@@ -260,6 +264,8 @@
 				C1DA68321758953900926483 /* UITableViewCell+FlatUI.m */,
 				A04638711780F2BD00EF98AF /* UIPopoverController+FlatUI.h */,
 				A04638701780F2BD00EF98AF /* UIPopoverController+FlatUI.m */,
+				F6172C9C1A4B21D30099EA30 /* NSString+Icons.h */,
+				F6172C9D1A4B21D30099EA30 /* NSString+Icons.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -267,15 +273,10 @@
 		FA64989A1744CB0A004B1A74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FA64989B1744CB0A004B1A74 /* Lato-Black.ttf */,
-				FA64989C1744CB0A004B1A74 /* Lato-BlackItalic.ttf */,
+				F6172CA31A4B3F420099EA30 /* flat-ui-icons-regular.ttf */,
 				FA64989D1744CB0A004B1A74 /* Lato-Bold.ttf */,
-				FA64989E1744CB0A004B1A74 /* Lato-BoldItalic.ttf */,
-				FA64989F1744CB0A004B1A74 /* Lato-Hairline.ttf */,
-				FA6498A01744CB0A004B1A74 /* Lato-HairlineItalic.ttf */,
 				FA6498A11744CB0A004B1A74 /* Lato-Italic.ttf */,
 				FA6498A21744CB0A004B1A74 /* Lato-Light.ttf */,
-				FA6498A31744CB0A004B1A74 /* Lato-LightItalic.ttf */,
 				FA6498A41744CB0A004B1A74 /* Lato-Regular.ttf */,
 			);
 			name = Resources;
@@ -335,6 +336,7 @@
 				FA53115A1744C7C1002711E1 /* InfoPlist.strings in Resources */,
 				FA5311621744C7C1002711E1 /* Default.png in Resources */,
 				FA5311641744C7C1002711E1 /* Default@2x.png in Resources */,
+				F6172CA41A4B3F4F0099EA30 /* flat-ui-icons-regular.ttf in Resources */,
 				FA5311661744C7C1002711E1 /* Default-568h@2x.png in Resources */,
 				FA6498A71744CB0A004B1A74 /* Lato-Bold.ttf in Resources */,
 				FA6498AB1744CB0A004B1A74 /* Lato-Italic.ttf in Resources */,
@@ -360,6 +362,7 @@
 				FA53118F1744C920002711E1 /* FUISwitch.m in Sources */,
 				FA5311901744C920002711E1 /* UIBarButtonItem+FlatUI.m in Sources */,
 				FA5311911744C920002711E1 /* UIColor+FlatUI.m in Sources */,
+				F6172CA21A4B37B10099EA30 /* IconViewController.m in Sources */,
 				FA5311921744C920002711E1 /* UIFont+FlatUI.m in Sources */,
 				FA5311931744C920002711E1 /* UIImage+FlatUI.m in Sources */,
 				FA5311941744C920002711E1 /* UINavigationBar+FlatUI.m in Sources */,
@@ -375,6 +378,7 @@
 				C1DA683C1758972C00926483 /* TableViewController.m in Sources */,
 				A09F8894175FB5D800AAC740 /* FUIPopoverBackgroundView.m in Sources */,
 				A04638721780F2BD00EF98AF /* UIPopoverController+FlatUI.m in Sources */,
+				F6172C9E1A4B21D30099EA30 /* NSString+Icons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
