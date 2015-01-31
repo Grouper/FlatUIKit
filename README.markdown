@@ -1,12 +1,8 @@
-An important note on FlatUIKit
+Background
 ======
-I originally wrote FlatUIKit in March of 2013. It came about because iOS6's UI was dated and "Flat UI" was popular in the design community. Obviously, iOS7 came along and fixed almost all of the problems that FlatUIKit was originally created to solve. As I see it, the primary reason to use FlatUIKit now is for supporting pre-iOS7 apps. We're now on iOS8, and that's a small enough demographic that I no longer have the interest or time to maintain this library. As such, as of version 1.5 (which I'm currently pushing) there will be no more updates to FlatUIKit.
+FlatUIKit was originally written by Jack Flintermann in March of 2013, before iOS7 had even come out.  The idea was to give a nice flat look to some of the native iOS components.  Then iOS7 came along and introduced a decent API to do most of these tasks.  
 
-Interested in owning FlatUIKit?
-------
-If you'd like to keep working on FlatUIKit, fork the repository and let me know by creating an issue with "NEW OWNER" in the title. I'll then add a note here to use your version instead. Thanks for the flat memories; we now return to your normally scheduled README.
-
-Jack
+However, for backwards compatability, we will be attempting to maintain iOS6 compatability, as long as feasabilty possible.  If we find a reason to move to iOS7 only support, we will leave a branch for remaining iOS6 support, and move forward.
 
 FlatUIKit
 ======
@@ -230,4 +226,4 @@ The icons follow roughly the same naming scheme as FlatUI, but you can look up t
 Contributions
 --------
 
-Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. Or, you know, you could just [come work with us](http://www.joingrouper.com/jobs).
+Contributions are totally welcome. We'll review all pull requests and if you send us a good one/are interested we're happy to give you push access to the repo. 
