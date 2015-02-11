@@ -13,8 +13,29 @@
 @interface UIColor (FlatUI)
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString;
-+ (UIColor *) chestnutRoseColor;
+
+// Flat UI Colors www.flatuicolors.com
++ (UIColor *) turquoiseColor;
++ (UIColor *) emerlandColor;
++ (UIColor *) peterRiverColor;
++ (UIColor *) amethystColor;
++ (UIColor *) wetAsphaltColor;
++ (UIColor *) greenSeaColor;
++ (UIColor *) belizeHoleColor;
++ (UIColor *) wisteriaColor;
++ (UIColor *) midnightBlueColor;
++ (UIColor *) sunflowerColor;
++ (UIColor *) carrotColor;
++ (UIColor *) cloudsColor;
++ (UIColor *) concreteColor;
++ (UIColor *) pumpkinColor;
 + (UIColor *) pomegranateColor;
++ (UIColor *) silverColor;
++ (UIColor *) asbestosColor;
+
+
+// Flat UI Color Picker www.flatuicolorpicker.com
++ (UIColor *) chestnutRoseColor;
 + (UIColor *) thunderbirdColor;
 + (UIColor *) oldBrickColor;
 + (UIColor *) flamingoColor;
@@ -38,7 +59,6 @@
 + (UIColor *) mediumPurpleColor;
 + (UIColor *) lightWisteriaColor;
 + (UIColor *) studioColor;
-+ (UIColor *) wisteriaColor;
 + (UIColor *) sanMarinoColor;
 + (UIColor *) aliceBlueColor;
 + (UIColor *) royalBlueColor;
@@ -73,12 +93,10 @@
 + (UIColor *) mountainMeadowColor;
 + (UIColor *) lightSeaGreenColor;
 + (UIColor *) mediumAquamarineColor;
-+ (UIColor *) turquoiseColor;
 + (UIColor *) madangColor;
 + (UIColor *) riptideColor;
 + (UIColor *) shamrockColor;
 + (UIColor *) mountainMeadowDarkColor;
-+ (UIColor *) emerlandColor;
 + (UIColor *) greenHazeColor;
 + (UIColor *) freeSpeechAquamarineColor;
 + (UIColor *) oceanGreenColor;
@@ -111,21 +129,8 @@
 + (UIColor *) ironColor;
 + (UIColor *) edwardColor;
 + (UIColor *) cararraColor;
-+ (UIColor *) silverColor;
-+ (UIColor *) greenSeaColor;
 + (UIColor *) nephritisColor;
-+ (UIColor *) peterRiverColor;
-+ (UIColor *) belizeHoleColor;
-+ (UIColor *) amethystColor;
-+ (UIColor *) wetAsphaltColor;
-+ (UIColor *) midnightBlueColor;
-+ (UIColor *) sunflowerColor;
 + (UIColor *) tangerineColor;
-+ (UIColor *) carrotColor;
-+ (UIColor *) pumpkinColor;
-+ (UIColor *) cloudsColor;
-+ (UIColor *) concreteColor;
-+ (UIColor *) asbestosColor;
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor
                                  percentBlend:(CGFloat) percentBlend;
