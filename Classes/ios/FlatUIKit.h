@@ -9,10 +9,6 @@
 #ifndef FlatUI_FlatUIKit_h
 #define FlatUI_FlatUIKit_h
 
-#ifndef __IPHONE_5_0
-#error "FlatUIKit uses features only available in iOS SDK 5.0 and later."
-#endif
-
 #if TARGET_OS_IPHONE
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
