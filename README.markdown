@@ -7,7 +7,7 @@ However, for backwards compatability, we will be attempting to maintain iOS6 com
 FlatUIKit
 ======
 
-FlatUIKit is a collection of iOS components styled with the "Flat UI" aesthetic that we created while building [Grouper for iPhone](http://www.joingrouper.com/ios). Its design inspiration comes from [Flat UI](http://designmodo.github.io/Flat-UI/) and [Kyle Miller](http://kylemillercreative.com/grouper-social-club). Styling is implemented via categories on/drop-in replacements for existing UIKit components, so integrating it into your project is very straightforward.
+FlatUIKit is a collection of iOS components styled with the "Flat UI" aesthetic that we created while building [Grouper for iPhone](http://www.joingrouper.com). Its design inspiration comes from [Flat UI](http://designmodo.github.io/Flat-UI/) and [Kyle Miller](http://kylemillercreative.com/grouper-social-club). Styling is implemented via categories on/drop-in replacements for existing UIKit components, so integrating it into your project is very straightforward.
 
 Installation
 -------
