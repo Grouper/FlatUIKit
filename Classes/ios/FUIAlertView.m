@@ -26,17 +26,20 @@
     }
 }
 
-- (id)initWithTitle:(NSString *)title
-            message:(NSString *)message
-           delegate:(id<FUIAlertViewDelegate>)delegate
-  cancelButtonTitle:(NSString *)cancelButtonTitle
-  otherButtonTitles:(NSString *)otherButtonTitles, ... {
-    self = [super initWithFrame:CGRectZero];
-    if (self) {
-        self.title = title;
-        self.message = message;
-        self.delegate = delegate;
+- (id)init
+{
+    return [self initWithFrame:CGRectZero];
+}
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithFrame:CGRectZero];
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
         self.textFields = [@[] mutableCopy];
         
         // This mask is set to force lay out of subviews when superview's bounds change
@@ -86,9 +89,23 @@
         [secureTextField setTextAlignment:NSTextAlignmentCenter];
         [self.textFields addObject:secureTextField];
         [alertContentContainer addSubview:secureTextField];
-
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+    }
+    return self;
+}
 
+- (id)initWithTitle:(NSString *)title
+            message:(NSString *)message
+           delegate:(id<FUIAlertViewDelegate>)delegate
+  cancelButtonTitle:(NSString *)cancelButtonTitle
+  otherButtonTitles:(NSString *)otherButtonTitles, ... {
+    self = [self initWithFrame:CGRectZero];
+    if (self) {
+        self.title = title;
+        self.message = message;
+        self.delegate = delegate;
+        
         if (cancelButtonTitle) {
             [self addButtonWithTitle:cancelButtonTitle];
             [self setHasCancelButton:YES];
@@ -148,7 +165,7 @@
             [self.textFields[0] setFrame:(CGRect){{0, self.messageLabel.frame.origin.y + self.messageLabel.frame.size.height + 10},{self.alertContentContainer.frame.size.width, 40}}];
             [self.textFields[1] setFrame:(CGRect){{0, ((FUITextField*)self.textFields[0]).frame.origin.y + ((FUITextField*)self.textFields[0]).frame.size.height + 5},{self.alertContentContainer.frame.size.width, 40}}];
         }
-
+        
         __block CGFloat startingButtonY = self.alertContentContainer.frame.size.height - [self totalButtonHeight];
         [self.buttons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             UIButton *button = obj;
@@ -247,7 +264,7 @@
 - (void)show {
     self.alertContainer.alpha = 0;
     self.alertContainer.transform = CGAffineTransformMakeScale(1.3, 1.3);
-    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topController = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
     
     while (topController.presentedViewController && !topController.presentedViewController.isBeingDismissed) {
         topController = topController.presentedViewController;
