@@ -197,6 +197,16 @@
     }
 }
 
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    self.titleLabel.text = title;
+}
+
+- (void)setMessage:(NSString *)message {
+    _message = message;
+    self.messageLabel.text = message;
+}
+
 - (void)setButton:(UIButton *)button atHeight:(CGFloat)height {
     CGRect buttonFrame = button.frame;
     buttonFrame.origin = CGPointMake(0, height);
