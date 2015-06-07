@@ -108,7 +108,12 @@ alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
 alertView.defaultButtonTitleColor = [UIColor asbestosColor];
 [alertView show];
 ```
-
+    
+NOTE: to create FUIAlertView instance in Swift please use default initializer
+s
+```swift
+let alertView = FUIAlertView()
+```
 <img src='https://raw.github.com/Grouper/FlatUIKit/master/Example/README%20images/fuialertview.gif' alt='FUIAlertView' width=316 height=336 />
 
 ### Sliders/Steppers/Progress Views
