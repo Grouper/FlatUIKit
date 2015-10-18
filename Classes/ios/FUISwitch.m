@@ -104,7 +104,7 @@
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated {
-    [self setOn:on animated:NO sendEvent:NO];
+    [self setOn:on animated:animated sendEvent:NO];
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated sendEvent:(BOOL)sendEvent {
