@@ -12,13 +12,13 @@ FlatUIKit is a collection of iOS components styled with the "Flat UI" aesthetic 
 Installation
 -------
 
-FlatUIKit can be installed via [Cocoapods](http://cocoapods.org/). Simply add
+FlatUIKit can be installed via [CocoaPods](http://cocoapods.org/). Simply add
 
 ```ruby
 pod 'FlatUIKit'
 ```
 
-to your Podfile. If you don't use Cocoapods you're welcome to use git submodules, or simply [download it](https://github.com/Grouper/FlatUIKit/archive/master.zip) and include it in your project manually.
+to your Podfile. If you don't use CocoaPods you're welcome to use git submodules, or simply [download it](https://github.com/Grouper/FlatUIKit/archive/master.zip) and include it in your project manually.
 
 Note that FlatUIKit requires the CoreText framework as well as iOS > 6.0.
 
