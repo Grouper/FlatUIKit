@@ -22,6 +22,7 @@
             if (url) {
                 CFErrorRef error;
                 CTFontManagerRegisterFontsForURL((__bridge CFURLRef)url, kCTFontManagerScopeNone, &error);
+                CFRelease(error);
             }
         }
     });
